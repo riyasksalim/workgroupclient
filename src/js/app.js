@@ -17,7 +17,8 @@ angular
   'oc.lazyLoad',
   'ncy-angular-breadcrumb',
   'angular-loading-bar',
-  'smart-table'
+  'smart-table',
+ 'ui.bootstrap', 'ui.bootstrap.datetimepicker'
 
 ])
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
