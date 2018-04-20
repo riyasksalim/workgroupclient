@@ -138,6 +138,7 @@ namespace connect.Controllers
         [Route("SetPassword")]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
         {
+          
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
