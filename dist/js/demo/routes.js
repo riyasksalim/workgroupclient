@@ -46,6 +46,14 @@ angular
       label: 'Buttons'
     }
   })
+      .state('app.components.report', {
+          url: '/list',
+          controller: 'ReportController',
+          templateUrl: 'views/pages/report.html',
+          ncyBreadcrumb: {
+              label: 'Reports'
+          }
+      })
   .state('app.components.social-buttons', {
     url: '/social-buttons',
     templateUrl: 'views/components/social-buttons.html',

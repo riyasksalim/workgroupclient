@@ -24,7 +24,6 @@ namespace connect.Controllers
         public async Task<IHttpActionResult> GetCustomerServiceDetails(ReportModel ReportModel)
         {
             List<ReportModel> ReportModelList = new List<ReportModel>();
-
             for (int i = 0; i < 100; i++)
             {
                 ReportModelList.Add(new ReportModel()
@@ -34,9 +33,6 @@ namespace connect.Controllers
                     StartDate = ReportModel.StartDate
                 });
             }
-
-           
-
             return Ok(ReportModelList);
         }
     }
