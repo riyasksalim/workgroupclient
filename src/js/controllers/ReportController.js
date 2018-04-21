@@ -42,8 +42,27 @@
         StartDate: new Date(),
         EndDate: new Date(),
         param: "dewfewf"
-    }
-    GetReports(Params);
+    };
+
+
+    function GetAllWorkGroups() {
+        dataService.GetAllWorkGroups().then(function (response) {
+            if (response && response.data) {
+                $scope.WorkGroups = response.data;
+                debugger
+            }
+        }, function onError() {
+            debugger
+            //  Metronic.unblockUI();
+            //NotificationService.Error("Error upon the API request");
+        });
+
+    };
+
+    GetAllWorkGroups();
+
+
+   // GetReports(Params);
 
 
    

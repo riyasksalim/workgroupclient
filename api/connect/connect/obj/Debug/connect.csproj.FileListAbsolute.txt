@@ -274,3 +274,5 @@ E:\workgroupclient\api\connect\connect\bin\System.Web.Http.Owin.xml
 E:\workgroupclient\api\connect\connect\obj\Debug\connect.csprojResolveAssemblyReference.cache
 E:\workgroupclient\api\connect\connect\obj\Debug\connect.dll
 E:\workgroupclient\api\connect\connect\obj\Debug\connect.pdb
+E:\workgroupclient\api\connect\connect\bin\DataAccessHandler.dll
+E:\workgroupclient\api\connect\connect\bin\DataAccessHandler.pdb
