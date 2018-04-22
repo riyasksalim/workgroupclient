@@ -23,10 +23,10 @@
     }
 </style>
 <div class="animated fadeIn">
-   <div class="row">
+   <!--<div class="row">
       {{WorkGroups | json}}
-   </div>
-    <div class="row">
+   </div>-->
+    <!--<div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!--<div class="portlet light">
         <div class="portlet-title">
@@ -88,7 +88,141 @@
    
 
 
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="glyphicon glyphicon-search"></i>
+                        <span class="caption-subject font-light-orange-haze bold uppercase text-mobile">Search Criteria</span>
+                    </div>
+                    <!--<div class="tools">
+                        <a href="javascript:;" class="collapse" data-original-title="" title="">
+                        </a>
 
+                    </div>-->
+                </div>
+
+                <div class="portlet-body" style="padding-bottom: 30px; display: block;">
+                    <div class="row">
+                        <form name="filterForm" novalidate="" class="ng-pristine ng-valid">
+                            <div class="container-fluid">
+                                <div class="row">
+
+                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Current Start</div></div>
+                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="input-icon">
+                                                <i class="fa fa-calendar"></i>
+                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(beginDate)}" type="text" autocomplete="off" placeholder="Start Date" id="StartDate" name="scheduledLoadStartDate" data-ng-model="beginDate" ng-blur="beginDate = clearDate(beginDate)">
+                                                <span ng-show="searchClicked &amp;&amp; !isDate(beginDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Current End</div></div>
+                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="input-icon">
+                                                <i class="fa fa-calendar"></i>
+                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(endDate)}" type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="scheduledLoadEndDate" data-ng-model="endDate" ng-blur="endDate = clearDate(endDate)">
+                                                <span ng-show="searchClicked &amp;&amp; !isDate(endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
+                                                <span ng-show="searchClicked &amp;&amp; isPreviouseDate(beginDate,endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">To Date should be greater than From Date</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Work Group</div></div>
+                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+
+                                            <select class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select"
+                                                    ng-options="item as item.WorkGroupName for item in WorkGroups track by item.WorkGroupId" ng-model="workgroupselected" data-original-title="" title=""></select>
+
+                                        </div>
+                                        
+                                    </div>
+                                    <!--<div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Category</div></div>-->
+                                    <!--<div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+
+                                            <select class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select Food Service" ng-options="item as item.value for item in FoodService track by item.value" ng-model="FoodServiceselected" data-original-title="" title=""><option value="All" selected="selected" label="All">All</option><option value="BUYER" label="BUYER">BUYER</option><option value="CARNICERIA" label="CARNICERIA">CARNICERIA</option><option value="FOOD SERVICE" label="FOOD SERVICE">FOOD SERVICE</option><option value="OOT" label="OOT">OOT</option><option value="OS" label="OS">OS</option><option value="RETAIL" label="RETAIL">RETAIL</option><option value="WILL CALL" label="WILL CALL">WILL CALL</option><option value="NATIONAL" label="NATIONAL">NATIONAL</option></select>
+                                        </div>
+                                    </div>-->
+
+                                </div>
+
+                                <!--<div class="row">-->
+                                    <!--<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  pull-right">-->
+                                        <!--<div class="row">
+                                    <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 "><div class="form-group view">Sales Persons</div></div>
+                                    <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12" >
+                                        <div class="form-group">
+                                            <select class="form-control select-md tooltips" ng-options="item as item.SalesPersonDescription for item in salesPersonList track by item.Id" ng-model="salespersonitem"></select>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                        <div class="row">
+                                            <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
+                                                <div class="form-group view">Invoice Date</div>
+                                            </div>
+                                            <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
+                                                <div class="btn-group">
+                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('ThisMonth')" ng-class="{ 'btnselected': CurrentFilter=='ThisMonth', 'btnnonactive': CurrentFilter!='ThisMonth' }" title="This Month">This Month</button></span>
+
+                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastMonth')" ng-class="{ 'btnselected': CurrentFilter=='LastMonth', 'btnnonactive': CurrentFilter!='LastMonth' }" title="Last Month">Last Month</button></span>
+
+                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('ThisQuarter')" ng-class="{ 'btnselected': CurrentFilter=='ThisQuarter', 'btnnonactive': CurrentFilter!='ThisQuarter' }" title="This Quarter">This QTR</button></span>
+
+                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastQuarter')" ng-class="{ 'btnselected': CurrentFilter=='LastQuarter', 'btnnonactive': CurrentFilter!='LastQuarter' }" title="Last Quarter">Last QTR</button></span>
+                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('YTD')" ng-class="{ 'btnselected': CurrentFilter=='YTD', 'btnnonactive': CurrentFilter!='YTD' }" title="Year To Date">YTD</button></span>
+
+                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastYear')" ng-class="{ 'btnselected': CurrentFilter=='LastYear', 'btnnonactive': CurrentFilter!='LastYear' }" title="Last Year">Last Year</button></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                <!--</div>-->
+
+                              
+
+                                <div class="row">
+
+                                    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                        <button class="btn btn-primary btn-circle btn-sm ingenium-blue mt-ladda-btn ladda-button btn-search" data-style="zoom-out" id="search" style="opacity:1; color: white;" data-ng-click="search()">
+                                            <span class="ladda-label">
+                                                <i class="fa fa-search"></i>
+                                                <span class="">Search</span>
+                                                <span class="ladda-spinner">Search</span>
+                                            </span><span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div>
+                                        </button>
+
+
+                                        <button class="btn btn-circle btn-sm orange btn-info" data-ng-click="resetSearch()">
+                                            <i class="fa fa-refresh"></i>
+                                            Reset
+                                        </button>
+                                        <button class="btn btn-circle btn-sm btn-danger margin-top-xs" ng-disabled="iscanceldisabled" data-ng-click="abortExecutingApi()" disabled="disabled">
+                                            <i class="fa fa-times"></i>
+                                            Cancel
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
 
 
 
@@ -116,7 +250,7 @@
             <div class="row" style="padding:0 0 8px 0;">
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                     <div class="row">
-                        <div class="col-xs-12" style="float:left; width:auto; padding-right:0; margin-bottom:10px; ">
+                        <div class="col-xs-12" style="float: left; width: auto; padding-right: 0; margin-bottom: 10px; margin-left: 15px;">
                             <div class="view"> View </div>
                             <div class="view-input">
                                 <select class="form-control ng-pristine ng-untouched ng-valid" style="padding: 0px;" data-ng-model="pageSize">
@@ -177,184 +311,7 @@
 
 
 
-    <div class="portlet light">
-        <div class="portlet-title">
-            <div class="caption caption-md">
-                <i class="glyphicon glyphicon-search"></i>
-                <span class="caption-subject font-light-orange-haze bold uppercase text-mobile">Search Criteria</span>
-            </div>
-            <div class="tools">
-                <a href="javascript:;" class="collapse" data-original-title="" title="">
-                </a>
-
-            </div>
-        </div>
-
-        <div class="portlet-body" style="padding-bottom: 30px; display: block;">
-            <div class="row">
-                <form name="filterForm" novalidate="" class="ng-pristine ng-valid">
-                    <div class="container-fluid">
-
-                        <div class="row">
-
-                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Commodity</div></div>
-                            <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
-
-                                    <select class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select commodity" ng-options="item as item.value for item in Commodity track by item.value" ng-model="Commodityselected" data-original-title="" title=""><option value="All" selected="selected" label="All">All</option><option value="Grocery" label="Grocery">Grocery</option><option value="Produce" label="Produce">Produce</option></select>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Category</div></div>
-                            <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
-
-                                    <select class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select Food Service" ng-options="item as item.value for item in FoodService track by item.value" ng-model="FoodServiceselected" data-original-title="" title=""><option value="All" selected="selected" label="All">All</option><option value="BUYER" label="BUYER">BUYER</option><option value="CARNICERIA" label="CARNICERIA">CARNICERIA</option><option value="FOOD SERVICE" label="FOOD SERVICE">FOOD SERVICE</option><option value="OOT" label="OOT">OOT</option><option value="OS" label="OS">OS</option><option value="RETAIL" label="RETAIL">RETAIL</option><option value="WILL CALL" label="WILL CALL">WILL CALL</option><option value="NATIONAL" label="NATIONAL">NATIONAL</option></select>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  pull-right">
-                                <!--<div class="row">
-                                    <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 "><div class="form-group view">Sales Persons</div></div>
-                                    <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12" >
-                                        <div class="form-group">
-                                            <select class="form-control select-md tooltips" ng-options="item as item.SalesPersonDescription for item in salesPersonList track by item.Id" ng-model="salespersonitem"></select>
-                                        </div>
-                                    </div>
-                                </div>-->
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group view">Invoice Date</div>
-                                    </div>
-                                    <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
-                                        <div class="btn-group">
-                                            <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('ThisMonth')" ng-class="{ 'btnselected': CurrentFilter=='ThisMonth', 'btnnonactive': CurrentFilter!='ThisMonth' }" title="This Month">This Month</button></span>
-
-                                            <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastMonth')" ng-class="{ 'btnselected': CurrentFilter=='LastMonth', 'btnnonactive': CurrentFilter!='LastMonth' }" title="Last Month">Last Month</button></span>
-
-                                            <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('ThisQuarter')" ng-class="{ 'btnselected': CurrentFilter=='ThisQuarter', 'btnnonactive': CurrentFilter!='ThisQuarter' }" title="This Quarter">This QTR</button></span>
-
-                                            <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastQuarter')" ng-class="{ 'btnselected': CurrentFilter=='LastQuarter', 'btnnonactive': CurrentFilter!='LastQuarter' }" title="Last Quarter">Last QTR</button></span>
-                                            <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('YTD')" ng-class="{ 'btnselected': CurrentFilter=='YTD', 'btnnonactive': CurrentFilter!='YTD' }" title="Year To Date">YTD</button></span>
-
-                                            <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastYear')" ng-class="{ 'btnselected': CurrentFilter=='LastYear', 'btnnonactive': CurrentFilter!='LastYear' }" title="Last Year">Last Year</button></span>
-                                            <!--<span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange" data-ng-click="showDateFilters()" title="Year To Date">Custom</button></span>-->
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Current Start</div></div>
-                            <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <div class="input-icon">
-                                        <i class="fa fa-calendar"></i>
-                                        <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(beginDate)}" type="text" autocomplete="off" placeholder="Start Date" id="StartDate" name="scheduledLoadStartDate" data-ng-model="beginDate" ng-blur="beginDate = clearDate(beginDate)">
-                                        <span ng-show="searchClicked &amp;&amp; !isDate(beginDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Current End</div></div>
-                            <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <div class="input-icon">
-                                        <i class="fa fa-calendar"></i>
-                                        <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(endDate)}" type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="scheduledLoadEndDate" data-ng-model="endDate" ng-blur="endDate = clearDate(endDate)">
-                                        <span ng-show="searchClicked &amp;&amp; !isDate(endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
-                                        <span ng-show="searchClicked &amp;&amp; isPreviouseDate(beginDate,endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">To Date should be greater than From Date</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--<div class="row">
-
-                            <div class="col-lg-5 col-lg-offset-1 col-md-4 col-md-offset-2 col-sm-12 col-xs-12">
-                                <div class="btn-group" style="margin-top:18px">
-
-                                    <span style="padding-right:0;">
-                                        <div role="radio" class="toggle-switch ng-valid" ng-class="{ 'disabled': disabled }" ng-model="toggleyear" style="margin-bottom:5px" ng-init="toggleyear=false" ng-click="search(CurrentFilter)" on-label="Historical" off-label="Prior"><div class="toggle-switch-animate switch-off" ng-class="{'switch-off': !model, 'switch-on': model}"><span class="switch-left" ng-bind="onLabel">Historical</span><span class="knob" ng-bind="knobLabel">&nbsp;</span><span class="switch-right" ng-bind="offLabel">Prior</span></div></div>
-
-                                    </span>
-
-                                </div>
-
-                            </div>
-                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Min Cases Sold</div></div>
-                            <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <div class="input">
-
-                                        <input class="form-control ng-pristine ng-untouched ng-valid" type="number" placeholder="Min Sale Amount" data-ng-model="MinSalesAmt">
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>-->
-                        <!--<div class="row">
-
-                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Prior Start</div></div>
-                            <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <div class="input-icon">
-                                        <i class="fa fa-calendar"></i>
-                                        <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid hasDatepicker"  type="text"  placeholder="Start Date" id="StartDate">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Prior End</div></div>
-                            <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                <div class="form-group">
-                                    <div class="input-icon">
-                                        <i class="fa fa-calendar"></i>
-                                        <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid hasDatepicker" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(endDate)}" type="text" autocomplete="off" placeholder="End Date" id="scheduledLoadEndDate1" name="scheduledLoadEndDate" data-ng-model="EndPrior" ng-blur="EndPrior = clearDate(EndPrior)">
-                                        <span ng-show="searchClicked &amp;&amp; !isDate(EndPrior)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
-                                        <span ng-show="searchClicked &amp;&amp; isPreviouseDate(StartPrior,EndPrior)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Prior End Date should be greater than Prior Start Date</span>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>-->
-                        <div class="row">
-
-                            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-                            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary btn-circle btn-sm ingenium-blue mt-ladda-btn ladda-button btn-search" data-style="zoom-out" id="search" style="opacity:1; color: white;" data-ng-click="search()">
-                                    <span class="ladda-label">
-                                        <i class="fa fa-search"></i>
-                                        <span class="">Search</span>
-                                        <span class="ladda-spinner">Search</span>
-                                    </span><span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div>
-                                </button>
-
-
-                                <button class="btn btn-circle btn-sm orange btn-info" data-ng-click="resetSearch()">
-                                    <i class="fa fa-refresh"></i>
-                                    Reset
-                                </button>
-                                <button class="btn btn-circle btn-sm btn-danger margin-top-xs" ng-disabled="iscanceldisabled" data-ng-click="abortExecutingApi()" disabled="disabled">
-                                    <i class="fa fa-times"></i>
-                                    Cancel
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+   
 
 
 
