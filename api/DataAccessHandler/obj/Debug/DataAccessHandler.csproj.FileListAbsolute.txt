@@ -1,0 +1,10 @@
+E:\workgroupclient\api\connect\DataAccessHandler\bin\Debug\DataAccessHandler.dll
+E:\workgroupclient\api\connect\DataAccessHandler\bin\Debug\DataAccessHandler.pdb
+E:\workgroupclient\api\connect\DataAccessHandler\obj\Debug\DataAccessHandler.csprojResolveAssemblyReference.cache
+E:\workgroupclient\api\connect\DataAccessHandler\obj\Debug\DataAccessHandler.dll
+E:\workgroupclient\api\connect\DataAccessHandler\obj\Debug\DataAccessHandler.pdb
+E:\workgroupclient\api\DataAccessHandler\bin\Debug\DataAccessHandler.dll
+E:\workgroupclient\api\DataAccessHandler\bin\Debug\DataAccessHandler.pdb
+E:\workgroupclient\api\DataAccessHandler\obj\Debug\DataAccessHandler.csprojResolveAssemblyReference.cache
+E:\workgroupclient\api\DataAccessHandler\obj\Debug\DataAccessHandler.dll
+E:\workgroupclient\api\DataAccessHandler\obj\Debug\DataAccessHandler.pdb
