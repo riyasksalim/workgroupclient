@@ -11,6 +11,6 @@ namespace connect.Models
 
         public DateTime EndDate { get; set; }
 
-        public string param { get; set; }
+        public string WorkGroupID { get; set; }
     }
 }

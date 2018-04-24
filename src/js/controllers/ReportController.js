@@ -31,9 +31,7 @@
               
             }
         }, function onError() {
-           
-          //  Metronic.unblockUI();
-            //NotificationService.Error("Error upon the API request");
+        
         });
 
 
@@ -52,17 +50,28 @@
                 debugger
             }
         }, function onError() {
-            debugger
-            //  Metronic.unblockUI();
-            //NotificationService.Error("Error upon the API request");
+       
         });
 
     };
 
     GetAllWorkGroups();
 
+    $scope.search = function () {
+        var params = {
+            StartDate: $scope.StartDate,
+            EndDate: $scope.EndDate,
+            WorkGroupID: $scope.workgroupselected.WorkGroupId
+        };
+        dataService.GetWorkGroupReport(params).then(function (response) {
+            if (response && response.data) {
+                $scope.WorkGroupsReport = response.data;
+                debugger
+            }
+        }, function onError() {
 
-   // GetReports(Params);
+        });
+    };
 
 
    

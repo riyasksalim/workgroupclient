@@ -139,10 +139,13 @@
                                         <div class="form-group">
 
                                             <select class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select"
-                                                    ng-options="item as item.WorkGroupName for item in WorkGroups track by item.WorkGroupId" ng-model="workgroupselected" data-original-title="" title=""></select>
+
+                                                    ng-options="item as item.WorkGroupName for item in WorkGroups track by item.WorkGroupId" ng-model="workgroupselected" data-original-title="" title="">
+                                                <option value="">--Select--</option>
+                                            </select>
 
                                         </div>
-                                        
+                                        {{workgroupselected}}
                                     </div>
                                     <!--<div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Category</div></div>-->
                                     <!--<div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">

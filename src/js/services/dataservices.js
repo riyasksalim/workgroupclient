@@ -50,7 +50,7 @@
     //    return $http.get(baseUrl + "Home/GetCustomerServiceDetails?filterId=" + filter.Id);
     //};
     
-    function GetReports(Params) {
+    function GetWorkGroupReport(Params) {
         
         return $http.post(baseUrl + 'Reports/GetCustomerServiceDetails/', Params);
     };
@@ -62,7 +62,7 @@
 
     return {
         PendingRequest: PendingRequest,
-        GetReports: GetReports,
+        GetWorkGroupReport: GetWorkGroupReport,
         GetAllWorkGroups: GetAllWorkGroups
        
 

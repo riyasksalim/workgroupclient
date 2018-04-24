@@ -22,18 +22,62 @@ namespace connect.Controllers
         [Route("GetCustomerServiceDetails")]
         public async Task<IHttpActionResult> GetCustomerServiceDetails(ReportModel ReportModel)
         {
+            List<WorkGroupReportBO> WorkGroupReportBOList = new System.Collections.Generic.List<WorkGroupReportBO>();
             var dbManager = new DBManager("DBConnection");
-            List<ReportModel> ReportModelList = new List<ReportModel>();
-            for (int i = 0; i < 100; i++)
+            IDbConnection connection = null;
+            var parameters = new List<IDbDataParameter>();
+            parameters.Add(dbManager.CreateParameter("@startdate", 50, ReportModel.StartDate, DbType.DateTime));
+            parameters.Add(dbManager.CreateParameter("@endDate", ReportModel.EndDate, DbType.DateTime));
+            parameters.Add(dbManager.CreateParameter("@workgroupid", ReportModel.WorkGroupID, DbType.String));
+
+
+            var datareader = dbManager.GetDataReader("GetReport", CommandType.StoredProcedure, parameters.ToArray(), out connection);
+            try
             {
-                ReportModelList.Add(new ReportModel()
+
+                while (datareader.Read())
                 {
-                    EndDate = ReportModel.EndDate,
-                    param = i.ToString() + ReportModel.param,
-                    StartDate = ReportModel.StartDate
-                });
+                    WorkGroupReportBOList.Add(new WorkGroupReportBO()
+                    {
+                           workgroupid= datareader["workgroupid"].ToString(),
+                           starttime = datareader["starttime"].ToString(),
+                           endtime = datareader["endtime"].ToString(),
+                           mediaid = datareader["mediaid"].ToString(),
+                           dnis = datareader["dnis"].ToString(),
+                           ani = datareader["ani"].ToString(),
+                           updateuserid = datareader["updateuserid"].ToString(),
+                           percentscore = datareader["percentscore"].ToString(),
+                           overallscore = datareader["overallscore"].ToString(),
+                           reviewdate = datareader["reviewdate"].ToString(),
+                           username = datareader["username"].ToString(),
+                           userroleid = datareader["userroleid"].ToString(),
+                           usertypeid = datareader["usertypeid"].ToString(),
+                           workgroupname = datareader["workgroupname"].ToString(),
+                           description = datareader["description"].ToString(),
+                           name = datareader["name"].ToString(),
+                           sequencenumber = datareader["sequencenumber"].ToString(),
+                           sweight =datareader["sweight"].ToString(),
+                           questiondescription = datareader["questiondescription"].ToString(),
+                           questionnumber = datareader["questionnumber"].ToString(),
+                           questiontext = datareader["questiontext"].ToString(),
+                           qweight = datareader["qweight"].ToString(),
+                           responserequired = datareader["responserequired"].ToString(),
+                           questionadditionalpoint = datareader["questionadditionalpoint"].ToString(),
+                           autofailpoint = datareader["autofailpoint"].ToString(),
+                           questionadditionalconditionpoint = datareader["questionadditionalconditionpoint"].ToString(),
+                    });      
+                }
             }
-            return Ok(ReportModelList);
+            catch (Exception ex)
+            {
+                return Ok(ex.Message);
+            }
+            finally
+            {
+                datareader.Close();
+                dbManager.CloseConnection(connection);
+            }
+            return Ok(WorkGroupReportBOList);
         }
 
         [System.Web.Http.HttpGet]
