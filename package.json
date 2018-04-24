@@ -1,7 +1,7 @@
 {
-  "name": "@coreui/angularjs",
+  "name": "@workgroup/client",
   "version": "1.0.10",
-  "description": "Open Source Bootstrap Admin Template",
+  "description": "",
   "main": "index.html",
   "dependencies": {
     "@uirouter/angularjs": "1.0.14",
@@ -57,8 +57,8 @@
     "Android >= 4.4",
     "Opera >= 30"
   ],
-  "author": "Łukasz Holeczek",
-  "homepage": "http://coreui.io",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
+  "author": "riyasks",
+  "homepage": "http://rrr.io",
+  "copyright": "Copyright 2018",
   "license": "MIT"
 }
