@@ -54,6 +54,14 @@ angular
               label: 'Reports'
           }
       })
+      .state('app.components.reportcsvlist', {
+        url: '/csvlist',
+        controller: 'ReportCSVController',
+        templateUrl: 'views/pages/reportcsvlist.html',
+        ncyBreadcrumb: {
+            label: 'CSV list'
+        }
+    })
   .state('app.components.social-buttons', {
     url: '/social-buttons',
     templateUrl: 'views/components/social-buttons.html',
