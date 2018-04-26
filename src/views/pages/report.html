@@ -248,7 +248,7 @@
         </div>
 
 
-        <div class="portlet-body" data-st-table="salesReport" data-st-safe-src="salesReportMaster">
+        <div class="portlet-body"  data-st-table="WorkGroupsReport" data-st-safe-src="WorkGroupsReportSafe">
 
             <div class="row" style="padding:0 0 8px 0;">
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
@@ -282,8 +282,95 @@
 
             <div style="overflow: auto;">
                 
-                <table st-table="rowCollection" class="table table-striped table-bordered table-hover">
+                <!-- <table  class="table table-striped table-bordered table-hover">
                     <thead>
+                        <tr>
+                            <th st-sort="workgroupid">workgroupid</th>
+                            <th st-sort="starttime">starttime</th>
+                            <th st-sort="endtime">endtime</th>
+                            <th st-sort="mediaid">mediaid</th>
+                            <th st-sort="dnis">dnis</th>
+                            <th st-sort="ani">ani</th>
+                            <th st-sort="updateuserid">updateuserid</th>
+                            <th st-sort="percentscore">percentscore</th>
+                            <th st-sort="overallscore">overallscore</th>
+                            <th st-sort="reviewdate">reviewdate</th>
+
+                            <th st-sort="username">username</th>
+                            <th st-sort="userroleid">userroleid</th>
+
+                            <th st-sort="usertypeid">usertypeid</th>
+                            <th st-sort="workgroupname">workgroupname</th>
+
+                            <th st-sort="description">description</th>
+                            <th st-sort="name">name</th>
+
+                            <th st-sort="sequencenumber">sequencenumber</th>
+
+                            <th st-sort="sweight">sweight</th>
+                            <th st-sort="questiondescription">questiondescription</th>
+
+                            <th st-sort="questionnumber">questionnumber</th>
+
+                            <th st-sort="questiontext">questiontext</th>
+                            <th st-sort="qweight">qweight</th>
+
+                            <th st-sort="responserequired">responserequired</th>
+
+                            <th st-sort="questionadditionalpoint">questionadditionalpoint</th>
+                            
+                            <th st-sort="autofailpoint">autofailpoint</th>
+                            <th st-sort="questionadditionalconditionpoint">questionadditionalconditionpoint</th>
+                         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in WorkGroupsReport">
+                            <td>{{row.workgroupid}}</td>
+                            <td>{{row.starttime | date}}</td>
+                            <td>{{row.endtime | date}}</td>
+                            <td>{{row.mediaid}}</td>
+                            <td>{{row.dnis}}</td>
+                            <td>{{row.ani}}</td>
+                            <td>{{row.updateuserid}}</td>
+                            <td>{{row.percentscore}}</td>
+                            <td>{{row.overallscore}}</td>
+                            <td>{{row.reviewdate |date}}</td>
+                            <td>{{row.username}}</td>
+                            <td>{{row.userroleid}}</td>
+                            <td>{{row.usertypeid}}</td>
+                            <td>{{row.workgroupname}}</td>
+                            <td>{{row.description}}</td>
+                            <td>{{row.name}}</td>
+                            <td>{{row.sequencenumber}}</td>
+                            <td>{{row.sweight}}</td>
+                            <td>{{row.questiondescription}}</td>
+                            <td>{{row.questionnumber}}</td>
+                            <td>{{row.questiontext}}</td>
+                            <td>{{row.qweight}}</td>
+                            <td>{{row.responserequired}}</td>
+                            <td>{{row.questionadditionalpoint}}</td>
+                            <td>{{row.autofailpoint}}</td>
+                            <td>{{row.questionadditionalconditionpoint}}</td>
+                           
+                        </tr>
+                    </tbody>
+                    <tbody ng-if="WorkGroupsReport.length == 0">
+                            <tr>
+                                <td colspan="20" style="text-align:center;vertical-align:middle;">No data found</td>
+                            </tr>
+                        </tbody>
+                    <tfoot>
+                            <tr>
+                                <td colspan="25" class="text-center">
+                                        <st-pagination collection="WorkGroupsReport"></st-pagination>
+                                      
+                                </td>
+                            </tr>
+                        </tfoot>
+                </table> -->
+                <table st-table="rowCollection"  class="table table-striped">
+                        <thead>
                         <tr>
                             <th st-sort="firstName">first name</th>
                             <th st-sort="lastName">last name</th>
@@ -291,21 +378,37 @@
                             <th st-sort="balance">balance</th>
                             <th>email</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
+                        <!-- <tr>
+                            <th>
+                                <input st-search="'firstName'" placeholder="search for firstname" class="input-sm form-control" type="search"/>
+                            </th>
+                            <th colspan="4">
+                                <input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+                            </th>
+                        </tr> -->
+                        </thead>
+                        <tbody>
+                         
+                        <tr ng-repeat="row in rowCollection">
                             <td>{{row.firstName | uppercase}}</td>
                             <td>{{row.lastName}}</td>
                             <td>{{row.birthDate | date}}</td>
                             <td>{{row.balance | currency}}</td>
                             <td><a ng-href="mailto:{{row.email}}">email</a></td>
                         </tr>
-                    </tbody>
-                </table>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                        <div st-pagination="", st-items-by-page="1", st-displayed-pages="10"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+            
             </div>
-            <div>
-              
-            </div>
+          
+          
         </div>
     </div>
 
@@ -313,9 +416,42 @@
 
 
 
-
-   
-
+    <table st-table="rowCollection" class="table table-striped">
+            <thead>
+            <tr>
+                <th st-sort="firstName">first name</th>
+                <th st-sort="lastName">last name</th>
+                <th st-sort="birthDate">birth date</th>
+                <th st-sort="balance">balance</th>
+                <th>email</th>
+            </tr>
+            <!-- <tr>
+                <th>
+                    <input st-search="'firstName'" placeholder="search for firstname" class="input-sm form-control" type="search"/>
+                </th>
+                <th colspan="4">
+                    <input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+                </th>
+            </tr> -->
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in rowCollection">
+                <td>{{row.firstName | uppercase}}</td>
+                <td>{{row.lastName}}</td>
+                <td>{{row.birthDate | date}}</td>
+                <td>{{row.balance | currency}}</td>
+                <td><a ng-href="mailto:{{row.email}}">email</a></td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                            <div st-pagination="", st-items-by-page="1", st-displayed-pages="7"></div>
+                        <!-- <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div> -->
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
 
 
 

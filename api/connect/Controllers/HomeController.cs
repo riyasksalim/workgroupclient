@@ -26,9 +26,9 @@ namespace connect.Controllers
             var dbManager = new DBManager("DBConnection");
             IDbConnection connection = null;
             var parameters = new List<IDbDataParameter>();
-            parameters.Add(dbManager.CreateParameter("@startdate", 50, ReportModel.StartDate, DbType.DateTime));
+            parameters.Add(dbManager.CreateParameter("@startdate",ReportModel.StartDate, DbType.DateTime));
             parameters.Add(dbManager.CreateParameter("@endDate", ReportModel.EndDate, DbType.DateTime));
-            parameters.Add(dbManager.CreateParameter("@workgroupid", ReportModel.WorkGroupID, DbType.String));
+            parameters.Add(dbManager.CreateParameter("@workgroupid", "81A0EA05-1A9D-477D-A268-4D08D7AE6055", DbType.String));
 
 
             var datareader = dbManager.GetDataReader("GetReport", CommandType.StoredProcedure, parameters.ToArray(), out connection);
@@ -56,11 +56,11 @@ namespace connect.Controllers
                            description = datareader["description"]?.ToString(),
                            name = datareader["name"]?.ToString(),
                            sequencenumber = datareader["sequencenumber"]?.ToString(),
-                           sweight =datareader["sweight"]?.ToString(),
+                           sweight =null,
                            questiondescription = datareader["questiondescription"]?.ToString(),
                            questionnumber = datareader["questionnumber"]?.ToString(),
                            questiontext = datareader["questiontext"]?.ToString(),
-                           qweight = datareader["qweight"]?.ToString(),
+                           qweight = null,
                            responserequired = datareader["responserequired"]?.ToString(),
                            questionadditionalpoint = datareader["questionadditionalpoint"]?.ToString(),
                            autofailpoint = datareader["autofailpoint"]?.ToString(),
