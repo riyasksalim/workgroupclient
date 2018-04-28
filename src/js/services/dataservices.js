@@ -55,15 +55,18 @@
         return $http.post(baseUrl + 'Reports/GetCustomerServiceDetails/', Params);
     };
     function GetAllWorkGroups() {
-
         return $http.get(baseUrl + 'Reports/GetAllWorkGroups');
+    };
+    function GetCSVList() {
+        return $http.get(baseUrl + 'Reports/GetCSVList');
     };
 
 
     return {
         PendingRequest: PendingRequest,
         GetWorkGroupReport: GetWorkGroupReport,
-        GetAllWorkGroups: GetAllWorkGroups
+        GetAllWorkGroups: GetAllWorkGroups,
+        GetCSVList: GetCSVList
        
 
     }

@@ -1,324 +1,80 @@
-
-
 <style>
-    .header-content:before {
-        content: ' ';
-        position: relative;
-        left: -5px;
-    }
+     .header-content:before {
+         content: ' ';
+         position: relative;
+         left: -5px;
+     }
 
-    .header-content.sort-ascent:before {
-        content: "\25B4";
-    }
+     .header-content.sort-ascent:before {
+         content: "\25B4";
+     }
 
-    .header-content.sort-descent:before {
-        content: "\25BE";
-    }
-    .st-sort-ascent:before {
-        content: '\25B2';
-    }
+     .header-content.sort-descent:before {
+         content: "\25BE";
+     }
 
-    .st-sort-descent:before {
-        content: '\25BC';
-    }
+     .st-sort-ascent:before {
+         content: '\25B2';
+     }
+
+     .st-sort-descent:before {
+         content: '\25BC';
+     }
+   
 </style>
 <div class="animated fadeIn">
-   <!--<div class="row">
-      {{WorkGroups | json}}
-   </div>-->
-    <!--<div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Condensed Table
-                </div>
-                <div class="card-body">
-                    <table st-table="rowCollection" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th st-sort="firstName">first name</th>
-                                <th st-sort="lastName">last name</th>
-                                <th st-sort="birthDate">birth date</th>
-                                <th st-sort="balance">balance</th>
-                                <th>email</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
-                                <td>{{row.firstName | uppercase}}</td>
-                                <td>{{row.lastName}}</td>
-                                <td>{{row.birthDate | date}}</td>
-                                <td>{{row.balance | currency}}</td>
-                                <td><a ng-href="mailto:{{row.email}}">email</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>-->
-
-    <!--<div class="portlet light">
-        <div class="portlet-title">
-            <div class="caption">
-                <i class="icon-paper-plane font-yellow-casablanca"></i>
-                <span class="caption-subject bold font-yellow-casablanca uppercase"> Form Input </span>
-                <span class="caption-helper">more samples...</span>
-            </div>
-            <div class="inputs">
-                <div class="portlet-input input-inline input-medium">
-                    <div class="input-group">
-                        <input type="text" class="form-control input-circle-left" placeholder="search...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-circle-right btn-default" type="submit">Go!</button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portlet-body">
-            <h4>Heading text goes here...</h4>
-            <p>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
-                eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus
-                sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
-            </p>
-        </div>
-    </div>-->
    
-
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="portlet light">
-                <div class="portlet-title">
-                    <div class="caption caption-md">
-                        <i class="glyphicon glyphicon-search"></i>
-                        <span class="caption-subject font-light-orange-haze bold uppercase text-mobile">Search Criteria</span>
-                    </div>
-                    <!--<div class="tools">
-                        <a href="javascript:;" class="collapse" data-original-title="" title="">
-                        </a>
-
-                    </div>-->
-                </div>
-
-                <div class="portlet-body" style="padding-bottom: 30px; display: block;">
-                    <div class="row">
-                        <form name="filterForm" novalidate="" class="ng-pristine ng-valid">
-                            <div class="container-fluid">
-                                <div class="row">
-
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Current Start</div></div>
-                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="input-icon">
-                                                <i class="fa fa-calendar"></i>
-                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(beginDate)}" type="text" autocomplete="off" placeholder="Start Date" id="StartDate" name="scheduledLoadStartDate" data-ng-model="beginDate" ng-blur="beginDate = clearDate(beginDate)">
-                                                <span ng-show="searchClicked &amp;&amp; !isDate(beginDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Current End</div></div>
-                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="input-icon">
-                                                <i class="fa fa-calendar"></i>
-                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(endDate)}" type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="scheduledLoadEndDate" data-ng-model="endDate" ng-blur="endDate = clearDate(endDate)">
-                                                <span ng-show="searchClicked &amp;&amp; !isDate(endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
-                                                <span ng-show="searchClicked &amp;&amp; isPreviouseDate(beginDate,endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">To Date should be greater than From Date</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Work Group</div></div>
-                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-
-                                            <select class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select"
-
-                                                    ng-options="item as item.WorkGroupName for item in WorkGroups track by item.WorkGroupId" ng-model="workgroupselected" data-original-title="" title="">
-                                                <option value="">--Select--</option>
-                                            </select>
-
-                                        </div>
-                                    
-                                    </div>
-                                    <!--<div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group view">Category</div></div>-->
-                                    <!--<div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-
-                                            <select class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select Food Service" ng-options="item as item.value for item in FoodService track by item.value" ng-model="FoodServiceselected" data-original-title="" title=""><option value="All" selected="selected" label="All">All</option><option value="BUYER" label="BUYER">BUYER</option><option value="CARNICERIA" label="CARNICERIA">CARNICERIA</option><option value="FOOD SERVICE" label="FOOD SERVICE">FOOD SERVICE</option><option value="OOT" label="OOT">OOT</option><option value="OS" label="OS">OS</option><option value="RETAIL" label="RETAIL">RETAIL</option><option value="WILL CALL" label="WILL CALL">WILL CALL</option><option value="NATIONAL" label="NATIONAL">NATIONAL</option></select>
-                                        </div>
-                                    </div>-->
-
-                                </div>
-
-                                <!--<div class="row">-->
-                                    <!--<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  pull-right">-->
-                                        <!--<div class="row">
-                                    <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 "><div class="form-group view">Sales Persons</div></div>
-                                    <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12" >
-                                        <div class="form-group">
-                                            <select class="form-control select-md tooltips" ng-options="item as item.SalesPersonDescription for item in salesPersonList track by item.Id" ng-model="salespersonitem"></select>
-                                        </div>
-                                    </div>
-                                </div>-->
-                                    <!--</div>-->
-                                    <!--<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-                                                <div class="form-group view">Invoice Date</div>
-                                            </div>
-                                            <div class="col-lg-10 col-md-8 col-sm-12 col-xs-12">
-                                                <div class="btn-group">
-                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('ThisMonth')" ng-class="{ 'btnselected': CurrentFilter=='ThisMonth', 'btnnonactive': CurrentFilter!='ThisMonth' }" title="This Month">This Month</button></span>
-
-                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastMonth')" ng-class="{ 'btnselected': CurrentFilter=='LastMonth', 'btnnonactive': CurrentFilter!='LastMonth' }" title="Last Month">Last Month</button></span>
-
-                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('ThisQuarter')" ng-class="{ 'btnselected': CurrentFilter=='ThisQuarter', 'btnnonactive': CurrentFilter!='ThisQuarter' }" title="This Quarter">This QTR</button></span>
-
-                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastQuarter')" ng-class="{ 'btnselected': CurrentFilter=='LastQuarter', 'btnnonactive': CurrentFilter!='LastQuarter' }" title="Last Quarter">Last QTR</button></span>
-                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('YTD')" ng-class="{ 'btnselected': CurrentFilter=='YTD', 'btnnonactive': CurrentFilter!='YTD' }" title="Year To Date">YTD</button></span>
-
-                                                    <span style="padding-right:0;"><button class="btn btn-primary btn-circle btn-sm orange btnnonactive" style="margin-bottom:5px" data-ng-click="search('LastYear')" ng-class="{ 'btnselected': CurrentFilter=='LastYear', 'btnnonactive': CurrentFilter!='LastYear' }" title="Last Year">Last Year</button></span>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                <!--</div>-->
-
-                              
-
-                                <div class="row">
-
-                                    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                        <button class="btn btn-primary btn-circle btn-sm ingenium-blue mt-ladda-btn ladda-button btn-search" data-style="zoom-out" id="search" style="opacity:1; color: white;" data-ng-click="search()">
-                                            <span class="ladda-label">
-                                                <i class="fa fa-search"></i>
-                                                <span class="">Search</span>
-                                                <span class="ladda-spinner">Search</span>
-                                            </span><span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div>
-                                        </button>
-
-
-                                        <button class="btn btn-circle btn-sm orange btn-info" data-ng-click="resetSearch()">
-                                            <i class="fa fa-refresh"></i>
-                                            Reset
-                                        </button>
-                                        <button class="btn btn-circle btn-sm btn-danger margin-top-xs" ng-disabled="iscanceldisabled" data-ng-click="abortExecutingApi()" disabled="disabled">
-                                            <i class="fa fa-times"></i>
-                                            Cancel
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    </div>
-
-
-
-
-    <div class="portlet light">
+    <div class="portlet light panel">
         <div class="portlet-title report-title">
             <div class="caption caption-md">
                 <i class="glyphicon glyphicon-tag"></i>
                 <span class="caption-subject  bold uppercase">Report</span>
             </div>
             <div class="btn-group" style="margin-left: 20px; margin-top: 6px;">
-
                 <button class="btn btn-sm-new btn-circle btn-search" ng-csv="getCsvData()" csv-header="getCsvHeader()" filename="CASES-SOLD-REPORT ( PRIOR MONTH ).CSV" data-ng-disabled="salesReport.length==0">
                     <i class="fa fa-file-excel-o"></i>
                     Excel (csv)
                 </button>
-
             </div>
-           
         </div>
-
-
-        <div class="portlet-body" data-st-table="salesReport" data-st-safe-src="salesReportMaster">
-
-            <div class="row" style="padding:0 0 8px 0;">
-                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="col-xs-12" style="float: left; width: auto; padding-right: 0; margin-bottom: 10px; margin-left: 15px;">
-                            <div class="view"> View </div>
-                            <div class="view-input">
-                                <select class="form-control ng-pristine ng-untouched ng-valid" style="padding: 0px;" data-ng-model="pageSize">
-                                    <option value="20">20</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                            </div>
-                            <div class="records">records</div>
-                        </div>
-
-                        <div class="col-xs-12" style="float:left; width:auto; margin-bottom:10px;">
-
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:right;">
-                    <input class="form-control ng-pristine ng-untouched ng-valid" placeholder="Search ..." type="text" ng-model="gridSearchText" data-st-search="" data-st-functions="stInterface">
-                </div>
-                <!--<button style="display:none" type="button" st-reset-search="" table-functions="myTableFunctions"></button>-->
-
-            </div>
-
+        <div class="portlet-body">
             <div style="overflow: auto;">
-                
-                <table st-table="rowCollection" class="table table-striped table-bordered table-hover">
+                <table st-table="display_records" st-safe-src="csvlist" class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th st-sort="firstName">first name</th>
-                            <th st-sort="lastName">last name</th>
-                            <th st-sort="birthDate">birth date</th>
-                            <th st-sort="balance">balance</th>
-                            <th>email</th>
+                            <th colspan="5">
+                                <input st-search placeholder="global search" class="input-sm form-control" type="search" />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th st-sort="ReportGenerated">Report Generated</th>
+                            <th st-sort="CreatedOn">Created On</th>
+                            <th st-sort="CreatedBy">Created By</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
-                            <td>{{row.firstName | uppercase}}</td>
-                            <td>{{row.lastName}}</td>
-                            <td>{{row.birthDate | date}}</td>
-                            <td>{{row.balance | currency}}</td>
-                            <td><a ng-href="mailto:{{row.email}}">email</a></td>
+                        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
+                            <td>{{row.ReportGenerated}}</td>
+                            <td>{{row.CreatedOn | date}}</td>
+                            <td>{{row.CreatedBy}}</td>
                         </tr>
                     </tbody>
+                    <tfoot ng-if="csvlist.lenght==0">
+                        <tr>
+                            <td colspan="3" class="text-center">
+                                <span>No Data Found!</span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-center">
+                                <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
-            </div>
-            <div>
-              
             </div>
         </div>
     </div>
-
-
-
-
-
-
-   
-
-
-
-
-
-
 </div>

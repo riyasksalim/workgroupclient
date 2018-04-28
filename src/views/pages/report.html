@@ -1,6 +1,4 @@
-﻿
-
-<style>
+﻿<style>
     .header-content:before {
         content: ' ';
         position: relative;
@@ -14,6 +12,7 @@
     .header-content.sort-descent:before {
         content: "\25BE";
     }
+
     .st-sort-ascent:before {
         content: '\25B2';
     }
@@ -21,84 +20,8 @@
     .st-sort-descent:before {
         content: '\25BC';
     }
-
-    table tr th {
-        background: #337ab7;
-        color: white;
-        text-align: left;
-        vertical-align: center;
-    }
-    #DataTables_Table_0{
-        min-width:151%;
-    }
-   
 </style>
 <div class="animated fadeIn">
-   <!--<div class="row">
-      {{WorkGroups | json}}
-   </div>-->
-    <!--<div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fa fa-align-justify"></i> Condensed Table
-                </div>
-                <div class="card-body">
-                    <table st-table="rowCollection" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th st-sort="firstName">first name</th>
-                                <th st-sort="lastName">last name</th>
-                                <th st-sort="birthDate">birth date</th>
-                                <th st-sort="balance">balance</th>
-                                <th>email</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
-                                <td>{{row.firstName | uppercase}}</td>
-                                <td>{{row.lastName}}</td>
-                                <td>{{row.birthDate | date}}</td>
-                                <td>{{row.balance | currency}}</td>
-                                <td><a ng-href="mailto:{{row.email}}">email</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>-->
-
-    <!--<div class="portlet light">
-        <div class="portlet-title">
-            <div class="caption">
-                <i class="icon-paper-plane font-yellow-casablanca"></i>
-                <span class="caption-subject bold font-yellow-casablanca uppercase"> Form Input </span>
-                <span class="caption-helper">more samples...</span>
-            </div>
-            <div class="inputs">
-                <div class="portlet-input input-inline input-medium">
-                    <div class="input-group">
-                        <input type="text" class="form-control input-circle-left" placeholder="search...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-circle-right btn-default" type="submit">Go!</button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portlet-body">
-            <h4>Heading text goes here...</h4>
-            <p>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
-                eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus
-                sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
-            </p>
-        </div>
-    </div>-->
-   
-
-
     <div class="row">
         <div class="col-lg-12">
             <div class="portlet light">
@@ -107,16 +30,15 @@
                         <i class="glyphicon glyphicon-search"></i>
                         <span class="caption-subject font-light-orange-haze bold uppercase text-mobile">Search Criteria</span>
                     </div>
-          
                 </div>
-
                 <div class="portlet-body" style="padding-bottom: 30px; display: block;">
                     <div class="row">
                         <form name="filterForm" novalidate="" class="ng-pristine ng-valid">
                             <div class="container-fluid">
                                 <div class="row">
-
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Current Start</div></div>
+                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                        <div class="form-group">Current Start</div>
+                                    </div>
                                     <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <div class="input-icon">
@@ -126,7 +48,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Current End</div></div>
+                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                        <div class="form-group">Current End</div>
+                                    </div>
                                     <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <div class="input-icon">
@@ -137,29 +61,21 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row">
-
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"><div class="form-group">Work Group</div></div>
+                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                        <div class="form-group">Work Group</div>
+                                    </div>
                                     <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
                                         <div class="form-group">
-
-                                            <select class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select"
-
+                                            <select style="height: 33px;" class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select"
                                                     ng-options="item as item.WorkGroupName for item in WorkGroups track by item.WorkGroupId" ng-model="workgroupselected" data-original-title="" title="">
                                                 <option value="">--Select--</option>
                                             </select>
-
                                         </div>
-                                    
                                     </div>
-                                    
                                 </div>
-
-                           
                                 <div class="row">
-
                                     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
                                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                         <button class="btn btn-primary btn-circle btn-sm ingenium-blue mt-ladda-btn ladda-button btn-search" data-style="zoom-out" id="search" style="opacity:1; color: white;" data-ng-click="search()">
@@ -167,10 +83,9 @@
                                                 <i class="fa fa-search"></i>
                                                 <span class="">Search</span>
                                                 <span class="ladda-spinner">Search</span>
-                                            </span><span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div>
+                                            </span><span class="ladda-spinner"></span>
+                                            <div class="ladda-progress" style="width: 0px;"></div>
                                         </button>
-
-
                                         <button class="btn btn-circle btn-sm orange btn-info" data-ng-click="resetSearch()">
                                             <i class="fa fa-refresh"></i>
                                             Reset
@@ -180,7 +95,6 @@
                                             Cancel
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
                         </form>
@@ -188,12 +102,7 @@
                 </div>
             </div>
         </div>
-    
     </div>
-
-
-
-
     <div class="portlet light panel">
         <div class="portlet-title report-title">
             <div class="caption caption-md">
@@ -201,74 +110,59 @@
                 <span class="caption-subject  bold uppercase">Report</span>
             </div>
             <div class="btn-group" style="margin-left: 20px; margin-top: 6px;">
-
                 <button class="btn btn-sm-new btn-circle btn-search" ng-csv="getCsvData()" csv-header="getCsvHeader()" filename="CASES-SOLD-REPORT ( PRIOR MONTH ).CSV" data-ng-disabled="salesReport.length==0">
                     <i class="fa fa-file-excel-o"></i>
                     Excel (csv)
                 </button>
-
             </div>
-
         </div>
-
-
         <div class="portlet-body">
-
-
-
-            <div style="overflow: auto;" class="panel-body">
-
-                <!-- <table  class="table table-striped table-bordered table-hover">
+            <div style="overflow: auto;">
+                <table st-table="display_records" st-safe-src="WorkGroupsReport" class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th st-sort="workgroupid">workgroupid</th>
-                            <th st-sort="starttime">starttime</th>
-                            <th st-sort="endtime">endtime</th>
-                            <th st-sort="mediaid">mediaid</th>
-                            <th st-sort="dnis">dnis</th>
-                            <th st-sort="ani">ani</th>
-                            <th st-sort="updateuserid">updateuserid</th>
-                            <th st-sort="percentscore">percentscore</th>
-                            <th st-sort="overallscore">overallscore</th>
-                            <th st-sort="reviewdate">reviewdate</th>
-
-                            <th st-sort="username">username</th>
-                            <th st-sort="userroleid">userroleid</th>
-
-                            <th st-sort="usertypeid">usertypeid</th>
-                            <th st-sort="workgroupname">workgroupname</th>
-
-                            <th st-sort="description">description</th>
-                            <th st-sort="name">name</th>
-
-                            <th st-sort="sequencenumber">sequencenumber</th>
-
-                            <th st-sort="sweight">sweight</th>
-                            <th st-sort="questiondescription">questiondescription</th>
-
-                            <th st-sort="questionnumber">questionnumber</th>
-
-                            <th st-sort="questiontext">questiontext</th>
-                            <th st-sort="qweight">qweight</th>
-
-                            <th st-sort="responserequired">responserequired</th>
-
-                            <th st-sort="questionadditionalpoint">questionadditionalpoint</th>
-
-                            <th st-sort="autofailpoint">autofailpoint</th>
-                            <th st-sort="questionadditionalconditionpoint">questionadditionalconditionpoint</th>
-
+                            <th colspan="5">
+                                <input st-search placeholder="global search" class="input-sm form-control" type="search" />
+                            </th>
+                        </tr>
+                        <tr>
+                            <!--<th st-sort="workgroupid">Work Group ID</th>-->
+                            <th st-sort="starttime">Start Date</th>
+                            <th st-sort="endtime">End Date</th>
+                            <!--<th st-sort="mediaid">Media Id</th>-->
+                            <th st-sort="dnis">Dnis</th>
+                            <th st-sort="ani">Ani</th>
+                            <!--<th st-sort="updateuserid">Updated UserId</th>-->
+                            <th st-sort="percentscore">Percentage Score</th>
+                            <th st-sort="overallscore">Overall Scroll</th>
+                            <th st-sort="reviewdate">Review Date</th>
+                            <th st-sort="username">User name</th>
+                            <th st-sort="userroleid">User Role Id</th>
+                            <th st-sort="usertypeid">User Type Id</th>
+                            <th st-sort="workgroupname">Work Group Name</th>
+                            <th st-sort="description">Description</th>
+                            <th st-sort="name">Name</th>
+                            <th st-sort="sequencenumber">Sequence Numbeer</th>
+                            <!--<th st-sort="sweight">sweight</th>-->
+                            <th st-sort="questiondescription">Question Description</th>
+                            <th st-sort="questionnumber">Question #</th>
+                            <th st-sort="questiontext">Question Text</th>
+                            <!--<th st-sort="qweight">qweight</th>-->
+                            <th st-sort="responserequired">Response Required</th>
+                            <th st-sort="questionadditionalpoint">Question Additional Point</th>
+                            <th st-sort="autofailpoint">Auto Fail Point</th>
+                            <th st-sort="questionadditionalconditionpoint">Question Additional Condition Point</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in WorkGroupsReport">
-                            <td>{{row.workgroupid}}</td>
+                        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
+                            <!--<td>{{row.workgroupid}}</td>-->
                             <td>{{row.starttime | date}}</td>
                             <td>{{row.endtime | date}}</td>
-                            <td>{{row.mediaid}}</td>
+                            <!--<td>{{row.mediaid}}</td>-->
                             <td>{{row.dnis}}</td>
                             <td>{{row.ani}}</td>
-                            <td>{{row.updateuserid}}</td>
+                            <!--<td>{{row.updateuserid}}</td>-->
                             <td>{{row.percentscore}}</td>
                             <td>{{row.overallscore}}</td>
                             <td>{{row.reviewdate |date}}</td>
@@ -279,63 +173,33 @@
                             <td>{{row.description}}</td>
                             <td>{{row.name}}</td>
                             <td>{{row.sequencenumber}}</td>
-                            <td>{{row.sweight}}</td>
+                            <!--<td>{{row.sweight}}</td>-->
                             <td>{{row.questiondescription}}</td>
                             <td>{{row.questionnumber}}</td>
                             <td>{{row.questiontext}}</td>
-                            <td>{{row.qweight}}</td>
+                            <!--<td>{{row.qweight}}</td>-->
                             <td>{{row.responserequired}}</td>
                             <td>{{row.questionadditionalpoint}}</td>
                             <td>{{row.autofailpoint}}</td>
                             <td>{{row.questionadditionalconditionpoint}}</td>
-
                         </tr>
                     </tbody>
-                    <tbody ng-if="WorkGroupsReport.length == 0">
-                            <tr>
-                                <td colspan="20" style="text-align:center;vertical-align:middle;">No data found</td>
-                            </tr>
-                        </tbody>
-                    <tfoot>
-                            <tr>
-                                <td colspan="25" class="text-center">
-                                        <st-pagination collection="WorkGroupsReport"></st-pagination>
-
-                                </td>
-                            </tr>
-                        </tfoot>
-                </table> -->
-
-                <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable" ui-options="dataTableOpt">
-                    <thead>
+                    <tfoot ng-if="WorkGroupsReport.lenght==0">
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="(shop, schedule) in singledayschedule">
-                            <td>{{ shop }}</td>
-                            <td ng-repeat="(day, times) in schedule">
-                                <div>{{ times.firsName }}</div>
-                              
+                            <td colspan="26" class="text-center">
+                                <span>No Data Found!</span>
                             </td>
                         </tr>
-                    </tbody>
+                    </tfoot>
+                    <tfoot>
+                        <tr>
+                            <td colspan="26" class="text-center">
+                                <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
-
             </div>
-
-
         </div>
     </div>
-
-
-
-
-
 </div>
