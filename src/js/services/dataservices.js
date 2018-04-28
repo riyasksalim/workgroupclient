@@ -45,21 +45,39 @@
 
     };
 
-
-    //function GetReports(filter) {
-    //    return $http.get(baseUrl + "Home/GetCustomerServiceDetails?filterId=" + filter.Id);
-    //};
     
-    function GetWorkGroupReport(Params) {
+    //function GetWorkGroupReport(Params) {
         
-        return $http.post(baseUrl + 'Reports/GetCustomerServiceDetails/', Params);
-    };
+    //    return $http.post(baseUrl + 'Reports/GetCustomerServiceDetails/', Params);
+    //};
     function GetAllWorkGroups() {
         return $http.get(baseUrl + 'Reports/GetAllWorkGroups');
     };
     function GetCSVList() {
         return $http.get(baseUrl + 'Reports/GetCSVList');
     };
+
+    function GetWorkGroupReport(Params) {
+        var promise = $q.defer();
+        var request = $http.post(baseUrl + 'Reports/GetCustomerServiceDetails/', Params,
+            {
+                timeout: promise.promise
+            })
+        .then(getReportDataComplete)
+        .catch(getReportDataFailed);
+        request.abortCall = function () {
+            promise.resolve();
+        }
+        function getReportDataComplete(response) {
+            return response;
+        }
+        function getReportDataFailed(error) {
+            $q.reject();
+        }
+        return request;
+    };
+
+
 
 
     return {

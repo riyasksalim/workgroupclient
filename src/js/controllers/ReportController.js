@@ -27,7 +27,7 @@
         }, function onError() {
         });
     };
-
+  var httpRequest = null;
     GetAllWorkGroups();
     $scope.WorkGroupsReport = [];
     $scope.search = function () {
@@ -37,14 +37,17 @@
             WorkGroupID: $scope.workgroupselected.WorkGroupId
         };
 
-        dataService.GetWorkGroupReport(params).then(function (response) {
+        (httpRequest = dataService.GetWorkGroupReport(params).then(function (response) {
             if (response && response.data) {
                 $scope.WorkGroupsReport = response.data;
             }
 
         }, function onError() {
-        });
+        }));
     };
-
+    $scope.abortExecutingApi = function () {
+        debugger
+        return (httpRequest && httpRequest.abortCall());
+    };
 }])
 
