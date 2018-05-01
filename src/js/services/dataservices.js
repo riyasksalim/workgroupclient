@@ -71,9 +71,7 @@
         function getReportDataComplete(response) {
             return response;
         }
-        function getReportDataFailed(error) {
-            $q.reject();
-        }
+        function getReportDataFailed(error) {$q.reject();}
         return request;
     };
 
