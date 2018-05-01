@@ -74,7 +74,9 @@
         function getReportDataFailed(error) {$q.reject();}
         return request;
     };
-
+    function downloadcsv(row) {
+        return $http.get(baseUrl + 'Reports/Getdownloadcsv?file=' + row.ReportGenerated);
+    };
 
 
 
@@ -82,7 +84,8 @@
         PendingRequest: PendingRequest,
         GetWorkGroupReport: GetWorkGroupReport,
         GetAllWorkGroups: GetAllWorkGroups,
-        GetCSVList: GetCSVList
+        GetCSVList: GetCSVList,
+        downloadcsv: downloadcsv
        
 
     }

@@ -1,6 +1,6 @@
 USE [qm]
 GO
-/****** Object:  StoredProcedure [dbo].[GetAllWorkGroups]    Script Date: 4/30/2018 10:50:14 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetAllWorkGroups]    Script Date: 5/1/2018 12:58:33 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -24,7 +24,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GetReport]    Script Date: 4/30/2018 10:50:14 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetReport]    Script Date: 5/1/2018 12:58:33 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -73,7 +73,7 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[GetReportcsvList]    Script Date: 4/30/2018 10:50:14 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetReportcsvList]    Script Date: 5/1/2018 12:58:33 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -83,7 +83,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-create PROCEDURE [dbo].[GetReportcsvList] 
+CREATE PROCEDURE [dbo].[GetReportcsvList] 
 	-- Add the parameters for the stored procedure here
 AS
 BEGIN
@@ -92,11 +92,10 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	Select ID, ReportGenerated, CreatedOn, CreatedBy from ReportsGenerated order by ID desc
+	Select * from ReportsGenerated order by ID desc
 END
-
 GO
-/****** Object:  StoredProcedure [dbo].[InsertReport]    Script Date: 4/30/2018 10:50:14 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertReport]    Script Date: 5/1/2018 12:58:33 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -114,39 +113,31 @@ GO
 
 CREATE PROCEDURE [dbo].[InsertReport]  
 
-    -- Add the parameters for the stored procedure here 
-
-    @ReportGenerated nvarchar(max), 
-
-    @CreatedOn datetime, 
-
-    @CreatedBy  nvarchar(max) 
-
-  
+    @ReportGeneratedFileName varchar(MAX),
+	@CreatedOn datetime,
+	@CreatedBy varchar(MAX),
+	@MethodofCreation varchar(MAX),
+	@ReportGeneratedFullPath varchar(MAX),
+	@ReportLocation varchar(MAX)
 
 AS 
-
 BEGIN 
-
-    -- SET NOCOUNT ON added to prevent extra result sets from 
-
-    -- interfering with SELECT statements. 
-
     SET NOCOUNT ON; 
 
-  
+      INSERT INTO [dbo].[ReportsGenerated] (
+	  ReportGeneratedFileName, CreatedOn, CreatedBy,MethodofCreation,ReportGeneratedFullPath,ReportLocation
+	  ) 
 
-    -- Insert statements for procedure here 
+VALUES (
 
-      INSERT INTO [dbo].[ReportsGenerated] (ReportGenerated, CreatedOn, CreatedBy) 
+ @ReportGeneratedFileName,
+	@CreatedOn,
+	@CreatedBy,
+	@MethodofCreation,
+	@ReportGeneratedFullPath,
+	@ReportLocation
+); 
 
-VALUES (@ReportGenerated, @CreatedOn, @CreatedBy); 
-
-  
-
-   
-
-  
 
 END 
 

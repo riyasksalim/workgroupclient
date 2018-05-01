@@ -10,4 +10,18 @@ angular.module('app')
             });
         };
         GetCSVList();
+
+      
+        $scope.download = function (row) {
+            debugger
+            //window.open(row.ReportGeneratedFullPath);
+
+            var id = '#downloadcsv-' + row.ReportGeneratedFileName;
+
+            setTimeout(function () {
+                $(id).click();
+            }, 1000);
+  
+        };
+
     }])

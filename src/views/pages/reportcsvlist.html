@@ -47,37 +47,48 @@
                             </th>
                         </tr>
                         <tr>
-                            <th st-sort="ReportGenerated">Report Generated</th>
-                            <th st-sort="CreatedOn">Created On</th>
+                         
                             <th st-sort="CreatedBy">Created By</th>
+                            <th st-sort="CreatedOn">Created On</th>
+                            <th st-sort="MethodofCreation">Method of Creation</th>
+                            <th st-sort="ReportGeneratedFileName">File Name</th>
+                            <!--<th st-sort="ReportGeneratedFullPath">Report Generated Full Path</th>-->
+                            <!--<th st-sort="ReportLocation">Report Location</th>-->
                             <th style="text-align: center;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
-                            <td>{{row.ReportGenerated}}</td>
-                            <td>{{row.CreatedOn | date}}</td>
                             <td>{{row.CreatedBy}}</td>
-                            <td>
+                            <td>{{row.CreatedOn | date}}</td>
+                            <td>{{row.MethodofCreation}}</td>
+                            <td>{{row.ReportGeneratedFileName}}</td>
+                          
+                            <td style="text-align:center">
+                               
                                 <span>
-                                    <button class="btn btn-sm-new btn-circle btn-search" >
+                                    <a class="btn btn-sm-new btn-circle btn-search" target="_blank" ng-attr-id="{{ 'downloadcsv-' + row.ReportGeneratedFileName }}" href={{row.ReportGeneratedFullPath}} download={{row.ReportGeneratedFileName}}>
+                                        <i class="fa fa-file-excel-o"></i>
+                                        Download Excel (csv)
+                                    </a>
+                                    <!--<button class="btn btn-sm-new btn-circle btn-search" ng-click="download(row)">
                                         <i class="fa fa-file-excel-o"></i>
                                        Download Excel (csv)
-                                    </button>
+                                    </button>-->
                                 </span>
                             </td>
                         </tr>
                     </tbody>
                     <tfoot ng-if="csvlist.lenght==0">
                         <tr>
-                            <td colspan="4" class="text-center">
+                            <td colspan="5" class="text-center">
                                 <span>No Data Found!</span>
                             </td>
                         </tr>
                     </tfoot>
                     <tfoot>
                         <tr>
-                            <td colspan="4" class="text-center">
+                            <td colspan="5" class="text-center">
                                 <div st-pagination="" st-items-by-page="itemsByPage"></div>
                             </td>
                         </tr>

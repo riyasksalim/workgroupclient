@@ -64,8 +64,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
                                         <div class="form-group">Work Group</div>
                                     </div>
@@ -78,6 +76,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--<div class="row">
+                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                        <div class="form-group">Work Group</div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <select style="height: 33px;" class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select"
+                                                    ng-options="item as item.WorkGroupName for item in WorkGroups track by item.WorkGroupId" ng-model="workgroupselected" data-original-title="" title="">
+                                                <option value="">--Select--</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>-->
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
                                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -130,8 +141,8 @@
                         </tr>
                         <tr>
                             <!--<th st-sort="workgroupid">Work Group ID</th>-->
-                            <th st-sort="starttime" style="min-width: 95px;">Start Date</th>
-                            <th st-sort="endtime" style="min-width: 95px;">End Date</th>
+                            <!--<th st-sort="starttime" style="min-width: 95px;">Start Date</th>-->
+                            <!--<th st-sort="endtime" style="min-width: 95px;">End Date</th>-->
                             <!--<th st-sort="mediaid">Media Id</th>-->
                             <th st-sort="dnis">Dnis</th>
                             <th st-sort="ani">Ani</th>
@@ -160,8 +171,8 @@
                     <tbody>
                         <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
                             <!--<td>{{row.workgroupid}}</td>-->
-                            <td>{{row.starttime | date}}</td>
-                            <td>{{row.endtime | date}}</td>
+                            <!--<td>{{row.starttime | date}}</td>-->
+                            <!--<td>{{row.endtime | date}}</td>-->
                             <!--<td>{{row.mediaid}}</td>-->
                             <td>{{row.dnis}}</td>
                             <td>{{row.ani}}</td>
