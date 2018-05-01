@@ -143,3 +143,42 @@ END
 
 
 GO
+
+
+
+
+
+USE [qm]
+GO
+
+/****** Object:  Table [dbo].[ReportsGenerated]    Script Date: 5/1/2018 1:31:39 AM ******/
+DROP TABLE [dbo].[ReportsGenerated]
+GO
+
+/****** Object:  Table [dbo].[ReportsGenerated]    Script Date: 5/1/2018 1:31:39 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[ReportsGenerated](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ReportGeneratedFileName] [varchar](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[CreatedBy] [varchar](max) NULL,
+	[MethodofCreation] [varchar](max) NULL,
+	[ReportGeneratedFullPath] [varchar](max) NULL,
+	[ReportLocation] [varchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
