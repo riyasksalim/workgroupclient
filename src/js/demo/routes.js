@@ -36,7 +36,7 @@ angular
     abstract: true,
     template: '<ui-view></ui-view>',
     ncyBreadcrumb: {
-      label: 'Components'
+      label: 'Pages'
     }
   })
   .state('app.components.buttons', {

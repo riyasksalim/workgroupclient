@@ -24,22 +24,22 @@
 </style>
 <div class="animated fadeIn">
    
-    <div class="portlet light panel">
+    <div class="portlet light panel" style="background-color: #ececec">
         <div class="portlet-title report-title">
             <div class="caption caption-md">
                 <i class="glyphicon glyphicon-tag"></i>
-                <span class="caption-subject  bold uppercase">Report</span>
+                <span class="caption-subject  bold uppercase">Generated csv</span>
             </div>
-            <div class="btn-group" style="margin-left: 20px; margin-top: 6px;">
+            <!--<div class="btn-group" style="margin-left: 20px; margin-top: 6px;">
                 <button class="btn btn-sm-new btn-circle btn-search" ng-csv="getCsvData()" csv-header="getCsvHeader()" filename="CASES-SOLD-REPORT ( PRIOR MONTH ).CSV" data-ng-disabled="salesReport.length==0">
                     <i class="fa fa-file-excel-o"></i>
                     Excel (csv)
                 </button>
-            </div>
+            </div>-->
         </div>
         <div class="portlet-body">
             <div style="overflow: auto;">
-                <table st-table="display_records" st-safe-src="csvlist" class="table table-striped table-bordered table-hover">
+                <table st-table="display_records" st-safe-src="csvlist" class="table table-striped table-bordered table-hover" style="background-color: white;">
                     <thead>
                         <tr>
                             <th colspan="5">
@@ -50,6 +50,7 @@
                             <th st-sort="ReportGenerated">Report Generated</th>
                             <th st-sort="CreatedOn">Created On</th>
                             <th st-sort="CreatedBy">Created By</th>
+                            <th style="text-align: center;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,18 +58,26 @@
                             <td>{{row.ReportGenerated}}</td>
                             <td>{{row.CreatedOn | date}}</td>
                             <td>{{row.CreatedBy}}</td>
+                            <td>
+                                <span>
+                                    <button class="btn btn-sm-new btn-circle btn-search" >
+                                        <i class="fa fa-file-excel-o"></i>
+                                       Download Excel (csv)
+                                    </button>
+                                </span>
+                            </td>
                         </tr>
                     </tbody>
                     <tfoot ng-if="csvlist.lenght==0">
                         <tr>
-                            <td colspan="3" class="text-center">
+                            <td colspan="4" class="text-center">
                                 <span>No Data Found!</span>
                             </td>
                         </tr>
                     </tfoot>
                     <tfoot>
                         <tr>
-                            <td colspan="3" class="text-center">
+                            <td colspan="4" class="text-center">
                                 <div st-pagination="" st-items-by-page="itemsByPage"></div>
                             </td>
                         </tr>
