@@ -66,3 +66,28 @@ gulp.task('sass:watch', function() {
 });
 
 gulp.task('default', ['serve']);
+
+
+var useref = require('gulp-useref');
+var gulpif = require('gulp-if');
+var uglify = require('gulp-uglify');
+var minifyCss = require('gulp-clean-css');
+
+gulp.task('html',['fonts1','fonts2'], function () {
+    return gulp.src(paths.src + 'index.html')
+        .pipe(useref())
+        .pipe(gulpif(paths.src + 'js/**/*.js', uglify()))
+        .pipe(gulpif(paths.src + '**/*.css', minifycss()))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('fonts1', function() {
+  return gulp.src([
+          paths.src+'js/plugins/font-awesome/css/fontawesome-webfont.*'])
+          .pipe(gulp.dest('dist/css/'));
+});
+gulp.task('fonts2', function() {
+  return gulp.src([
+          paths.src+'js/plugins/simple-line-icons/css/Simple-Line-Icons.*'])
+          .pipe(gulp.dest('dist/css/'));
+});

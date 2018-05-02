@@ -1,0 +1,100 @@
+<style>
+     .header-content:before {
+         content: ' ';
+         position: relative;
+         left: -5px;
+     }
+
+     .header-content.sort-ascent:before {
+         content: "\25B4";
+     }
+
+     .header-content.sort-descent:before {
+         content: "\25BE";
+     }
+
+     .st-sort-ascent:before {
+         content: '\25B2';
+     }
+
+     .st-sort-descent:before {
+         content: '\25BC';
+     }
+   
+</style>
+<div class="animated fadeIn">
+   
+    <div class="portlet light panel" style="background-color: #ececec">
+        <div class="portlet-title report-title">
+            <div class="caption caption-md">
+                <i class="glyphicon glyphicon-tag"></i>
+                <span class="caption-subject  bold uppercase">Generated csv</span>
+            </div>
+            <!--<div class="btn-group" style="margin-left: 20px; margin-top: 6px;">
+                <button class="btn btn-sm-new btn-circle btn-search" ng-csv="getCsvData()" csv-header="getCsvHeader()" filename="CASES-SOLD-REPORT ( PRIOR MONTH ).CSV" data-ng-disabled="salesReport.length==0">
+                    <i class="fa fa-file-excel-o"></i>
+                    Excel (csv)
+                </button>
+            </div>-->
+        </div>
+        <div class="portlet-body">
+            <div style="overflow: auto;">
+                <table st-table="display_records" st-safe-src="csvlist" class="table table-striped table-bordered table-hover" style="background-color: white;">
+                    <thead>
+                        <tr>
+                            <th colspan="5">
+                                <input st-search placeholder="global search" class="input-sm form-control" type="search" />
+                            </th>
+                        </tr>
+                        <tr>
+                         
+                            <th st-sort="CreatedBy">Created By</th>
+                            <th st-sort="CreatedOn">Created On</th>
+                            <th st-sort="MethodofCreation">Method of Creation</th>
+                            <th st-sort="ReportGeneratedFileName">File Name</th>
+                            <!--<th st-sort="ReportGeneratedFullPath">Report Generated Full Path</th>-->
+                            <!--<th st-sort="ReportLocation">Report Location</th>-->
+                            <th style="text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
+                            <td>{{row.CreatedBy}}</td>
+                            <td>{{row.CreatedOn | date}}</td>
+                            <td>{{row.MethodofCreation}}</td>
+                            <td>{{row.ReportGeneratedFileName}}</td>
+                          
+                            <td style="text-align:center">
+                               
+                                <span>
+                                    <a class="btn btn-sm-new btn-circle btn-search" target="_blank" ng-attr-id="{{ 'downloadcsv-' + row.ReportGeneratedFileName }}" href={{row.ReportGeneratedFullPath}} download={{row.ReportGeneratedFileName}}>
+                                        <i class="fa fa-file-excel-o"></i>
+                                        Download Excel (csv)
+                                    </a>
+                                    <!--<button class="btn btn-sm-new btn-circle btn-search" ng-click="download(row)">
+                                        <i class="fa fa-file-excel-o"></i>
+                                       Download Excel (csv)
+                                    </button>-->
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot ng-if="csvlist.lenght==0">
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <span>No Data Found!</span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="text-center">
+                                <div st-pagination="" st-items-by-page="itemsByPage"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

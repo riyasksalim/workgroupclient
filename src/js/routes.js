@@ -27,30 +27,30 @@ angular
     resolve: {
       loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
         // you can lazy load CSS files
-        return $ocLazyLoad.load([{
-          serie: true,
-          name: 'Flags',
-          files: ['node_modules/flag-icon-css/css/flag-icon.min.css']
-        },{
-          serie: true,
-          name: 'Font Awesome',
-          files: ['node_modules/font-awesome/css/font-awesome.min.css']
-        },{
-          serie: true,
-          name: 'Simple Line Icons',
-          files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
-        }]);
+        //return $ocLazyLoad.load([{
+        //  serie: true,
+        //  name: 'Flags',
+        //  files: ['src/plugins/flag-icon-css/css/flag-icon.min.css']
+        //},{
+        //  serie: true,
+        //  name: 'Font Awesome',
+        //  files: ['src/plugins/font-awesome/css/font-awesome.min.css']
+        //},{
+        //  serie: true,
+        //  name: 'Simple Line Icons',
+        //  files: ['src/plugins/simple-line-icons/css/simple-line-icons.css']
+        //}]);
       }],
       loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
         // you can lazy load files for an existing module
-        return $ocLazyLoad.load([{
-          serie: true,
-          name: 'chart.js',
-          files: [
-            'node_modules/chart.js/dist/Chart.min.js',
-            'node_modules/angular-chart.js/dist/angular-chart.min.js'
-          ]
-        }]);
+        //return $ocLazyLoad.load([{
+        //  serie: true,
+        //  name: 'chart.js',
+        //  files: [
+        //    'node_modules/chart.js/dist/Chart.min.js',
+        //    'node_modules/angular-chart.js/dist/angular-chart.min.js'
+        //  ]
+        //}]);
       }],
     }
   })
@@ -66,22 +66,22 @@ angular
     resolve: {
       loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
         // you can lazy load files for an existing module
-        return $ocLazyLoad.load([
-          {
-            serie: true,
-            name: 'chart.js',
-            files: [
-              'node_modules/chart.js/dist/Chart.min.js',
-              'node_modules/angular-chart.js/dist/angular-chart.min.js'
-            ]
-          },
-        ]);
+        //return $ocLazyLoad.load([
+        //  {
+        //    serie: true,
+        //    name: 'chart.js',
+        //    files: [
+        //      'node_modules/chart.js/dist/Chart.min.js',
+        //      'node_modules/angular-chart.js/dist/angular-chart.min.js'
+        //    ]
+        //  },
+        //]);
       }],
       loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
         // you can lazy load controllers
-        return $ocLazyLoad.load({
-          files: ['js/controllers/main.js']
-        });
+        //return $ocLazyLoad.load({
+        //  files: ['js/controllers/main.js']
+        //});
       }]
     }
   })
@@ -89,18 +89,18 @@ angular
     abstract: true,
     templateUrl: 'views/common/layouts/simple.html',
     resolve: {
-      loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
-        // you can lazy load CSS files
-        return $ocLazyLoad.load([{
-          serie: true,
-          name: 'Font Awesome',
-          files: ['node_modules/font-awesome/css/font-awesome.min.css']
-        },{
-          serie: true,
-          name: 'Simple Line Icons',
-          files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
-        }]);
-      }],
+      //loadCSS: ['$ocLazyLoad', function($ocLazyLoad) {
+      //  // you can lazy load CSS files
+      //  return $ocLazyLoad.load([{
+      //    serie: true,
+      //    name: 'Font Awesome',
+      //    files: ['node_modules/font-awesome/css/font-awesome.min.css']
+      //  },{
+      //    serie: true,
+      //    name: 'Simple Line Icons',
+      //    files: ['node_modules/simple-line-icons/css/simple-line-icons.css']
+      //  }]);
+      //}],
     }
   })
 
