@@ -72,8 +72,9 @@ var useref = require('gulp-useref');
 var gulpif = require('gulp-if');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-clean-css');
+var del = require('del');
 
-gulp.task('html', function () {
+gulp.task('buildapp', ['clean', 'copyhtml', 'copyjs', 'copyimages', 'copycss'], function () {
     return gulp.src(paths.src + 'index.html')
         .pipe(useref())
         .pipe(gulpif(paths.src + 'js/**/*.js', uglify()))
@@ -90,4 +91,36 @@ gulp.task('html', function () {
 //  return gulp.src([
 //          paths.src+'js/plugins/simple-line-icons/css/Simple-Line-Icons.*'])
 //          .pipe(gulp.dest('dist/css/'));
+//});
+
+
+gulp.task('copyhtml', function () {
+    return gulp.src([paths.src + 'views/**/*', paths.dist+'views/**/*'])
+     .pipe(gulp.dest('dist/views'));
+      
+});
+
+gulp.task('clean', function () {
+    return del('dist/**', { force: true });
+});
+
+gulp.task('copyjs', function () {
+    return gulp.src([paths.src + 'js/**/*', paths.dist + 'js/**/*'])
+     .pipe(gulp.dest('dist/js'));
+
+});
+gulp.task('copyimages', function () {
+    return gulp.src([paths.src + 'img/**/*', paths.dist + 'img/**/*'])
+     .pipe(gulp.dest('dist/img'));
+
+});
+gulp.task('copycss', function () {
+    return gulp.src([paths.src + 'css/**/*', paths.dist + 'css/**/*'])
+     .pipe(gulp.dest('dist/css'));
+
+});
+//gulp.task('scss', function () {
+//    return gulp.src([paths.src + 'scss/**/*', paths.dist + 'scss/**/*'])
+//     .pipe(gulp.dest('dist/scss'));
+
 //});

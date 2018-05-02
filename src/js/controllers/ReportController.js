@@ -4,6 +4,7 @@
     $scope.itemsByPage=15
     var baseUrl = ApiUrl;
     $scope.loading = false;
+   
     $(function () {
         $("#StartDate").datepicker({
             onSelect: function (date) {
