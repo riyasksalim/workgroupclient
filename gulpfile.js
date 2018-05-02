@@ -74,12 +74,18 @@ var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-clean-css');
 var del = require('del');
 
-gulp.task('buildapp', ['clean', 'copyhtml', 'copyjs', 'copyimages', 'copycss'], function () {
+gulp.task('buildapp', function () {
     return gulp.src(paths.src + 'index.html')
         .pipe(useref())
         .pipe(gulpif(paths.src + 'js/**/*.js', uglify()))
         //.pipe(gulpif(paths.src + '**/*.css', minifycss()))
         .pipe(gulp.dest('dist'));
+});
+
+gulp.task('runbuild', ['buildapp', 'clean', 'copyhtml', 'copyjs', 'copyimages', 'copycss'], function () {
+    return gulp.src([paths.src + 'views/**/*', paths.dist + 'views/**/*'])
+     .pipe(gulp.dest('dist/views'));
+
 });
 
 //gulp.task('fonts1', function() {
