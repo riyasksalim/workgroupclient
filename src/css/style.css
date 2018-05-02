@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * CoreUI - Open Source Bootstrap Admin Template
  * @version v1.0.10
@@ -10429,7 +10429,7 @@ base-chart.chart {
     padding: 0.5rem 1rem;
     margin-right: 0;
     background-color: #fff;
-    background-image: url("../img/logo.png");
+    background-image: url("https://www.gmkfreelogos.com/logos/U/img/Utility_International.gif");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 70px auto;
