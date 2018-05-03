@@ -59399,6 +59399,7 @@ angular.module('app')
     $scope.itemsByPage=15
     var baseUrl = ApiUrl;
     $scope.loading = false;
+   
     var settings = {
         'toaster':
         {
@@ -59458,14 +59459,6 @@ angular.module('app')
         'stylesheet': null,
         'donotdismiss': []
     };
-
-    $.toaster({
-        settings:settings,
-        message: 'Your message hereqqqqqqqqqqq',
-        title: 'Yor title'
-
-    });
-
     $(function () {
         $("#StartDate").datepicker({
             onSelect: function (date) {
@@ -59493,6 +59486,18 @@ angular.module('app')
     GetAllWorkGroups();
     $scope.WorkGroupsReport = [];
     $scope.search = function () {
+
+        if ($scope.StartDate == undefined || $scope.EndDate == undefined || $scope.workgroupselected == undefined || $scope.StartDate > $scope.EndDate) {
+
+            //$.toaster('Input Parameter required', '', 'danger');
+            $.toaster({
+                settings: settings,
+                message: 'Input Parameter required'
+            });
+            return false;
+        }
+
+
         var params = {
             StartDate: $scope.StartDate,
             EndDate: $scope.EndDate,
@@ -59502,13 +59507,21 @@ angular.module('app')
         (httpRequest = dataService.GetWorkGroupReport(params).then(function (response) {
             if (response && response.data) {
                 $scope.WorkGroupsReport = response.data;
+               
+
+                $.toaster({
+                    settings: settings,
+                    message: 'CSV Generated Succesfully..',
+                  
+
+                });
             }
 
         }, function onError() {
         }));
     };
     $scope.abortExecutingApi = function () {
-        debugger
+    
         return (httpRequest && httpRequest.abortCall());
     };
 }])
