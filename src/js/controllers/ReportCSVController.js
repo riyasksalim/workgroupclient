@@ -35,8 +35,9 @@ angular.module('app')
                     var link = document.createElement('a');
                     link.href = data1;
                     link.download=s[0]+".csv"
+                    document.body.appendChild(link);
                     link.click();
-               
+                    document.body.removeChild(link);
                
                 }
             }, function onError() {
