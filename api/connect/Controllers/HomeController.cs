@@ -13,6 +13,10 @@ using System.IO;
 using System.Reflection;
 using System.Configuration;
 using System.Text;
+using System.Net.Http;
+using System.Net;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace connect.Controllers
 {
@@ -24,8 +28,14 @@ namespace connect.Controllers
         public string filename { get; set; }
          public string locationAndFile { get; set; }
          public string location { get; set; }
-        
-        
+
+
+        string bookPath_Pdf = @"C:\MyWorkSpace\SelfDev\UserAPI\UserAPI\Books\sample.pdf";
+        string bookPath_xls = @"C:\MyWorkSpace\SelfDev\UserAPI\UserAPI\Books\sample.xls";
+        string bookPath_doc = @"C:\MyWorkSpace\SelfDev\UserAPI\UserAPI\Books\sample.doc";
+        string bookPath_zip = @"C:\MyWorkSpace\SelfDev\UserAPI\UserAPI\Books\sample.zip";
+
+
         [System.Web.Http.HttpPost]
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
@@ -83,11 +93,26 @@ namespace connect.Controllers
 
 				}
                 if(WorkGroupReportBOList.Count>0){
-                 
-				   CreateCSV(WorkGroupReportBOList);
 
+                   //string location = ConfigurationManager.AppSettings["FTPLocation"];
 
-				ReportGeneratedBO ReportGeneratedBO = new ReportGeneratedBO()
+                   // //  string formatedStartDate = ReportModel.StartDate.ToString().Replace("/", "").Replace(" ", "").Replace(":", "");
+                   // //  string formatedEndDate = ReportModel.EndDate.ToString().Replace("/", "").Replace(" ", "").Replace(":", "");
+                   // //  filename = formatedStartDate + "_" + formatedEndDate + ".csv";
+
+                   
+                   // var status = Check(location);
+                   // if (status == "notExist")
+                   // {
+                   //     GrantAccess(location);
+                   // }
+                   // else if (status == "inaccessible")
+                   // {
+                   //     GrantAccess(location);
+                   // }
+                    CreateCSV(WorkGroupReportBOList);
+
+                    ReportGeneratedBO ReportGeneratedBO = new ReportGeneratedBO()
 				{
 					CreatedBy = "User",
 					CreatedOn = DateTime.Today,
@@ -202,11 +227,11 @@ namespace connect.Controllers
             location = ConfigurationManager.AppSettings["FTPLocation"];
             string startDate = "", endDate = "";
             StringBuilder sb = new StringBuilder();
-           
-            //string headerText = $"\"mediaid\",\"dnis\",\"ani\",\"updateuserid\",\"percentscore\",\"overallscore\",\"reviewdate\",\"username\",\"userroleid\",\"usertypeid\"," +
-            //    $"\"workgroupname\",\"description\",\"name\",\"sequencenumber\",\"weight\",\"questiondescription\",\"questionnumber\",\"questiontext\",\"responserequired\"," +
-            //    $"\"questionadditionalpoint\",\"autofailpoint\",\"questionadditionalconditionpoint\"";
-            //sb.AppendLine(headerText);
+
+            string headerText = $"\"mediaid\",\"dnis\",\"ani\",\"updateuserid\",\"percentscore\",\"overallscore\",\"reviewdate\",\"username\",\"userroleid\",\"usertypeid\"," +
+                $"\"workgroupname\",\"description\",\"name\",\"sequencenumber\",\"weight\",\"questiondescription\",\"questionnumber\",\"questiontext\",\"responserequired\"," +
+                $"\"questionadditionalpoint\",\"autofailpoint\",\"questionadditionalconditionpoint\"";
+            sb.AppendLine(headerText);
             foreach (WorkGroupReportBO student in list)
             {
                 startDate = student.starttime.ToString();
@@ -236,9 +261,10 @@ namespace connect.Controllers
             string formatedStartDate = startDate.Replace("/", "").Replace(" ","").Replace(":","");
             string formatedEndDate = endDate.Replace("/", "").Replace(" ", "").Replace(":", "");
              filename = formatedStartDate + "_" + formatedEndDate + ".csv";
-             locationAndFile = location + filename;
+           
+            locationAndFile = location+"/" + filename;
             File.WriteAllText(locationAndFile, sb.ToString());
-          
+
         }
         public static string FormatCSV(string input)
         {
@@ -272,75 +298,102 @@ namespace connect.Controllers
                 throw;
             }
         }
-        //public static void CreateCSVFromGenericList<T>(List<T> list)
-        //{
 
-        //    if (list == null || list.Count == 0) return;
+        [System.Web.Http.HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [Route("GetFile")]
+        public IHttpActionResult GetFile(string Filename)
+        {
+            string location = ConfigurationManager.AppSettings["FTPLocation"];
+            var a = Filename.Split('\\');
+            var b = a[1].Split('/');
+            string newstring = @""+a[0] + "/" + b[0] + "/" + b[1].ToString();
+            var dataBytes = File.ReadAllBytes(newstring);
+            var dataStream = new MemoryStream(dataBytes);
+            return new eBookResult(dataStream, Request, Filename);
+        }
+        private static void GrantAccess(string file)
+        {
+            bool exists = System.IO.Directory.Exists(file);
+            if (!exists)
+            {
+                DirectoryInfo di = System.IO.Directory.CreateDirectory(file);
+          
+                //DirectoryInfo dInfo = new DirectoryInfo(file);
+                //DirectorySecurity dSecurity = dInfo.GetAccessControl();
+                //dSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
+                //dInfo.SetAccessControl(dSecurity);
+            }
+            else
+            {
+                Console.WriteLine("The Folder already exists");
+            }
+          
 
-        //    //get type from 0th member 
+        }
+        public string Check(string name)
+        {
+            DirectoryInfo di = new DirectoryInfo(name);
+            var state = "";
+            if (!di.Exists)
+            {
+                try
+                {
+                    if ((int)di.Attributes == -1)
+                    {
+                        state = "notExist";
+                    }
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    state = "inaccessible";
+                }
+            }
+            return state;
+        }
+        [HttpGet]
+        [Route("Ebook/GetBookForHRM/{format}")]
+        public HttpResponseMessage GetBookForHRM(string format)
+        {
+            string reqBook = format.ToLower() == "pdf" ? bookPath_Pdf : (format.ToLower() == "xls" ? bookPath_xls : (format.ToLower() == "doc" ? bookPath_doc : bookPath_zip));
+            string bookName = "sample." + format.ToLower();
+            //converting Pdf file into bytes array  
+            var dataBytes = File.ReadAllBytes(reqBook);
+            //adding bytes to memory stream   
+            var dataStream = new MemoryStream(dataBytes);
 
-        //    Type t = list[0].GetType();
+            HttpResponseMessage httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
+            httpResponseMessage.Content = new StreamContent(dataStream);
+            httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+            httpResponseMessage.Content.Headers.ContentDisposition.FileName = bookName;
+            httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
-        //    string newLine = Environment.NewLine;
-
-        //    using (var sw = new StreamWriter(csvNameWithExt))
-        //    {
-
-        //        //make a new instance of the class name we figured out to get its props 
-
-        //        object o = Activator.CreateInstance(t);
-
-        //        //gets all properties 
-
-        //        PropertyInfo[] props = o.GetType().GetProperties();
-
-        //        //foreach of the properties in class above, write out properties 
-
-        //        //this is the header row 
-
-        //        foreach (PropertyInfo pi in props)
-        //        {
-
-        //            sw.Write(pi.Name.ToUpper() + ",");
-
-        //        }
-
-        //        sw.Write(newLine);
-
-        //        //this acts as datarow 
-
-        //        foreach (T item in list)
-        //        {
-
-        //            //this acts as datacolumn 
-
-        //            foreach (PropertyInfo pi in props)
-        //            {
-
-        //                //this is the row+col intersection (the value) 
-
-        //                string whatToWrite =
-
-        //                Convert.ToString(item.GetType()
-
-        //                .GetProperty(pi.Name)
-
-        //                .GetValue(item, null))
-
-        //                .Replace(',', ' ') + ',';
-
-        //                sw.Write(whatToWrite);
-
-        //            }
-
-        //            sw.Write(newLine);
-
-        //        }
-
-        //    }
-
-        //}
+            return httpResponseMessage;
+        }
 
     }
+    public class eBookResult : IHttpActionResult
+    {
+        MemoryStream bookStuff;
+        string PdfFileName;
+        HttpRequestMessage httpRequestMessage;
+        HttpResponseMessage httpResponseMessage;
+        public eBookResult(MemoryStream data, HttpRequestMessage request, string filename)
+        {
+            bookStuff = data;
+            httpRequestMessage = request;
+            PdfFileName = filename;
+        }
+        public System.Threading.Tasks.Task<HttpResponseMessage> ExecuteAsync(System.Threading.CancellationToken cancellationToken)
+        {
+            httpResponseMessage = httpRequestMessage.CreateResponse(HttpStatusCode.OK);
+            httpResponseMessage.Content = new StreamContent(bookStuff);
+            //httpResponseMessage.Content = new ByteArrayContent(bookStuff.ToArray());  
+            httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+            httpResponseMessage.Content.Headers.ContentDisposition.FileName = PdfFileName;
+            httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
+            return System.Threading.Tasks.Task.FromResult(httpResponseMessage);
+        }
+    }
 }

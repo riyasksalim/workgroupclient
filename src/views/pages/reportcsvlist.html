@@ -23,7 +23,7 @@
    
 </style>
 <div class="animated fadeIn">
-   
+    <div id="output"></div>
     <div class="portlet light panel" style="background-color: #ececec">
         <div class="portlet-title report-title">
             <div class="caption caption-md">
@@ -67,7 +67,7 @@
                             <td style="text-align:center">
                                
                                 <span>
-                                    <a class="btn btn-sm-new btn-circle btn-search" target="_blank" ng-attr-id="{{ 'downloadcsv-' + row.ReportGeneratedFileName }}" href={{row.ReportGeneratedFullPath}} download={{row.ReportGeneratedFileName}}>
+                                    <a class="btn btn-sm-new btn-circle btn-search" ng-click="download(row)" >
                                         <i class="fa fa-file-excel-o"></i>
                                         Download Excel (csv)
                                     </a>

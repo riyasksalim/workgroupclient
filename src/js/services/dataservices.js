@@ -57,6 +57,11 @@
         return $http.get(baseUrl + 'Reports/GetCSVList');
     };
 
+    function GetFile(row) {
+       // return $http.get('http://localhost:51310/Reports/GetFile?Filename=');
+     return $http.get(baseUrl + 'Reports/GetFile?Filename='+row.ReportGeneratedFullPath);
+    };
+
     function GetWorkGroupReport(Params) {
         var promise = $q.defer();
         var request = $http.post(baseUrl + 'Reports/GetCustomerServiceDetails/', Params,
@@ -85,7 +90,8 @@
         GetWorkGroupReport: GetWorkGroupReport,
         GetAllWorkGroups: GetAllWorkGroups,
         GetCSVList: GetCSVList,
-        downloadcsv: downloadcsv
+        downloadcsv: downloadcsv,
+        GetFile:GetFile
        
 
     }
