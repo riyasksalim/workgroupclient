@@ -7,10 +7,10 @@ angular.module('app')
 
 //    MetronicApp.constant('ApiUrl', 'http://localhost:55335/');
 
+//    // MetronicApp.constant('ApiUrl', 'http://dev-dashboard.nogalesproduce.com/api/');
 
 
-
-.constant('ApiUrl', 'http://localhost:90/api/');
+.constant('ApiUrl', 'http://localhost:51310/');
 
 //}
 //else {
