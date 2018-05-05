@@ -1,0 +1,14 @@
+select m.starttime, m.endtime,m.mediaid, m.dnis,m.ani, r.updateuserid,
+	r.percentscore,r.overallscore,
+	r.reviewdate, i.username, i.userroleid, i.usertypeid,
+	w.workgroupname, s.description, s.name, s.sequencenumber, s.weight as sweight,
+	q.questiondescription, q.questionnumber, q.questiontext, q.weight as qweight, q.responserequired,
+	q.questionadditionalpoint,q.autofailpoint,q.questionadditionalconditionpoint
+	from media m inner join review r on m.mediaid = r.mediaid
+	inner join iqmuser i on i.userid = r.owneruserid
+	inner join workgroup_iqmuser wi on wi.userid = r.owneruserid
+	inner join workgroup w on w.workgroupid = wi.workgroupid
+	inner join sectionresult sr on sr.reviewid = r.reviewid
+	inner join section s on s.sectionid = sr.sectionid
+	inner join question q on q.sectionid = s.sectionid
+	where w.workgroupid = @workgroupid and m.starttime >= @startdate and m.endtime <= @endDate
