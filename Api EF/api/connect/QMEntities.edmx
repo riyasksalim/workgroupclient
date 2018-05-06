@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetAllWorkGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="startdate" Type="datetime" Mode="In" />
+          <Parameter Name="endDate" Type="datetime" Mode="In" />
+          <Parameter Name="workgroupid" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="GetReportcsvList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InsertReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ReportGeneratedFileName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="varchar(max)" Mode="In" />
+          <Parameter Name="MethodofCreation" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ReportGeneratedFullPath" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ReportLocation" Type="varchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="QMModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QMEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="GetAllWorkGroups" ReturnType="Collection(QMModel.GetAllWorkGroups_Result)" />
+          <FunctionImport Name="GetReport" ReturnType="Collection(QMModel.GetReport_Result)">
+            <Parameter Name="startdate" Mode="In" Type="DateTime" />
+            <Parameter Name="endDate" Mode="In" Type="DateTime" />
+            <Parameter Name="workgroupid" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="GetReportcsvList" ReturnType="Collection(QMModel.GetReportcsvList_Result)" />
+          <FunctionImport Name="InsertReport">
+            <Parameter Name="ReportGeneratedFileName" Mode="In" Type="String" />
+            <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="MethodofCreation" Mode="In" Type="String" />
+            <Parameter Name="ReportGeneratedFullPath" Mode="In" Type="String" />
+            <Parameter Name="ReportLocation" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetAllWorkGroups_Result">
+          <Property Type="Guid" Name="workgroupid" Nullable="false" />
+          <Property Type="String" Name="workgroupname" Nullable="false" MaxLength="128" />
+        </ComplexType>
+        <ComplexType Name="GetReport_Result">
+          <Property Type="DateTime" Name="starttime" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="endtime" Nullable="true" Precision="23" />
+          <Property Type="Guid" Name="mediaid" Nullable="false" />
+          <Property Type="String" Name="dnis" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ani" Nullable="true" MaxLength="50" />
+          <Property Type="Guid" Name="updateuserid" Nullable="true" />
+          <Property Type="Int16" Name="percentscore" Nullable="true" />
+          <Property Type="String" Name="overallscore" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="reviewdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="64" />
+          <Property Type="Byte" Name="userroleid" Nullable="false" />
+          <Property Type="Byte" Name="usertypeid" Nullable="false" />
+          <Property Type="String" Name="workgroupname" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="Byte" Name="sequencenumber" Nullable="false" />
+          <Property Type="Byte" Name="sweight" Nullable="false" />
+          <Property Type="String" Name="questiondescription" Nullable="true" MaxLength="1024" />
+          <Property Type="Byte" Name="questionnumber" Nullable="false" />
+          <Property Type="String" Name="questiontext" Nullable="false" MaxLength="1024" />
+          <Property Type="Byte" Name="qweight" Nullable="false" />
+          <Property Type="Boolean" Name="responserequired" Nullable="false" />
+          <Property Type="Decimal" Name="questionadditionalpoint" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="autofailpoint" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="questionadditionalconditionpoint" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="GetReportcsvList_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="ReportGeneratedFileName" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" />
+          <Property Type="String" Name="MethodofCreation" Nullable="true" />
+          <Property Type="String" Name="ReportGeneratedFullPath" Nullable="true" />
+          <Property Type="String" Name="ReportLocation" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QMModelStoreContainer" CdmEntityContainer="QMEntities" >
+          <FunctionImportMapping FunctionImportName="GetAllWorkGroups" FunctionName="QMModel.Store.GetAllWorkGroups">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QMModel.GetAllWorkGroups_Result">
+                <ScalarProperty Name="workgroupid" ColumnName="workgroupid" />
+                <ScalarProperty Name="workgroupname" ColumnName="workgroupname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReport" FunctionName="QMModel.Store.GetReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QMModel.GetReport_Result">
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="mediaid" ColumnName="mediaid" />
+                <ScalarProperty Name="dnis" ColumnName="dnis" />
+                <ScalarProperty Name="ani" ColumnName="ani" />
+                <ScalarProperty Name="updateuserid" ColumnName="updateuserid" />
+                <ScalarProperty Name="percentscore" ColumnName="percentscore" />
+                <ScalarProperty Name="overallscore" ColumnName="overallscore" />
+                <ScalarProperty Name="reviewdate" ColumnName="reviewdate" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userroleid" ColumnName="userroleid" />
+                <ScalarProperty Name="usertypeid" ColumnName="usertypeid" />
+                <ScalarProperty Name="workgroupname" ColumnName="workgroupname" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="sequencenumber" ColumnName="sequencenumber" />
+                <ScalarProperty Name="sweight" ColumnName="sweight" />
+                <ScalarProperty Name="questiondescription" ColumnName="questiondescription" />
+                <ScalarProperty Name="questionnumber" ColumnName="questionnumber" />
+                <ScalarProperty Name="questiontext" ColumnName="questiontext" />
+                <ScalarProperty Name="qweight" ColumnName="qweight" />
+                <ScalarProperty Name="responserequired" ColumnName="responserequired" />
+                <ScalarProperty Name="questionadditionalpoint" ColumnName="questionadditionalpoint" />
+                <ScalarProperty Name="autofailpoint" ColumnName="autofailpoint" />
+                <ScalarProperty Name="questionadditionalconditionpoint" ColumnName="questionadditionalconditionpoint" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetReportcsvList" FunctionName="QMModel.Store.GetReportcsvList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QMModel.GetReportcsvList_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ReportGeneratedFileName" ColumnName="ReportGeneratedFileName" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="MethodofCreation" ColumnName="MethodofCreation" />
+                <ScalarProperty Name="ReportGeneratedFullPath" ColumnName="ReportGeneratedFullPath" />
+                <ScalarProperty Name="ReportLocation" ColumnName="ReportLocation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="QMModel.Store.InsertReport" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

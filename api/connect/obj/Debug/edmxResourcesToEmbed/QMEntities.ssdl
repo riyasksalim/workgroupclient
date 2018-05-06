@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="GetAllWorkGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="endDate" Type="datetime" Mode="In" />
+    <Parameter Name="workgroupid" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GetReportcsvList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="InsertReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ReportGeneratedFileName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar(max)" Mode="In" />
+    <Parameter Name="MethodofCreation" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ReportGeneratedFullPath" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ReportLocation" Type="varchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="QMModelStoreContainer" />
+</Schema>
