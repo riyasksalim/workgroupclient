@@ -114,12 +114,15 @@
             EndDate: $scope.EndDate,
             WorkGroupID: $scope.workgroupselected
         };
-
+        $.blockUI({ message: '<img src="../img/loading.gif"/>',css: {
+            border:     'none',
+            backgroundColor:'transparent'
+        } });
         (httpRequest = dataService.GetWorkGroupReport(params).then(function (response) {
             if (response && response.data) {
                 $scope.WorkGroupsReport = response.data;
                
-
+                $.unblockUI();
                 $.toaster({
                     settings: settings,
                     message: 'CSV Generated Succesfully..',
@@ -129,6 +132,7 @@
             }
 
         }, function onError() {
+            $.unblockUI();
         }));
     };
     $scope.abortExecutingApi = function () {
