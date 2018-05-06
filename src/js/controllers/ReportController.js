@@ -87,6 +87,10 @@
         dataService.GetAllWorkGroups().then(function (response) {
             if (response && response.data) {
                 $scope.WorkGroups = response.data;
+
+                if (response.data.length == 0) {
+                    $("#select2-drop").css('display', 'none');
+                }
                 $.unblockUI();
             }
         }, function onError() {
