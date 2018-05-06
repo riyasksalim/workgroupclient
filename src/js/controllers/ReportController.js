@@ -4,7 +4,10 @@
     $scope.itemsByPage=15
     var baseUrl = ApiUrl;
     $scope.loading = false;
-   
+    $.blockUI({ message: '<img src="../img/loading.gif"/>',css: {
+        border:     'none',
+        backgroundColor:'transparent'
+    } });
     var settings = {
         'toaster':
         {
@@ -80,11 +83,14 @@
     });
 
   function GetAllWorkGroups() {
+    
         dataService.GetAllWorkGroups().then(function (response) {
             if (response && response.data) {
                 $scope.WorkGroups = response.data;
+                $.unblockUI();
             }
         }, function onError() {
+            $.unblockUI();
         });
     };
   var httpRequest = null;
