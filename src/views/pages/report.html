@@ -4,25 +4,18 @@
         position: relative;
         left: -5px;
     }
-
     .header-content.sort-ascent:before {
         content: "\25B4";
     }
-
     .header-content.sort-descent:before {
         content: "\25BE";
     }
-
     .st-sort-ascent:before {
         content: '\25B2';
     }
-
     .st-sort-descent:before {
         content: '\25BC';
     }
-  
-
- 
 </style>
 <div class="animated fadeIn">
     <div class="row">
@@ -36,13 +29,13 @@
                 </div>
                 <div class="portlet-body" style="padding-bottom: 30px; display: block;">
                     <div class="row">
-                        <form name="filterForm" novalidate="" class="ng-pristine ng-valid">
+                        <form name="filterForm" novalidate="" class="ng-pristine ng-valid" style="width:100%">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
                                         <div class="form-group">Current Start</div>
                                     </div>
-                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
@@ -51,10 +44,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
                                         <div class="form-group">Current End</div>
                                     </div>
-                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
@@ -64,31 +57,29 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
                                         <div class="form-group">Work Group</div>
                                     </div>
-                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="form-group">
-                                            <select style="height: 33px;" class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select"
-                                                    ng-options="item as item.WorkGroupName for item in WorkGroups track by item.WorkGroupId" ng-model="workgroupselected" data-original-title="" title="">
-                                                <option value="">--Select--</option>
+                                            <select style="width: 548px;" ui-select2="select2Options" multiple ng-model="workgroupselected">
+                                                <option ng-repeat="item in WorkGroups" value="{{item.WorkGroupId}}">{{item.WorkGroupName}}</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+                                        <div class="form-group"></div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                          
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div class="row">
-                                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
-                                        <div class="form-group">Work Group</div>
-                                    </div>
-                                    <div class="col-lg-5 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <select style="height: 33px;" class="form-control select-md tooltips ng-pristine ng-untouched ng-valid" data-placeholder="Select"
-                                                    ng-options="item as item.WorkGroupName for item in WorkGroups track by item.WorkGroupId" ng-model="workgroupselected" data-original-title="" title="">
-                                                <option value="">--Select--</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>-->
+                               
+                               
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
                                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -96,18 +87,11 @@
                                             <span class="ladda-label">
                                                 <i class="fa fa-search"></i>
                                                 <span class="">Search</span>
-                                                <span class="ladda-spinner">Search</span>
+                                                <span class="ladda-spinner"></span>
                                             </span><span class="ladda-spinner"></span>
                                             <div class="ladda-progress" style="width: 0px;"></div>
                                         </button>
-                                        <!--<button class="btn btn-circle btn-sm orange btn-info" data-ng-click="resetSearch()">
-                                            <i class="fa fa-refresh"></i>
-                                            Reset
-                                        </button>-->
-                                        <!--<button class="btn btn-circle btn-sm btn-danger margin-top-xs" ng-disabled="iscanceldisabled" data-ng-click="abortExecutingApi()" disabled="disabled">
-                                            <i class="fa fa-times"></i>
-                                            Cancel
-                                        </button>-->
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -124,10 +108,7 @@
                 <span class="caption-subject  bold uppercase">Report</span>
             </div>
             <div class="btn-group" style="margin-left: 20px; margin-top: 6px;">
-                <!--<button class="btn btn-sm-new btn-circle btn-search" ng-csv="getCsvData()" csv-header="getCsvHeader()" filename="CASES-SOLD-REPORT ( PRIOR MONTH ).CSV" data-ng-disabled="salesReport.length==0">
-                    <i class="fa fa-file-excel-o"></i>
-                    Excel (csv)
-                </button>-->
+                
             </div>
         </div>
         <div class="portlet-body">
@@ -140,13 +121,9 @@
                             </th>
                         </tr>
                         <tr>
-                            <!--<th st-sort="workgroupid">Work Group ID</th>-->
-                            <!--<th st-sort="starttime" style="min-width: 95px;">Start Date</th>-->
-                            <!--<th st-sort="endtime" style="min-width: 95px;">End Date</th>-->
-                            <!--<th st-sort="mediaid">Media Id</th>-->
+                         
                             <th st-sort="dnis">Dnis</th>
                             <th st-sort="ani">Ani</th>
-                            <!--<th st-sort="updateuserid">Updated UserId</th>-->
                             <th st-sort="percentscore" style="min-width: 153px">Percentage Score</th>
                             <th st-sort="overallscore" style="min-width: 114px">Overall Scroll</th>
                             <th st-sort="reviewdate" style="min-width: 109px">Review Date</th>
@@ -157,11 +134,9 @@
                             <th st-sort="description">Description</th>
                             <th st-sort="name">Name</th>
                             <th st-sort="sequencenumber" style="min-width: 100px">Sequence #</th>
-                            <!--<th st-sort="sweight">sweight</th>-->
                             <th st-sort="questiondescription" style="min-width: 176px">Question Description</th>
                             <th st-sort="questionnumber" style="min-width: 93px">Question #</th>
                             <th st-sort="questiontext" style="min-width: 119px">Question Text</th>
-                            <!--<th st-sort="qweight">qweight</th>-->
                             <th st-sort="responserequired" style="min-width: 163px">Response Required</th>
                             <th st-sort="questionadditionalpoint" style="min-width: 205px">Question Additional Point</th>
                             <th st-sort="autofailpoint" style="min-width: 120px">Auto Fail Point</th>
@@ -170,13 +145,8 @@
                     </thead>
                     <tbody>
                         <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
-                            <!--<td>{{row.workgroupid}}</td>-->
-                            <!--<td>{{row.starttime | date}}</td>-->
-                            <!--<td>{{row.endtime | date}}</td>-->
-                            <!--<td>{{row.mediaid}}</td>-->
                             <td>{{row.dnis}}</td>
                             <td>{{row.ani}}</td>
-                            <!--<td>{{row.updateuserid}}</td>-->
                             <td>{{row.percentscore}}</td>
                             <td>{{row.overallscore}}</td>
                             <td>{{row.reviewdate |date}}</td>
@@ -187,12 +157,10 @@
                             <td>{{row.description}}</td>
                             <td>{{row.name}}</td>
                             <td>{{row.sequencenumber}}</td>
-                            <!--<td>{{row.sweight}}</td>-->
                             <td>{{row.questiondescription}}</td>
                             <td>{{row.questionnumber}}</td>
                             <td>{{row.questiontext}}</td>
-                            <!--<td>{{row.qweight}}</td>-->
-                            <td>{{row.responserequired}}</td>
+                            <td>{{row.responserequired}}    </td>
                             <td>{{row.questionadditionalpoint}}</td>
                             <td>{{row.autofailpoint}}</td>
                             <td>{{row.questionadditionalconditionpoint}}</td>

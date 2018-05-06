@@ -16,13 +16,15 @@ angular
     'oc.lazyLoad',
     'ncy-angular-breadcrumb',
     'angular-loading-bar',
-    'ui.bootstrap', 'ui.bootstrap.datetimepicker', 'smart-table'
+    'ui.bootstrap', 'ui.bootstrap.datetimepicker', 'smart-table',
+    'ui.select2'
     //'ui.utils', 
     ])
 
 .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
     cfpLoadingBarProvider.latencyThreshold = 1;
+   
 }])
 
 .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
