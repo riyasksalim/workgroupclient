@@ -1,10 +1,13 @@
 ﻿angular.module('app')
 
-.controller('ReportController', ['$scope', 'dataService', 'ApiUrl', '$http', function ($scope, dataService, ApiUrl, $http) {
+.controller('ReportController', ['$scope', 'dataService', 'ApiUrl', '$http','$timeout', function ($scope, dataService, ApiUrl, $http,$timeout) {
     $scope.itemsByPage=15
     var baseUrl = ApiUrl;
     $scope.loading = false;
-   
+    $.blockUI({ message: '<img src="../img/loading.gif"/>',css: {
+        border:     'none',
+        backgroundColor:'transparent'
+    } });
     var settings = {
         'toaster':
         {
@@ -80,11 +83,14 @@
     });
 
   function GetAllWorkGroups() {
+    
         dataService.GetAllWorkGroups().then(function (response) {
             if (response && response.data) {
                 $scope.WorkGroups = response.data;
+                $.unblockUI();
             }
         }, function onError() {
+            $.unblockUI();
         });
     };
   var httpRequest = null;
@@ -106,14 +112,17 @@
         var params = {
             StartDate: $scope.StartDate,
             EndDate: $scope.EndDate,
-            WorkGroupID: $scope.workgroupselected.WorkGroupId
+            WorkGroupID: $scope.workgroupselected
         };
-
+        $.blockUI({ message: '<img src="../img/loading.gif"/>',css: {
+            border:     'none',
+            backgroundColor:'transparent'
+        } });
         (httpRequest = dataService.GetWorkGroupReport(params).then(function (response) {
             if (response && response.data) {
                 $scope.WorkGroupsReport = response.data;
                
-
+                $.unblockUI();
                 $.toaster({
                     settings: settings,
                     message: 'CSV Generated Succesfully..',
@@ -123,11 +132,49 @@
             }
 
         }, function onError() {
+            $.unblockUI();
         }));
     };
     $scope.abortExecutingApi = function () {
     
         return (httpRequest && httpRequest.abortCall());
     };
+
+
+   
+    $scope.select2Options = {
+        // formatNoMatches: function(term) {
+           
+        //     var message = '<a ng-click="addTag()">Add tag:"' + term + '"</a>';
+        //     if(!$scope.$$phase) {
+        //         $scope.$apply(function() {
+        //             $scope.noResultsTag = term;
+        //         });
+        //     }
+        //     return message;
+        // }
+    };
+    
+    // $scope.addTag = function() {
+    //     $scope.tags.push({
+    //         id: $scope.tags.length,
+    //         name: $scope.noResultsTag
+    //     });
+    // };
+    
+    // $scope.$watch('noResultsTag', function(newVal, oldVal) {
+    //     if(newVal && newVal !== oldVal) {
+    //         $timeout(function() {
+    //             var noResultsLink = $('.select2-no-results');
+    //             console.log(noResultsLink.contents());
+    //             $compile(noResultsLink.contents())($scope);
+    //         });
+    //     }
+    // }, true);
+
+
+
+
+
 }])
 
