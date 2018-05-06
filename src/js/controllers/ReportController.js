@@ -98,16 +98,23 @@
     $scope.WorkGroupsReport = [];
     $scope.search = function () {
 
-        if ($scope.StartDate == undefined || $scope.EndDate == undefined || $scope.workgroupselected == undefined || $scope.StartDate > $scope.EndDate) {
+        if ($scope.StartDate == undefined || $scope.EndDate == undefined || $scope.workgroupselected == undefined) {
 
-            //$.toaster('Input Parameter required', '', 'danger');
             $.toaster({
                 settings: settings,
                 message: 'Input Parameter required'
             });
             return false;
-        }
 
+           
+        }
+        if($scope.StartDate > $scope.EndDate){
+            $.toaster({
+                settings: settings,
+                message: 'End Date Should be larger than start Date'
+            });
+            return false;
+        }
 
         var params = {
             StartDate: $scope.StartDate,

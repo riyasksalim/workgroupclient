@@ -16,6 +16,20 @@
     .st-sort-descent:before {
         content: '\25BC';
     }
+    .select2-container {
+    margin: 0;
+    position: relative;
+    display: contents !important;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+#select2-drop {
+    display: none !important;
+    top: 275px !important;
+    left: 340px !important;
+    /* width: 331px !important; */
+}
 </style>
 <div class="animated fadeIn">
     <div class="row">
@@ -64,7 +78,7 @@
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="form-group">
-                                            <select style="width: 548px;" ui-select2="select2Options" multiple ng-model="workgroupselected">
+                                            <select style="width:548px;" ui-select2="select2Options" multiple ng-model="workgroupselected">
                                                 <option ng-repeat="item in WorkGroups" value="{{item.WorkGroupId}}">{{item.WorkGroupName}}</option>
                                             </select>
                                         </div>
