@@ -99,9 +99,9 @@
     };
   var httpRequest = null;
     GetAllWorkGroups();
-    $scope.WorkGroupsReport = [];
+  
     $scope.search = function () {
-
+        $scope.WorkGroupsReport = [];
         if ($scope.StartDate == undefined || $scope.EndDate == undefined || $scope.workgroupselected == undefined) {
 
             $.toaster({
