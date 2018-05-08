@@ -70,13 +70,13 @@
     $(function () {
         $("#StartDate").datepicker({
             onSelect: function (date) {
-                $scope.StartDate = date;
+                $scope.StartDate =new Date(date);
                 $scope.$apply();
             }
          });
         $("#EndDate").datepicker({
             onSelect: function (date) {
-                $scope.EndDate = date;
+                $scope.EndDate = new Date(date);
                 $scope.$apply();
             }
         });
