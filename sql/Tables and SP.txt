@@ -67,9 +67,12 @@ ALTER PROCEDURE [dbo].[GetReport]
 	@workgroupid varchar(max)
 AS
 BEGIN
-    set nocount off
-
-	select m.starttime, m.endtime, m.mediaid, m.dnis, m.ani, r.updateuserid,
+	with CTEGetReport (starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
+	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
+	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
+	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored)
+	as     
+	(select distinct m.starttime, m.endtime, m.mediaid, m.dnis, m.ani, r.updateuserid,
 	r.percentscore, r.overallscore,
 	r.reviewdate, i.username, i.userroleid, i.usertypeid,
 	w.workgroupname, s.[description], s.[name], s.sequencenumber, 
@@ -90,12 +93,13 @@ BEGIN
 	where (m.starttime BETWEEN @startdate AND @endDate) OR 
 	(m.endtime BETWEEN @startdate AND @endDate) OR 
 	(m.starttime <= @startdate AND m.endtime >= @endDate) and
-	w.workgroupid in ( @workgroupid )
+	w.workgroupid in ( @workgroupid ))
 
-
+	select starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
+	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
+	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
+	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored from CTEGetReport
 END
-
-GO
 /****** Object:  StoredProcedure [dbo].[GetReportcsvList]    Script Date: 08/05/2018 18:33:18 ******/
 SET ANSI_NULLS ON
 GO
