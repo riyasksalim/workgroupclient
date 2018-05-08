@@ -10,10 +10,10 @@
 //    // MetronicApp.constant('ApiUrl', 'http://dev-dashboard.nogalesproduce.com/api/');
 
 
-.constant('ApiUrl', 'http://localhost:51310/');
+.constant('ApiUrl', 'http://localhost:49330/');
 
 //}
 //else {
-  //  MetronicApp.constant('ApiUrl', window.location.origin + '/api/');
+//  MetronicApp.constant('ApiUrl', window.location.origin + '/api/');
 
 //}

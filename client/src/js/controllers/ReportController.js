@@ -1,22 +1,23 @@
 ﻿angular.module('app')
 
-.controller('ReportController', ['$scope', 'dataService', 'ApiUrl', '$http','$timeout', function ($scope, dataService, ApiUrl, $http,$timeout) {
-    $scope.itemsByPage=15
+.controller('ReportController', ['$scope', 'dataService', 'ApiUrl', '$http', '$timeout', function($scope, dataService, ApiUrl, $http, $timeout) {
+    $scope.itemsByPage = 15
     var baseUrl = ApiUrl;
     $scope.loading = false;
-    $.blockUI({ message: '<img src="../img/loading.gif"/>',css: {
-        border:     'none',
-        backgroundColor:'transparent'
-    } });
+    $.blockUI({
+        message: '<img src="../img/loading.gif"/>',
+        css: {
+            border: 'none',
+            backgroundColor: 'transparent'
+        }
+    });
     var settings = {
-        'toaster':
-        {
+        'toaster': {
             'id': 'toaster',
             'container': 'body',
             'template': '<div></div>',
             'class': 'toaster',
-            'css':
-            {
+            'css': {
                 'position': 'fixed',
                 'top': '10px',
                 'right': '10px',
@@ -25,16 +26,14 @@
             }
         },
 
-        'toast':
-        {
-            'template':
-            '<div class="alert alert-%priority% alert-dismissible" role="alert">' +
+        'toast': {
+            'template': '<div class="alert alert-%priority% alert-dismissible" role="alert">' +
                 '<button type="button" class="close" data-dismiss="alert">' +
-                    '<span aria-hidden="true">&times;</span>' +
-                    '<span class="sr-only">Close</span>' +
+                '<span aria-hidden="true">&times;</span>' +
+                '<span class="sr-only">Close</span>' +
                 '</button>' +
                 '<span class="title"></span>: <span class="message"></span>' +
-            '</div>',
+                '</div>',
 
             'css': {},
             'cssm': {},
@@ -42,23 +41,20 @@
 
             'fade': 'slow',
 
-            'display': function ($toast) {
+            'display': function($toast) {
                 return $toast.fadeIn(settings.toast.fade);
             },
 
-            'remove': function ($toast, callback) {
-                return $toast.animate(
-                    {
-                        opacity: '0',
-                        padding: '0px',
-                        margin: '0px',
-                        height: '0px'
-                    },
-                    {
-                        duration: settings.toast.fade,
-                        complete: callback
-                    }
-                );
+            'remove': function($toast, callback) {
+                return $toast.animate({
+                    opacity: '0',
+                    padding: '0px',
+                    margin: '0px',
+                    height: '0px'
+                }, {
+                    duration: settings.toast.fade,
+                    complete: callback
+                });
             }
         },
 
@@ -67,24 +63,24 @@
         'stylesheet': null,
         'donotdismiss': []
     };
-    $(function () {
+    $(function() {
         $("#StartDate").datepicker({
-            onSelect: function (date) {
-                $scope.StartDate =new Date(date);
+            onSelect: function(date) {
+                $scope.StartDate = date;
                 $scope.$apply();
             }
-         });
+        });
         $("#EndDate").datepicker({
-            onSelect: function (date) {
-                $scope.EndDate = new Date(date);
+            onSelect: function(date) {
+                $scope.EndDate = date;
                 $scope.$apply();
             }
         });
     });
 
-  function GetAllWorkGroups() {
-    
-        dataService.GetAllWorkGroups().then(function (response) {
+    function GetAllWorkGroups() {
+
+        dataService.GetAllWorkGroups().then(function(response) {
             if (response && response.data) {
                 $scope.WorkGroups = response.data;
 
@@ -97,10 +93,10 @@
             $.unblockUI();
         });
     };
-  var httpRequest = null;
+    var httpRequest = null;
     GetAllWorkGroups();
-  
-    $scope.search = function () {
+
+    $scope.search = function() {
         $scope.WorkGroupsReport = [];
         if ($scope.StartDate == undefined || $scope.EndDate == undefined || $scope.workgroupselected == undefined) {
 
@@ -110,9 +106,9 @@
             });
             return false;
 
-           
+
         }
-        if($scope.StartDate > $scope.EndDate){
+        if ($scope.StartDate > $scope.EndDate) {
             $.toaster({
                 settings: settings,
                 message: 'End Date Should be larger than start Date'
@@ -125,19 +121,22 @@
             EndDate: $scope.EndDate,
             WorkGroupID: $scope.workgroupselected
         };
-        $.blockUI({ message: '<img src="../img/loading.gif"/>',css: {
-            border:     'none',
-            backgroundColor:'transparent'
-        } });
-        (httpRequest = dataService.GetWorkGroupReport(params).then(function (response) {
+        $.blockUI({
+            message: '<img src="../img/loading.gif"/>',
+            css: {
+                border: 'none',
+                backgroundColor: 'transparent'
+            }
+        });
+        (httpRequest = dataService.GetWorkGroupReport(params).then(function(response) {
             if (response && response.data) {
                 $scope.WorkGroupsReport = response.data;
-               
+
                 $.unblockUI();
                 $.toaster({
                     settings: settings,
                     message: 'CSV Generated Succesfully..',
-                  
+
 
                 });
             }
@@ -146,16 +145,16 @@
             $.unblockUI();
         }));
     };
-    $scope.abortExecutingApi = function () {
-    
+    $scope.abortExecutingApi = function() {
+
         return (httpRequest && httpRequest.abortCall());
     };
 
 
-   
+
     $scope.select2Options = {
         // formatNoMatches: function(term) {
-           
+
         //     var message = '<a ng-click="addTag()">Add tag:"' + term + '"</a>';
         //     if(!$scope.$$phase) {
         //         $scope.$apply(function() {
@@ -165,14 +164,14 @@
         //     return message;
         // }
     };
-    
+
     // $scope.addTag = function() {
     //     $scope.tags.push({
     //         id: $scope.tags.length,
     //         name: $scope.noResultsTag
     //     });
     // };
-    
+
     // $scope.$watch('noResultsTag', function(newVal, oldVal) {
     //     if(newVal && newVal !== oldVal) {
     //         $timeout(function() {
@@ -188,4 +187,3 @@
 
 
 }])
-
