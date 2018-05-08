@@ -133,12 +133,13 @@
                 $scope.WorkGroupsReport = response.data;
 
                 $.unblockUI();
-                $.toaster({
-                    settings: settings,
-                    message: 'CSV Generated Succesfully..',
+                if (response.data.length > 0) {
+                    $.toaster({
+                        settings: settings,
+                        message: 'CSV Generated Succesfully..',
+                    });
+                }
 
-
-                });
             }
 
         }, function onError() {
