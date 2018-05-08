@@ -4,32 +4,37 @@
         position: relative;
         left: -5px;
     }
+    
     .header-content.sort-ascent:before {
         content: "\25B4";
     }
+    
     .header-content.sort-descent:before {
         content: "\25BE";
     }
+    
     .st-sort-ascent:before {
         content: '\25B2';
     }
+    
     .st-sort-descent:before {
         content: '\25BC';
     }
+    
     .select2-container {
-    margin: 0;
-    position: relative;
-    display: inherit !important;
-    zoom: 1;
-    vertical-align: middle;
-}
-
-#select2-drop {
-    /*display: none !important;*/
-    /*top: 275px !important;
+        margin: 0;
+        position: relative;
+        display: inherit !important;
+        zoom: 1;
+        vertical-align: middle;
+    }
+    
+    #select2-drop {
+        /*display: none !important;*/
+        /*top: 275px !important;
     left: 340px !important;*/
-    /* width: 331px !important; */
-}
+        /* width: 331px !important; */
+    }
 </style>
 <div class="animated fadeIn">
     <div class="row">
@@ -53,7 +58,8 @@
                                         <div class="form-group">
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
-                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(beginDate)}" type="text" autocomplete="off" placeholder="Start Date" id="StartDate" name="scheduledLoadStartDate" data-ng-model="beginDate" ng-blur="beginDate = clearDate(beginDate)">
+                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(beginDate)}" type="text" autocomplete="off" placeholder="Start Date" id="StartDate" name="scheduledLoadStartDate"
+                                                    data-ng-model="beginDate" ng-blur="beginDate = clearDate(beginDate)">
                                                 <span ng-show="searchClicked &amp;&amp; !isDate(beginDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
                                             </div>
                                         </div>
@@ -65,7 +71,8 @@
                                         <div class="form-group">
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
-                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(endDate)}" type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="scheduledLoadEndDate" data-ng-model="endDate" ng-blur="endDate = clearDate(endDate)">
+                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(endDate)}" type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="scheduledLoadEndDate"
+                                                    data-ng-model="endDate" ng-blur="endDate = clearDate(endDate)">
                                                 <span ng-show="searchClicked &amp;&amp; !isDate(endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
                                                 <span ng-show="searchClicked &amp;&amp; isPreviouseDate(beginDate,endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">To Date should be greater than From Date</span>
                                             </div>
@@ -78,7 +85,7 @@
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="form-group">
-                                            <select style="width:548px;" ui-select2="select2Options" multiple ng-model="workgroupselected">
+                                            <select style="width:100%;" ui-select2="select2Options" multiple ng-model="workgroupselected">
                                                 <option ng-repeat="item in WorkGroups" value="{{item.WorkGroupId}}">{{item.WorkGroupName}}</option>
                                             </select>
                                         </div>
@@ -88,12 +95,12 @@
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="form-group">
-                                          
+
                                         </div>
                                     </div>
                                 </div>
-                               
-                               
+
+
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
                                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -105,7 +112,7 @@
                                             </span><span class="ladda-spinner"></span>
                                             <div class="ladda-progress" style="width: 0px;"></div>
                                         </button>
-                                      
+
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +129,7 @@
                 <span class="caption-subject  bold uppercase">Report</span>
             </div>
             <div class="btn-group" style="margin-left: 20px; margin-top: 6px;">
-                
+
             </div>
         </div>
         <div class="portlet-body">
@@ -135,7 +142,7 @@
                             </th>
                         </tr>
                         <tr>
-                         
+
                             <th st-sort="dnis">Dnis</th>
                             <th st-sort="ani">Ani</th>
                             <th st-sort="percentscore" style="min-width: 153px">Percentage Score</th>
@@ -174,7 +181,7 @@
                             <td>{{row.questiondescription}}</td>
                             <td>{{row.questionnumber}}</td>
                             <td>{{row.questiontext}}</td>
-                            <td>{{row.responserequired}}    </td>
+                            <td>{{row.responserequired}} </td>
                             <td>{{row.questionadditionalpoint}}</td>
                             <td>{{row.autofailpoint}}</td>
                             <td>{{row.questionadditionalconditionpoint}}</td>
