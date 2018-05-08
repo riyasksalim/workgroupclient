@@ -245,7 +245,7 @@ namespace API.Controllers
                 }
                 string formatedStartDate = startDate.Replace("/", "").Replace(" ", "").Replace(":", "");
                 string formatedEndDate = endDate.Replace("/", "").Replace(" ", "").Replace(":", "");
-                filename = formatedStartDate + "_" + formatedEndDate + ".csv";
+                filename = "Report_" + formatedStartDate + "_" + formatedEndDate + ".csv";
 
                 locationAndFile = location + "/" + filename;
                 File.WriteAllText(locationAndFile, sb.ToString());
