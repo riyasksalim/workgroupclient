@@ -9,6 +9,21 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetReportcsvList" FunctionName="qmModel.Store.GetReportcsvList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="qmModel.GetReportcsvList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ReportGeneratedFileName" ColumnName="ReportGeneratedFileName" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="MethodofCreation" ColumnName="MethodofCreation" />
+          <ScalarProperty Name="ReportGeneratedFullPath" ColumnName="ReportGeneratedFullPath" />
+          <ScalarProperty Name="ReportLocation" ColumnName="ReportLocation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetReportList" FunctionName="qmModel.Store.GetReportList" />
+    <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="qmModel.Store.InsertReport" />
     <FunctionImportMapping FunctionImportName="GetReport" FunctionName="qmModel.Store.GetReport">
       <ResultMapping>
         <ComplexTypeMapping TypeName="qmModel.GetReport_Result">
@@ -40,24 +55,9 @@
           <ScalarProperty Name="responsetext" ColumnName="responsetext" />
           <ScalarProperty Name="questionWeight" ColumnName="questionWeight" />
           <ScalarProperty Name="questiontypedesc" ColumnName="questiontypedesc" />
-          <ScalarProperty Name="questionScore" ColumnName="questionScore" />
+          <ScalarProperty Name="questionScored" ColumnName="questionScored" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetReportcsvList" FunctionName="qmModel.Store.GetReportcsvList">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="qmModel.GetReportcsvList_Result">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ReportGeneratedFileName" ColumnName="ReportGeneratedFileName" />
-          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="MethodofCreation" ColumnName="MethodofCreation" />
-          <ScalarProperty Name="ReportGeneratedFullPath" ColumnName="ReportGeneratedFullPath" />
-          <ScalarProperty Name="ReportLocation" ColumnName="ReportLocation" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetReportList" FunctionName="qmModel.Store.GetReportList" />
-    <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="qmModel.Store.InsertReport" />
   </EntityContainerMapping>
 </Mapping>

@@ -184,75 +184,84 @@ namespace connect.Controllers
 
         public void CreateCSV(List<WorkGroupReportBO> list)
         {
-            location = ConfigurationManager.AppSettings["FTPLocation"];
-            DateTime startDate, endDate;
-            string sd ="", se ="";
-            StringBuilder sb = new StringBuilder();
-
-            string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Update User ID\",\"Percent Score\",\"Overall Score\"" +
-                $",\"Review Date\",\"User Name\",\"User Role ID\",\"User Type ID\"," +
-                $"\"Work Group Name\",\"Description\",\"Name\",\"Sequence Number\",\"Question Description\",\"Question Number\",\"Question Text\"," +
-                $"\"Response Required\"," +
-                $"\"Question Additional Point\",\"Auto Fail Point\",\"Question Additional Condition Point\"," +
-                $"\"Weighted Score\"" +
-                $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\"";
-            sb.AppendLine(headerText);
-            foreach (WorkGroupReportBO student in list)
+            try
             {
-                if (DateTime.TryParseExact(student.starttime.ToString(),
-                            @"yyyy-MM-dd\THH:mm:ss",
-                            CultureInfo.InvariantCulture,
-                            DateTimeStyles.AssumeUniversal,
-                            out startDate))
-                {
-                    sd = startDate.ToString("yyyy-MM-dd HH:mm:ss");
-                }
-                if (DateTime.TryParseExact(student.endtime.ToString(),
-                            @"yyyy-MM-dd\THH:mm:ss",
-                            CultureInfo.InvariantCulture,
-                            DateTimeStyles.AssumeUniversal,
-                            out endDate))
-                {
-                    se = endDate.ToString("yyyy-MM-dd HH:mm:ss");
-                }
-                sb.Append(FormatCSV(student.mediaid.ToString()) + ",");
-                sb.Append(FormatCSV(sd) + ",");
-                sb.Append(FormatCSV(se) + ",");
-                sb.Append(FormatCSV(student.dnis) + ",");
-                sb.Append(FormatCSV(student.ani) + ",");
-                sb.Append(FormatCSV(student.updateuserid.ToString()) + ",");
-                sb.Append(FormatCSV(student.percentscore.ToString()) + ",");
-                sb.Append(FormatCSV(student.overallscore) + ",");
-                sb.Append(FormatCSV(student.reviewdate.ToString()) + ",");
-                sb.Append(FormatCSV(student.username) + ",");
-                sb.Append(FormatCSV(student.userroleid.ToString()) + ",");
-                sb.Append(FormatCSV(student.usertypeid.ToString()) + ",");
-                sb.Append(FormatCSV(student.workgroupname) + ",");
-                sb.Append(FormatCSV(student.description) + ",");
-                sb.Append(FormatCSV(student.name) + ",");
-                sb.Append(FormatCSV(student.sequencenumber.ToString()) + ",");
-                sb.Append(FormatCSV(student.questiondescription) + ",");
-                sb.Append(FormatCSV(student.questionnumber.ToString()) + ",");
-                sb.Append(FormatCSV(student.questiontext) + ",");
-                sb.Append(FormatCSV(student.responserequired.ToString()) + ",");
-                sb.Append(FormatCSV(student.questionadditionalpoint.ToString()) + ",");
-                sb.Append(FormatCSV(student.autofailpoint.ToString()) + ",");
-                sb.Append(FormatCSV(student.questionadditionalconditionpoint.ToString()) + ",");
-                sb.Append(FormatCSV(student.weightedscore.ToString()) + ",");
-                sb.Append(FormatCSV(student.sectionWeight.ToString()) + ",");
-                sb.Append(FormatCSV(student.responsetext.ToString()) + ",");
-                sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
-                sb.Append(FormatCSV(student.questiontypedesc.ToString()) + ",");
-                sb.Append(FormatCSV(student.questionScored.ToString()));
-                sb.Remove(sb.Length - 1, 1);
-                sb.AppendLine();
-            }
-            string formatedStartDate = sd.Replace("/", "").Replace(" ", "").Replace(":", "");
-            string formatedEndDate = se.Replace("/", "").Replace(" ", "").Replace(":", "");
-            filename = formatedStartDate + "_" + formatedEndDate + ".csv";
+                location = ConfigurationManager.AppSettings["FTPLocation"];
+                DateTime startDate, endDate;
+                string sd = "", se = "";
+                StringBuilder sb = new StringBuilder();
 
-            locationAndFile = location + "/" + filename;
-            File.WriteAllText(locationAndFile, sb.ToString());
+                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Update User ID\",\"Percent Score\",\"Overall Score\"" +
+                    $",\"Review Date\",\"User Name\",\"User Role ID\",\"User Type ID\"," +
+                    $"\"Work Group Name\",\"Description\",\"Name\",\"Sequence Number\",\"Question Description\",\"Question Number\",\"Question Text\"," +
+                    $"\"Response Required\"," +
+                    $"\"Question Additional Point\",\"Auto Fail Point\",\"Question Additional Condition Point\"," +
+                    $"\"Weighted Score\"" +
+                    $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\"";
+                sb.AppendLine(headerText);
+                foreach (WorkGroupReportBO student in list)
+                {
+                    if (DateTime.TryParseExact(student.starttime.ToString(),
+                                @"yyyy-MM-dd\THH:mm:ss",
+                                CultureInfo.InvariantCulture,
+                                DateTimeStyles.AssumeUniversal,
+                                out startDate))
+                    {
+                        sd = startDate.ToString("yyyy-MM-dd HH:mm:ss");
+                    }
+                    if (DateTime.TryParseExact(student.endtime.ToString(),
+                                @"yyyy-MM-dd\THH:mm:ss",
+                                CultureInfo.InvariantCulture,
+                                DateTimeStyles.AssumeUniversal,
+                                out endDate))
+                    {
+                        se = endDate.ToString("yyyy-MM-dd HH:mm:ss");
+                    }
+                    sb.Append(FormatCSV(student.mediaid.ToString()) + ",");
+                    sb.Append(FormatCSV(sd) + ",");
+                    sb.Append(FormatCSV(se) + ",");
+                    sb.Append(FormatCSV(student.dnis) + ",");
+                    sb.Append(FormatCSV(student.ani) + ",");
+                    sb.Append(FormatCSV(student.updateuserid.ToString()) + ",");
+                    sb.Append(FormatCSV(student.percentscore.ToString()) + ",");
+                    sb.Append(FormatCSV(student.overallscore) + ",");
+                    sb.Append(FormatCSV(student.reviewdate.ToString()) + ",");
+                    sb.Append(FormatCSV(student.username) + ",");
+                    sb.Append(FormatCSV(student.userroleid.ToString()) + ",");
+                    sb.Append(FormatCSV(student.usertypeid.ToString()) + ",");
+                    sb.Append(FormatCSV(student.workgroupname) + ",");
+                    sb.Append(FormatCSV(student.description) + ",");
+                    sb.Append(FormatCSV(student.name) + ",");
+                    sb.Append(FormatCSV(student.sequencenumber.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questiondescription) + ",");
+                    sb.Append(FormatCSV(student.questionnumber.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questiontext) + ",");
+                    sb.Append(FormatCSV(student.responserequired.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questionadditionalpoint.ToString()) + ",");
+                    sb.Append(FormatCSV(student.autofailpoint.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questionadditionalconditionpoint.ToString()) + ",");
+                    sb.Append(FormatCSV(student.weightedscore.ToString()) + ",");
+                    sb.Append(FormatCSV(student.sectionWeight.ToString()) + ",");
+                    sb.Append(FormatCSV(student.responsetext.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questiontypedesc.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questionScored.ToString()));
+                    sb.Remove(sb.Length - 1, 1);
+                    sb.AppendLine();
+                }
+                string formatedStartDate = sd.Replace("/", "").Replace(" ", "").Replace(":", "");
+                string formatedEndDate = se.Replace("/", "").Replace(" ", "").Replace(":", "");
+                filename = formatedStartDate + "_" + formatedEndDate + ".csv";
+
+                locationAndFile = location + "/" + filename;
+                File.WriteAllText(locationAndFile, sb.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
 
         }
 
@@ -309,13 +318,8 @@ namespace connect.Controllers
             if (!exists)
             {
                 DirectoryInfo di = System.IO.Directory.CreateDirectory(file);
-
-                //DirectoryInfo dInfo = new DirectoryInfo(file);
-                //DirectorySecurity dSecurity = dInfo.GetAccessControl();
-                //dSecurity.AddAccessRule(new FileSystemAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), FileSystemRights.FullControl, InheritanceFlags.ObjectInherit | InheritanceFlags.ContainerInherit, PropagationFlags.NoPropagateInherit, AccessControlType.Allow));
-                //dInfo.SetAccessControl(dSecurity);
             }
-            else
+            
             {
                 Console.WriteLine("The Folder already exists");
             }
@@ -342,26 +346,6 @@ namespace connect.Controllers
                 }
             }
             return state;
-        }
-
-        [HttpGet]
-        [Route("Ebook/GetBookForHRM/{format}")]
-        public HttpResponseMessage GetBookForHRM(string format)
-        {
-            string reqBook = format.ToLower() == "pdf" ? bookPath_Pdf : (format.ToLower() == "xls" ? bookPath_xls : (format.ToLower() == "doc" ? bookPath_doc : bookPath_zip));
-            string bookName = "sample." + format.ToLower();
-            //converting Pdf file into bytes array  
-            var dataBytes = File.ReadAllBytes(reqBook);
-            //adding bytes to memory stream   
-            var dataStream = new MemoryStream(dataBytes);
-
-            HttpResponseMessage httpResponseMessage = Request.CreateResponse(HttpStatusCode.OK);
-            httpResponseMessage.Content = new StreamContent(dataStream);
-            httpResponseMessage.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-            httpResponseMessage.Content.Headers.ContentDisposition.FileName = bookName;
-            httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
-
-            return httpResponseMessage;
         }
 
     }

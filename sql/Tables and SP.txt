@@ -49,7 +49,19 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[GetReport] 
+USE [qm]
+GO
+/****** Object:  StoredProcedure [dbo].[GetReport]    Script Date: 08/05/2018 19:03:35 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mujeeb K S
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[GetReport] 
 	@startdate datetime,
 	@endDate datetime,
 	@workgroupid varchar(max)
@@ -75,7 +87,9 @@ BEGIN
 	inner join question q on q.sectionid = s.sectionid
 	inner join questionresult qr on q.questionid = qr.questionid
 	inner join questiontype qt on qt.questiontypeid = q.questiontypeid
-	where m.starttime >= @startdate and m.endtime <= @endDate and 
+	where (m.starttime BETWEEN @startdate AND @endDate) OR 
+	(m.endtime BETWEEN @startdate AND @endDate) OR 
+	(m.starttime <= @startdate AND m.endtime >= @endDate) and
 	w.workgroupid in ( @workgroupid )
 
 
