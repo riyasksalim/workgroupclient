@@ -1,0 +1,10 @@
+5/9/2018 7:46:23 AM:Utility window service started
+5/9/2018 7:46:55 AM:Utility ticked and some job has been done successfully
+5/9/2018 7:47:24 AM:Utility ticked and some job has been done successfully
+5/9/2018 7:47:54 AM:Utility ticked and some job has been done successfully
+5/9/2018 7:48:24 AM:Utility ticked and some job has been done successfully
+5/9/2018 7:48:55 AM:Utility ticked and some job has been done successfully
+5/9/2018 7:49:24 AM:Utility ticked and some job has been done successfully
+5/9/2018 7:49:55 AM:Utility ticked and some job has been done successfully
+5/9/2018 7:50:25 AM:Utility ticked and some job has been done successfully
+5/9/2018 7:50:55 AM:Utility ticked and some job has been done successfully

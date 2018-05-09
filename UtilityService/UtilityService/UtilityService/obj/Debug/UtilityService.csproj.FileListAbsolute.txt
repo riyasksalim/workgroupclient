@@ -14,3 +14,5 @@ C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.application
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.exe.manifest
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.application
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.ProjectInstaller.resources
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.csproj.GenerateResource.cache
