@@ -58,51 +58,60 @@ namespace UtilityService
 
                 Library.WriteErrorLog("Utility Tick -- Getting Values -- Started on : " + DateTime.Now.ToString());
                 Library.WriteErrorLog("Utility Tick Getting Values Parameters : From Date : " + dateFrom + " To Date : " + dateTo.ToString() + " Work Group : " + workgroupid);
-                List<GetReportDailyJob_Result> studentInfos = sc.GetValues(dateFrom, dateTo, workgroupid);
-                Library.WriteErrorLog("Utility Tick Getting Values Stopped, Total number of records is : " + studentInfos.Count);
-                List<ReportInfo> lstReportInfo = new List<ReportInfo>();
-                ReportInfo reportInfo = null;
-                Library.WriteErrorLog("Utility Tick Mapping Values Started");
-                foreach (var item in studentInfos)
+                var values = sc.GetValues(dateFrom, dateTo, workgroupid);
+                List<GetReportDailyJob_Result> studentInfos = null;
+                if (values != null)
                 {
-                    reportInfo = new ReportInfo
+                    studentInfos = new List<GetReportDailyJob_Result>();
+                    studentInfos = sc.GetValues(dateFrom, dateTo, workgroupid);
+                    Library.WriteErrorLog("Utility Tick Getting Values Stopped, Total number of records is : " + studentInfos.Count);
+                    List<ReportInfo> lstReportInfo = new List<ReportInfo>();
+                    ReportInfo reportInfo = null;
+                    Library.WriteErrorLog("Utility Tick Mapping Values Started");
+                    foreach (var item in studentInfos)
                     {
-                        mediaid = item.mediaid,
-                        starttime = item.starttime,
-                        endtime = item.endtime,
-                        dnis = item.dnis,
-                        ani = item.ani,
-                        updateuserid = item.updateuserid,
-                        percentscore = item.percentscore,
-                        overallscore = item.overallscore,
-                        reviewdate = item.reviewdate,
-                        username = item.username,
-                        userroleid = item.userroleid,
-                        usertypeid = item.usertypeid,
-                        workgroupname = item.workgroupname,
-                        description = item.description,
-                        name = item.name,
-                        sequencenumber = item.sequencenumber,
-                        questiondescription = item.questiondescription,
-                        questionnumber = item.questionnumber,
-                        questiontext = item.questiontext,
-                        responserequired = item.responserequired,
-                        questionadditionalpoint = item.questionadditionalpoint,
-                        autofailpoint = item.autofailpoint,
-                        questionadditionalconditionpoint = item.questionadditionalconditionpoint,
-                        weightedscore = item.weightedscore,
-                        sectionWeight = item.sectionWeight,
-                        responsetext = item.responsetext,
-                        questionWeight = item.questionWeight,
-                        questiontypedesc = item.questiontypedesc,
-                        questionScored = item.questionScored
-                    };
-                    lstReportInfo.Add(reportInfo);
+                        reportInfo = new ReportInfo
+                        {
+                            mediaid = item.mediaid,
+                            starttime = item.starttime,
+                            endtime = item.endtime,
+                            dnis = item.dnis,
+                            ani = item.ani,
+                            updateuserid = item.updateuserid,
+                            percentscore = item.percentscore,
+                            overallscore = item.overallscore,
+                            reviewdate = item.reviewdate,
+                            username = item.username,
+                            userroleid = item.userroleid,
+                            usertypeid = item.usertypeid,
+                            workgroupname = item.workgroupname,
+                            description = item.description,
+                            name = item.name,
+                            sequencenumber = item.sequencenumber,
+                            questiondescription = item.questiondescription,
+                            questionnumber = item.questionnumber,
+                            questiontext = item.questiontext,
+                            responserequired = item.responserequired,
+                            questionadditionalpoint = item.questionadditionalpoint,
+                            autofailpoint = item.autofailpoint,
+                            questionadditionalconditionpoint = item.questionadditionalconditionpoint,
+                            weightedscore = item.weightedscore,
+                            sectionWeight = item.sectionWeight,
+                            responsetext = item.responsetext,
+                            questionWeight = item.questionWeight,
+                            questiontypedesc = item.questiontypedesc,
+                            questionScored = item.questionScored
+                        };
+                        lstReportInfo.Add(reportInfo);
+                    }
+                    Library.WriteErrorLog("Utility Tick Mapping Values Finished");
+                    Library.WriteErrorLog("Utility Tick Create CSV Started");
+                    string locAndFileName = sc.CreateCSV(lstReportInfo);
+                    sc.UpdateReportGeneratedDetails(locAndFileName);
                 }
-                Library.WriteErrorLog("Utility Tick Mapping Values Finished");
-                Library.WriteErrorLog("Utility Tick Create CSV Started");
-                string locAndFileName = sc.CreateCSV(lstReportInfo);
-                sc.UpdateReportGeneratedDetails(locAndFileName);
+                else
+                    Library.WriteErrorLog("Utility Tick : Fetching with the parameters From Date : " + dateFrom + " & Date To : " + dateTo + " returns null values");
+
                 Library.WriteErrorLog("Utility Tick Create CSV Finished");
             }
             catch (Exception ex)
