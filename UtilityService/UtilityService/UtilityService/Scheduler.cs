@@ -24,7 +24,8 @@ namespace UtilityService
         protected override void OnStart(string[] args)
         {
             timer1 = new Timer();
-            this.timer1.Interval = 30000 * 2; //every 30 secs
+            var interval = ConfigurationManager.AppSettings["Interval"];
+            this.timer1.Interval = Convert.ToDouble(interval); /*180000; */
             this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Tick);
             timer1.Enabled = true;
             Library.WriteErrorLog("Utility window service started");
