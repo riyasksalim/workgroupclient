@@ -1,0 +1,12 @@
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.csproj.CoreCompileInputs.cache
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe.config
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.pdb
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\EntityFramework.dll
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\EntityFramework.SqlServer.dll
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\EntityFramework.xml
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\EntityFramework.SqlServer.xml
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.csproj.CopyComplete
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.exe
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.pdb
+C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.csprojResolveAssemblyReference.cache
