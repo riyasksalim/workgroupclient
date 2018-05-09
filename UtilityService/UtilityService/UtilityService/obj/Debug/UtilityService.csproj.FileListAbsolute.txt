@@ -9,7 +9,6 @@ C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.csproj.CopyComplete
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.exe
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.pdb
-C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.csprojResolveAssemblyReference.cache
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe.manifest
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.application
 C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.exe.manifest

@@ -24,7 +24,7 @@ namespace UtilityService
         protected override void OnStart(string[] args)
         {
             timer1 = new Timer();
-            this.timer1.Interval = 30000; //every 30 secs
+            this.timer1.Interval = 30000 * 2; //every 30 secs
             this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Tick);
             timer1.Enabled = true;
             Library.WriteErrorLog("Utility window service started");
@@ -32,6 +32,7 @@ namespace UtilityService
 
         private void timer1_Tick(object sender, ElapsedEventArgs e)
         {
+            Library.WriteErrorLog("Utility Tick Entry");
             ClassSearchCriteria sc = null;
             try
             {
@@ -55,9 +56,13 @@ namespace UtilityService
                     workgroupid = null;
                 else workgroupid = WorkGroupID.Trim();
 
+                Library.WriteErrorLog("Utility Tick -- Getting Values -- Started on : " + DateTime.Now.ToString());
+                Library.WriteErrorLog("Utility Tick Getting Values Parameters : From Date : " + dateFrom + " To Date : " + dateTo.ToString() + " Work Group : " + workgroupid);
                 List<GetReportDailyJob_Result> studentInfos = sc.GetValues(dateFrom, dateTo, workgroupid);
+                Library.WriteErrorLog("Utility Tick Getting Values Stopped, Total number of records is : " + studentInfos.Count);
                 List<ReportInfo> lstReportInfo = new List<ReportInfo>();
                 ReportInfo reportInfo = null;
+                Library.WriteErrorLog("Utility Tick Mapping Values Started");
                 foreach (var item in studentInfos)
                 {
                     reportInfo = new ReportInfo
@@ -94,16 +99,21 @@ namespace UtilityService
                     };
                     lstReportInfo.Add(reportInfo);
                 }
+                Library.WriteErrorLog("Utility Tick Mapping Values Finished");
+                Library.WriteErrorLog("Utility Tick Create CSV Started");
                 string locAndFileName = sc.CreateCSV(lstReportInfo);
                 sc.UpdateReportGeneratedDetails(locAndFileName);
+                Library.WriteErrorLog("Utility Tick Create CSV Finished");
             }
             catch (Exception ex)
             {
-                Library.WriteErrorLog("Error Occured " + ex.ToString());
+                Library.WriteErrorLog("Error Inside Ticker " + ex.ToString());
+                Library.WriteErrorLog("Utility Tick Error Occured " + ex.InnerException.ToString());
             }
 
             //Write code here to do some job depends on your requirement
             Library.WriteErrorLog("Utility ticked and some job has been done successfully");
+            Library.WriteErrorLog("Utility Tick Exit");
         }
 
         protected override void OnStop()

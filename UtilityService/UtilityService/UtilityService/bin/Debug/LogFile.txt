@@ -1,10 +1,321 @@
-5/9/2018 7:46:23 AM:Utility window service started
-5/9/2018 7:46:55 AM:Utility ticked and some job has been done successfully
-5/9/2018 7:47:24 AM:Utility ticked and some job has been done successfully
-5/9/2018 7:47:54 AM:Utility ticked and some job has been done successfully
-5/9/2018 7:48:24 AM:Utility ticked and some job has been done successfully
-5/9/2018 7:48:55 AM:Utility ticked and some job has been done successfully
-5/9/2018 7:49:24 AM:Utility ticked and some job has been done successfully
-5/9/2018 7:49:55 AM:Utility ticked and some job has been done successfully
-5/9/2018 7:50:25 AM:Utility ticked and some job has been done successfully
-5/9/2018 7:50:55 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:11:21 AM:Utility window service started
+5/9/2018 9:12:21 AM:Utility Tick Entry
+5/9/2018 9:12:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:12:21 AM
+5/9/2018 9:12:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:12:21 AM:GetValues Function Entry
+5/9/2018 9:12:25 AM:GetValues Function Exit
+5/9/2018 9:12:25 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:12:25 AM:Utility Tick Mapping Values Started
+5/9/2018 9:12:25 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:12:25 AM:Utility Tick Create CSV Started
+5/9/2018 9:12:25 AM:CreateCSV Function Entry
+5/9/2018 9:12:25 AM:CreateCSV Function Exit
+5/9/2018 9:12:25 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:12:25 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:12:25 AM:Utility Tick Create CSV Finished
+5/9/2018 9:12:25 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:12:25 AM:Utility Tick Exit
+5/9/2018 9:13:21 AM:Utility Tick Entry
+5/9/2018 9:13:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:13:21 AM
+5/9/2018 9:13:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:13:21 AM:GetValues Function Entry
+5/9/2018 9:13:21 AM:GetValues Function Exit
+5/9/2018 9:13:21 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:13:21 AM:Utility Tick Mapping Values Started
+5/9/2018 9:13:21 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:13:21 AM:Utility Tick Create CSV Started
+5/9/2018 9:13:21 AM:CreateCSV Function Entry
+5/9/2018 9:13:21 AM:CreateCSV Function Exit
+5/9/2018 9:13:21 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:13:21 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:13:21 AM:Utility Tick Create CSV Finished
+5/9/2018 9:13:21 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:13:21 AM:Utility Tick Exit
+5/9/2018 9:14:21 AM:Utility Tick Entry
+5/9/2018 9:14:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:14:21 AM
+5/9/2018 9:14:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:14:21 AM:GetValues Function Entry
+5/9/2018 9:14:22 AM:GetValues Function Exit
+5/9/2018 9:14:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:14:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:14:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:14:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:14:22 AM:CreateCSV Function Entry
+5/9/2018 9:14:22 AM:CreateCSV Function Exit
+5/9/2018 9:14:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:14:23 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:14:23 AM:Utility Tick Create CSV Finished
+5/9/2018 9:14:23 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:14:23 AM:Utility Tick Exit
+5/9/2018 9:15:21 AM:Utility Tick Entry
+5/9/2018 9:15:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:15:21 AM
+5/9/2018 9:15:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:15:21 AM:GetValues Function Entry
+5/9/2018 9:15:22 AM:GetValues Function Exit
+5/9/2018 9:15:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:15:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:15:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:15:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:15:22 AM:CreateCSV Function Entry
+5/9/2018 9:15:22 AM:CreateCSV Function Exit
+5/9/2018 9:15:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:15:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:15:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:15:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:15:22 AM:Utility Tick Exit
+5/9/2018 9:16:21 AM:Utility Tick Entry
+5/9/2018 9:16:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:16:21 AM
+5/9/2018 9:16:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:16:21 AM:GetValues Function Entry
+5/9/2018 9:16:22 AM:GetValues Function Exit
+5/9/2018 9:16:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:16:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:16:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:16:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:16:22 AM:CreateCSV Function Entry
+5/9/2018 9:16:22 AM:CreateCSV Function Exit
+5/9/2018 9:16:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:16:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:16:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:16:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:16:22 AM:Utility Tick Exit
+5/9/2018 9:17:21 AM:Utility Tick Entry
+5/9/2018 9:17:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:17:21 AM
+5/9/2018 9:17:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:17:21 AM:GetValues Function Entry
+5/9/2018 9:17:22 AM:GetValues Function Exit
+5/9/2018 9:17:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:17:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:17:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:17:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:17:22 AM:CreateCSV Function Entry
+5/9/2018 9:17:22 AM:CreateCSV Function Exit
+5/9/2018 9:17:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:17:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:17:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:17:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:17:22 AM:Utility Tick Exit
+5/9/2018 9:18:21 AM:Utility Tick Entry
+5/9/2018 9:18:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:18:21 AM
+5/9/2018 9:18:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:18:21 AM:GetValues Function Entry
+5/9/2018 9:18:22 AM:GetValues Function Exit
+5/9/2018 9:18:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:18:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:18:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:18:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:18:22 AM:CreateCSV Function Entry
+5/9/2018 9:18:22 AM:CreateCSV Function Exit
+5/9/2018 9:18:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:18:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:18:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:18:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:18:22 AM:Utility Tick Exit
+5/9/2018 9:19:21 AM:Utility Tick Entry
+5/9/2018 9:19:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:19:21 AM
+5/9/2018 9:19:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:19:21 AM:GetValues Function Entry
+5/9/2018 9:19:22 AM:GetValues Function Exit
+5/9/2018 9:19:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:19:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:19:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:19:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:19:22 AM:CreateCSV Function Entry
+5/9/2018 9:19:22 AM:CreateCSV Function Exit
+5/9/2018 9:19:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:19:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:19:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:19:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:19:22 AM:Utility Tick Exit
+5/9/2018 9:20:21 AM:Utility Tick Entry
+5/9/2018 9:20:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:20:21 AM
+5/9/2018 9:20:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:20:21 AM:GetValues Function Entry
+5/9/2018 9:20:23 AM:GetValues Function Exit
+5/9/2018 9:20:23 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:20:23 AM:Utility Tick Mapping Values Started
+5/9/2018 9:20:23 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:20:23 AM:Utility Tick Create CSV Started
+5/9/2018 9:20:23 AM:CreateCSV Function Entry
+5/9/2018 9:20:23 AM:CreateCSV Function Exit
+5/9/2018 9:20:23 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:20:23 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:20:23 AM:Utility Tick Create CSV Finished
+5/9/2018 9:20:23 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:20:23 AM:Utility Tick Exit
+5/9/2018 9:21:21 AM:Utility Tick Entry
+5/9/2018 9:21:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:21:21 AM
+5/9/2018 9:21:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:21:21 AM:GetValues Function Entry
+5/9/2018 9:21:22 AM:GetValues Function Exit
+5/9/2018 9:21:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:21:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:21:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:21:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:21:22 AM:CreateCSV Function Entry
+5/9/2018 9:21:22 AM:CreateCSV Function Exit
+5/9/2018 9:21:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:21:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:21:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:21:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:21:22 AM:Utility Tick Exit
+5/9/2018 9:22:21 AM:Utility Tick Entry
+5/9/2018 9:22:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:22:21 AM
+5/9/2018 9:22:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:22:21 AM:GetValues Function Entry
+5/9/2018 9:22:23 AM:GetValues Function Exit
+5/9/2018 9:22:23 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:22:23 AM:Utility Tick Mapping Values Started
+5/9/2018 9:22:23 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:22:23 AM:Utility Tick Create CSV Started
+5/9/2018 9:22:23 AM:CreateCSV Function Entry
+5/9/2018 9:22:23 AM:CreateCSV Function Exit
+5/9/2018 9:22:23 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:22:23 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:22:23 AM:Utility Tick Create CSV Finished
+5/9/2018 9:22:23 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:22:23 AM:Utility Tick Exit
+5/9/2018 9:23:21 AM:Utility Tick Entry
+5/9/2018 9:23:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:23:21 AM
+5/9/2018 9:23:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:23:21 AM:GetValues Function Entry
+5/9/2018 9:23:30 AM:GetValues Function Exit
+5/9/2018 9:23:30 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:23:30 AM:Utility Tick Mapping Values Started
+5/9/2018 9:23:30 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:23:30 AM:Utility Tick Create CSV Started
+5/9/2018 9:23:30 AM:CreateCSV Function Entry
+5/9/2018 9:23:30 AM:CreateCSV Function Exit
+5/9/2018 9:23:30 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:23:30 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:23:30 AM:Utility Tick Create CSV Finished
+5/9/2018 9:23:30 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:23:30 AM:Utility Tick Exit
+5/9/2018 9:24:21 AM:Utility Tick Entry
+5/9/2018 9:24:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:24:21 AM
+5/9/2018 9:24:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:24:21 AM:GetValues Function Entry
+5/9/2018 9:24:21 AM:GetValues Function Exit
+5/9/2018 9:24:21 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:24:21 AM:Utility Tick Mapping Values Started
+5/9/2018 9:24:21 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:24:21 AM:Utility Tick Create CSV Started
+5/9/2018 9:24:21 AM:CreateCSV Function Entry
+5/9/2018 9:24:21 AM:CreateCSV Function Exit
+5/9/2018 9:24:21 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:24:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:24:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:24:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:24:22 AM:Utility Tick Exit
+5/9/2018 9:25:21 AM:Utility Tick Entry
+5/9/2018 9:25:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:25:21 AM
+5/9/2018 9:25:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:25:21 AM:GetValues Function Entry
+5/9/2018 9:25:22 AM:GetValues Function Exit
+5/9/2018 9:25:23 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:25:23 AM:Utility Tick Mapping Values Started
+5/9/2018 9:25:23 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:25:23 AM:Utility Tick Create CSV Started
+5/9/2018 9:25:23 AM:CreateCSV Function Entry
+5/9/2018 9:25:23 AM:CreateCSV Function Exit
+5/9/2018 9:25:23 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:25:23 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:25:23 AM:Utility Tick Create CSV Finished
+5/9/2018 9:25:23 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:25:23 AM:Utility Tick Exit
+5/9/2018 9:26:21 AM:Utility Tick Entry
+5/9/2018 9:26:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:26:21 AM
+5/9/2018 9:26:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:26:21 AM:GetValues Function Entry
+5/9/2018 9:26:22 AM:GetValues Function Exit
+5/9/2018 9:26:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:26:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:26:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:26:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:26:22 AM:CreateCSV Function Entry
+5/9/2018 9:26:22 AM:CreateCSV Function Exit
+5/9/2018 9:26:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:26:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:26:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:26:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:26:22 AM:Utility Tick Exit
+5/9/2018 9:27:21 AM:Utility Tick Entry
+5/9/2018 9:27:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:27:21 AM
+5/9/2018 9:27:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:27:21 AM:GetValues Function Entry
+5/9/2018 9:27:22 AM:GetValues Function Exit
+5/9/2018 9:27:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:27:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:27:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:27:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:27:22 AM:CreateCSV Function Entry
+5/9/2018 9:27:22 AM:CreateCSV Function Exit
+5/9/2018 9:27:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:27:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:27:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:27:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:27:22 AM:Utility Tick Exit
+5/9/2018 9:28:21 AM:Utility Tick Entry
+5/9/2018 9:28:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:28:21 AM
+5/9/2018 9:28:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:28:21 AM:GetValues Function Entry
+5/9/2018 9:28:22 AM:GetValues Function Exit
+5/9/2018 9:28:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:28:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:28:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:28:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:28:22 AM:CreateCSV Function Entry
+5/9/2018 9:28:22 AM:CreateCSV Function Exit
+5/9/2018 9:28:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:28:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:28:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:28:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:28:22 AM:Utility Tick Exit
+5/9/2018 9:29:21 AM:Utility Tick Entry
+5/9/2018 9:29:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:29:21 AM
+5/9/2018 9:29:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:29:21 AM:GetValues Function Entry
+5/9/2018 9:29:22 AM:GetValues Function Exit
+5/9/2018 9:29:22 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:29:22 AM:Utility Tick Mapping Values Started
+5/9/2018 9:29:22 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:29:22 AM:Utility Tick Create CSV Started
+5/9/2018 9:29:22 AM:CreateCSV Function Entry
+5/9/2018 9:29:22 AM:CreateCSV Function Exit
+5/9/2018 9:29:22 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:29:22 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:29:22 AM:Utility Tick Create CSV Finished
+5/9/2018 9:29:22 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:29:22 AM:Utility Tick Exit
+5/9/2018 9:30:21 AM:Utility Tick Entry
+5/9/2018 9:30:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:30:21 AM
+5/9/2018 9:30:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:30:21 AM:GetValues Function Entry
+5/9/2018 9:30:23 AM:GetValues Function Exit
+5/9/2018 9:30:23 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:30:23 AM:Utility Tick Mapping Values Started
+5/9/2018 9:30:23 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:30:23 AM:Utility Tick Create CSV Started
+5/9/2018 9:30:23 AM:CreateCSV Function Entry
+5/9/2018 9:30:23 AM:CreateCSV Function Exit
+5/9/2018 9:30:23 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:30:23 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:30:23 AM:Utility Tick Create CSV Finished
+5/9/2018 9:30:23 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:30:23 AM:Utility Tick Exit
+5/9/2018 9:31:21 AM:Utility Tick Entry
+5/9/2018 9:31:21 AM:Utility Tick -- Getting Values -- Started on : 5/9/2018 9:31:21 AM
+5/9/2018 9:31:21 AM:Utility Tick Getting Values Parameters : From Date : 6/27/2013 1:47:45 PM To Date : 6/28/2013 1:55:24 PM Work Group : 
+5/9/2018 9:31:21 AM:GetValues Function Entry
+5/9/2018 9:31:23 AM:GetValues Function Exit
+5/9/2018 9:31:23 AM:Utility Tick Getting Values Stopped, Total number of records is : 349
+5/9/2018 9:31:23 AM:Utility Tick Mapping Values Started
+5/9/2018 9:31:23 AM:Utility Tick Mapping Values Finished
+5/9/2018 9:31:23 AM:Utility Tick Create CSV Started
+5/9/2018 9:31:23 AM:CreateCSV Function Entry
+5/9/2018 9:31:23 AM:CreateCSV Function Exit
+5/9/2018 9:31:23 AM:UpdateReportGeneratedDetails Function Entry
+5/9/2018 9:31:23 AM:UpdateReportGeneratedDetails Function Exit
+5/9/2018 9:31:23 AM:Utility Tick Create CSV Finished
+5/9/2018 9:31:23 AM:Utility ticked and some job has been done successfully
+5/9/2018 9:31:23 AM:Utility Tick Exit

@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UtilityService.exe" size="32720">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UtilityService.exe" size="34768">
       <assemblyIdentity name="UtilityService" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JAHDndWKJeSHb2zHDBvnAC7DwQf5doo/Kh61xwoZ5F4=</dsig:DigestValue>
+        <dsig:DigestValue>2CfRlNKkQ5Lni4JUJIIKFHWYzPv01lhVZa9M4YkUc+8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -95,13 +95,13 @@
       <dsig:DigestValue>9cSJ2mQLT6tMB6RbxEdXGO0Rc/AQbEbuWCn2kLy5aF4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="UtilityService.exe.config" size="862">
+  <file name="UtilityService.exe.config" size="879">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Lc7ElHT7JF9X1ru7MdwzwmaQ5hygz6rdbD3lwXPAFTM=</dsig:DigestValue>
+      <dsig:DigestValue>vbOzeDBYHlst0o/ZAi+ipH8tCbeYjE4Enu0zEiJIdu4=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
