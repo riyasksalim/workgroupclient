@@ -142,12 +142,18 @@
 
             }
 
-        }, function onError() {
+        }, function onError(err) {
+            debugger;
             $.unblockUI();
+            var msg=JSON.stringify(err);
+              $.toaster({
+                        settings: settings,
+                        message: msg,
+                    });
         }));
     };
     $scope.abortExecutingApi = function() {
-
+        $.unblockUI();
         return (httpRequest && httpRequest.abortCall());
     };
 
