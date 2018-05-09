@@ -24,16 +24,22 @@ namespace UtilityService
             {
                 studentInfo = new List<GetReportDailyJob_Result>();
                 //Querying with LINQ to Entities 
-                using (var context = new qmEntities())
+                if (fromDate.HasValue && toDate.HasValue)
                 {
-                    var query = context.GetReportDailyJob(fromDate, toDate, workGroupID).ToList();
-                    Library.WriteErrorLog("GetValues Function Exit");
-                    return studentInfo = query;
+                    using (var context = new qmEntities())
+                    {
+                        var query = context.GetReportDailyJob(fromDate, toDate, workGroupID).ToList();
+                        Library.WriteErrorLog("GetValues Function Exit");
+                        return studentInfo = query;
+                    }
                 }
+                else
+                    return null;
             }
             catch (Exception ex)
             {
                 Library.WriteErrorLog("Error from GetValues : " + ex.InnerException.ToString());
+                return null;
                 throw ex;
             }
             
@@ -126,6 +132,7 @@ namespace UtilityService
             catch (Exception ex)
             {
                 Library.WriteErrorLog("Error from CreateCSV : " + ex.InnerException.ToString());
+                return "Error";
                 throw ex;
             }
             Library.WriteErrorLog("CreateCSV Function Exit");
