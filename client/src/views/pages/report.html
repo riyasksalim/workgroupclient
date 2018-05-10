@@ -59,7 +59,7 @@
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
                                                 <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(beginDate)}" type="text" autocomplete="off" placeholder="Start Date" id="StartDate" name="scheduledLoadStartDate"
-                                                    data-ng-model="beginDate" ng-blur="beginDate = clearDate(beginDate)">
+                                                    data-ng-model="beginDate" ng-change="checkdate()">
                                                 <span ng-show="searchClicked &amp;&amp; !isDate(beginDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
                                             </div>
                                         </div>
