@@ -157,6 +157,7 @@ namespace API.Controllers
                         student = new ReportGeneratedBO
                         {
                             CreatedBy = item.CreatedBy,
+                            CreatedOn = item.CreatedOn,
                             MethodofCreation = item.MethodofCreation,
                             ReportGeneratedFileName = item.ReportGeneratedFileName,
                             ReportGeneratedFullPath = item.ReportGeneratedFullPath,
@@ -296,10 +297,17 @@ namespace API.Controllers
         public IHttpActionResult GetFile(string Filename)
         {
             string location = ConfigurationManager.AppSettings["FTPLocation"];
-            var a = Filename.Split('\\');
-            var b = a[1].Split('/');
-            string newstring = @"" + a[0] + "/" + b[0] + "/" + b[1].ToString();
-            var dataBytes = File.ReadAllBytes(newstring);
+            var abc = Filename.Substring(location.Length + 1, Filename.Length - location.Length - 1); //file name
+            var cc = location.Substring(0, 1); //directory
+            char[] splitchar = { '\\' };
+            var strArr = location.Split(splitchar);
+            StringBuilder sb = new StringBuilder();
+            foreach (var a in strArr)
+            {
+                sb.Append(a.ToString() + "/");
+            }
+            //string newstring = @"" + cc + "/" + location + "/" + abc.ToString();
+            var dataBytes = File.ReadAllBytes(sb.ToString() + abc);
             var dataStream = new MemoryStream(dataBytes);
             return new eBookResult(dataStream, Request, Filename);
         }
