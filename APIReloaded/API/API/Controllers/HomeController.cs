@@ -103,7 +103,7 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(ex.InnerException.ToString());
+                return Ok(ex.ToString());
                 throw ex;
             }
             return Ok(WorkGroupReportBOList);
