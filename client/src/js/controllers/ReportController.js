@@ -79,12 +79,12 @@
 
 
 
-        $("#StartDate").change(function(data){
+        $("#StartDate").change(function(data) {
             debugger;
-            $scope.StartDate=undefined;
+            $scope.StartDate = undefined;
             $scope.$apply();
         });
-        $("#EndDate").change(function(data){
+        $("#EndDate").change(function(data) {
             debugger
             $scope.EndDate = undefined;
             $scope.$apply();
@@ -108,13 +108,14 @@
     };
     var httpRequest = null;
     GetAllWorkGroups();
-    $scope.checkdate=function(){
+    $scope.checkdate = function() {
         debugger
-        var a=$scope.beginDate
+        var a = $scope.beginDate
     };
-    function checkparams(){
+
+    function checkparams() {
         debugger
-        if ($scope.StartDate == undefined ||$scope.StartDate ==""|| $scope.EndDate == undefined ||$scope.StartDate ==""|| $scope.workgroupselected == undefined) {
+        if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "" || $scope.workgroupselected == undefined) {
 
             $.toaster({
                 settings: settings,
@@ -129,14 +130,13 @@
         //     });
         //     return false;
         // }
-        else if ($scope.StartDate > $scope.EndDate) {
+        else if (new Date($scope.StartDate) > new Date($scope.EndDate)) {
             $.toaster({
                 settings: settings,
                 message: 'End Date Should be larger than start Date'
             });
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
@@ -161,10 +161,10 @@
         //     return false;
         // }
 
-      if(!checkparams()){
-          debugger;
+        if (!checkparams()) {
+            debugger;
             return false;
-      }
+        }
 
         var params = {
             StartDate: $scope.StartDate,
@@ -195,11 +195,11 @@
         }, function onError(err) {
             debugger;
             $.unblockUI();
-            var msg=JSON.stringify(err);
-              $.toaster({
-                        settings: settings,
-                        message: msg,
-                    });
+            var msg = JSON.stringify(err);
+            $.toaster({
+                settings: settings,
+                message: msg,
+            });
         }));
     };
     $scope.abortExecutingApi = function() {
