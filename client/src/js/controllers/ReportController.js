@@ -122,13 +122,13 @@
             });
             return false;
         }
-        else if(!angular.isDate($scope.StartDate || !angular.isDate($scope.EndDate))){
-            $.toaster({
-                settings: settings,
-                message: 'Not a Date Format'
-            });
-            return false;
-        }
+        // else if(!angular.isDate($scope.StartDate || !angular.isDate($scope.EndDate))){
+        //     $.toaster({
+        //         settings: settings,
+        //         message: 'Not a Date Format'
+        //     });
+        //     return false;
+        // }
         else if ($scope.StartDate > $scope.EndDate) {
             $.toaster({
                 settings: settings,
