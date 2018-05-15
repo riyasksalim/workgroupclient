@@ -20,7 +20,6 @@ namespace API
         public qmEntities()
             : base("name=qmEntities")
         {
-            this.Database.CommandTimeout = 500000;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -32,23 +31,6 @@ namespace API
         public virtual ObjectResult<GetAllWorkGroups_Result> GetAllWorkGroups()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllWorkGroups_Result>("GetAllWorkGroups");
-        }
-    
-        public virtual ObjectResult<GetReport_Result> GetReport(Nullable<System.DateTime> startdate, Nullable<System.DateTime> endDate, string workgroupid)
-        {
-            var startdateParameter = startdate.HasValue ?
-                new ObjectParameter("startdate", startdate) :
-                new ObjectParameter("startdate", typeof(System.DateTime));
-    
-            var endDateParameter = endDate.HasValue ?
-                new ObjectParameter("endDate", endDate) :
-                new ObjectParameter("endDate", typeof(System.DateTime));
-    
-            var workgroupidParameter = workgroupid != null ?
-                new ObjectParameter("workgroupid", workgroupid) :
-                new ObjectParameter("workgroupid", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReport_Result>("GetReport", startdateParameter, endDateParameter, workgroupidParameter);
         }
     
         public virtual ObjectResult<GetReportcsvList_Result> GetReportcsvList()
@@ -88,6 +70,23 @@ namespace API
                 new ObjectParameter("ReportLocation", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertReport", reportGeneratedFileNameParameter, createdOnParameter, createdByParameter, methodofCreationParameter, reportGeneratedFullPathParameter, reportLocationParameter);
+        }
+    
+        public virtual ObjectResult<GetReport_Result> GetReport(Nullable<System.DateTime> startdate, Nullable<System.DateTime> endDate, string workgroupid)
+        {
+            var startdateParameter = startdate.HasValue ?
+                new ObjectParameter("startdate", startdate) :
+                new ObjectParameter("startdate", typeof(System.DateTime));
+    
+            var endDateParameter = endDate.HasValue ?
+                new ObjectParameter("endDate", endDate) :
+                new ObjectParameter("endDate", typeof(System.DateTime));
+    
+            var workgroupidParameter = workgroupid != null ?
+                new ObjectParameter("workgroupid", workgroupid) :
+                new ObjectParameter("workgroupid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReport_Result>("GetReport", startdateParameter, endDateParameter, workgroupidParameter);
         }
     }
 }
