@@ -78,7 +78,7 @@ var stripDebug = require('gulp-strip-debug');
 gulp.task('buildapp', function () {
     return gulp.src(paths.src + 'index.html')
         .pipe(useref())
-        .pipe(gulpif(paths.dist + 'js/**/*.js', uglify()))
+        // .pipe(gulpif(paths.dist + 'js/**/*.js', uglify()))
         //.pipe(gulpif(paths.src + '**/*.css', minifycss()))
        
         .pipe(gulp.dest('dist'));

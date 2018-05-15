@@ -76,6 +76,19 @@
                 $scope.$apply();
             }
         });
+
+
+
+        $("#StartDate").change(function(data){
+            debugger;
+            $scope.StartDate=undefined;
+            $scope.$apply();
+        });
+        $("#EndDate").change(function(data){
+            debugger
+            $scope.EndDate = undefined;
+            $scope.$apply();
+        });
     });
 
     function GetAllWorkGroups() {
@@ -95,26 +108,63 @@
     };
     var httpRequest = null;
     GetAllWorkGroups();
-
-    $scope.search = function() {
-        $scope.WorkGroupsReport = [];
-        if ($scope.StartDate == undefined || $scope.EndDate == undefined || $scope.workgroupselected == undefined) {
+    $scope.checkdate=function(){
+        debugger
+        var a=$scope.beginDate
+    };
+    function checkparams(){
+        debugger
+        if ($scope.StartDate == undefined ||$scope.StartDate ==""|| $scope.EndDate == undefined ||$scope.StartDate ==""|| $scope.workgroupselected == undefined) {
 
             $.toaster({
                 settings: settings,
                 message: 'Input Parameter required'
             });
             return false;
-
-
         }
-        if ($scope.StartDate > $scope.EndDate) {
+        else if(!angular.isDate($scope.StartDate || !angular.isDate($scope.EndDate))){
+            $.toaster({
+                settings: settings,
+                message: 'Not a Date Format'
+            });
+            return false;
+        }
+        else if ($scope.StartDate > $scope.EndDate) {
             $.toaster({
                 settings: settings,
                 message: 'End Date Should be larger than start Date'
             });
             return false;
         }
+        else {
+            return true;
+        }
+    }
+
+    $scope.search = function() {
+        $scope.WorkGroupsReport = [];
+        // if ($scope.StartDate == undefined || $scope.EndDate == undefined || $scope.workgroupselected == undefined) {
+
+        //     $.toaster({
+        //         settings: settings,
+        //         message: 'Input Parameter required'
+        //     });
+        //     return false;
+
+
+        // }
+        // if ($scope.StartDate > $scope.EndDate) {
+        //     $.toaster({
+        //         settings: settings,
+        //         message: 'End Date Should be larger than start Date'
+        //     });
+        //     return false;
+        // }
+
+      if(!checkparams()){
+          debugger;
+            return false;
+      }
 
         var params = {
             StartDate: $scope.StartDate,
