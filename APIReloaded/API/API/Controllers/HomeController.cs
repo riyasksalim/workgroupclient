@@ -34,18 +34,18 @@ namespace API.Controllers
         {
             WorkGroupReportBO student = null;
             List<WorkGroupReportBO> WorkGroupReportBOList = new List<WorkGroupReportBO>();
-            StringBuilder sb = new StringBuilder();
+            //StringBuilder sb = new StringBuilder();
             try
             {
-                if (reportModel.WorkGroupID.Length > 0)
-                    foreach (var item in reportModel.WorkGroupID)
-                    {
-                        sb.Append(item + ",");
-                    }
+                //if (reportModel.WorkGroupID.Length > 0)
+                //    foreach (var item in reportModel.WorkGroupID)
+                //    {
+                //        sb.Append(item + ",");
+                //    }
                 //Querying with LINQ to Entities 
                 using (var context = new qmEntities())
                 {
-                    var query = context.GetReport(reportModel.StartDate, reportModel.EndDate, sb.ToString()).ToList();
+                    var query = context.GetReport(reportModel.StartDate, reportModel.EndDate, reportModel.WorkGroupID).ToList();
                     foreach (var item in query)
                     {
                         student = new WorkGroupReportBO

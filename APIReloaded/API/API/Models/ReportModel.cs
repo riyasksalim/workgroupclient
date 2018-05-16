@@ -11,6 +11,6 @@ namespace API.Models
 
         public DateTime? EndDate { get; set; }
 
-        public string[] WorkGroupID { get; set; }
+        public string WorkGroupID { get; set; }
     }
 }
