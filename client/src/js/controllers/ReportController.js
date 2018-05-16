@@ -132,7 +132,7 @@
     }
     function checkparams() {
         debugger
-        if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "") {
+        if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "" ||$scope.workgroupselected == undefined) {
 
             $.toaster({
                 settings: settings,
