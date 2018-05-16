@@ -60,7 +60,7 @@
                     <tbody>
                         <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
                             <td>{{row.CreatedBy}}</td>
-                            <td>{{row.CreatedOn | date}}</td>
+                            <td>{{row.CreatedOn | date :"short"}}</td>
                             <td>{{row.MethodofCreation}}</td>
                             <td>{{row.ReportGeneratedFileName}}</td>
                           
