@@ -66,7 +66,9 @@
     $(function() {
         $("#StartDate").datepicker({
           
-           
+            required: true,
+            message: "This is a required field",
+            dateFormat: 'mm-dd-yy',
             onClose: function() {$(this).valid();},
             onSelect: function(date) {
                 $scope.StartDate = date;
@@ -74,8 +76,10 @@
             }
         });
         $("#EndDate").datepicker({
+            dateFormat: 'mm-dd-yy',
+            required: true,
+            message: "This is a required field",
           
-           
             onClose: function() {$(this).valid();},
             onSelect: function(date) {
                 debugger
