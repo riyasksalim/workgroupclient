@@ -12,7 +12,6 @@
           <Parameter Name="workgroupid" Type="varchar(max)" Mode="In" />
         </Function>
         <Function Name="GetReportcsvList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="GetReportList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="InsertReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ReportGeneratedFileName" Type="varchar(max)" Mode="In" />
           <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
@@ -115,7 +114,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetReportList" FunctionName="qmModel.Store.GetReportList" />
           <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="qmModel.Store.InsertReport" />
           <FunctionImportMapping FunctionImportName="GetReport" FunctionName="qmModel.Store.GetReport">
             <ResultMapping>

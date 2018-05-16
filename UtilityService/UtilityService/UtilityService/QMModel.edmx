@@ -4,11 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="qmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="qmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <Function Name="GetReportDailyJob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="startdate" Type="datetime" Mode="In" />
           <Parameter Name="endDate" Type="datetime" Mode="In" />
-          <Parameter Name="workgroupid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="workgroupid" Type="varchar(max)" Mode="In" />
         </Function>
         <Function Name="InsertReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ReportGeneratedFileName" Type="varchar(max)" Mode="In" />
@@ -19,17 +19,11 @@
           <Parameter Name="ReportLocation" Type="varchar(max)" Mode="In" />
         </Function>
         <EntityContainer Name="qmModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="qmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="qmEntities" annotation:LazyLoadingEnabled="true" >
-          <FunctionImport Name="GetReportDailyJob" ReturnType="Collection(qmModel.GetReportDailyJob_Result)">
-            <Parameter Name="startdate" Mode="In" Type="DateTime" />
-            <Parameter Name="endDate" Mode="In" Type="DateTime" />
-            <Parameter Name="workgroupid" Mode="In" Type="Guid" />
-          </FunctionImport>
           <FunctionImport Name="InsertReport">
             <Parameter Name="ReportGeneratedFileName" Mode="In" Type="String" />
             <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
@@ -37,6 +31,11 @@
             <Parameter Name="MethodofCreation" Mode="In" Type="String" />
             <Parameter Name="ReportGeneratedFullPath" Mode="In" Type="String" />
             <Parameter Name="ReportLocation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetReportDailyJob" ReturnType="Collection(qmModel.GetReportDailyJob_Result)">
+            <Parameter Name="startdate" Mode="In" Type="DateTime" />
+            <Parameter Name="endDate" Mode="In" Type="DateTime" />
+            <Parameter Name="workgroupid" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetReportDailyJob_Result">
@@ -53,22 +52,22 @@
           <Property Type="Byte" Name="userroleid" Nullable="false" />
           <Property Type="Byte" Name="usertypeid" Nullable="false" />
           <Property Type="String" Name="workgroupname" Nullable="false" MaxLength="128" />
-          <Property Type="String" Name="description" Nullable="false" MaxLength="256" />
-          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
-          <Property Type="Byte" Name="sequencenumber" Nullable="false" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="Byte" Name="sequencenumber" Nullable="true" />
           <Property Type="String" Name="questiondescription" Nullable="true" MaxLength="1024" />
-          <Property Type="Byte" Name="questionnumber" Nullable="false" />
-          <Property Type="String" Name="questiontext" Nullable="false" MaxLength="1024" />
-          <Property Type="Boolean" Name="responserequired" Nullable="false" />
+          <Property Type="Byte" Name="questionnumber" Nullable="true" />
+          <Property Type="String" Name="questiontext" Nullable="true" MaxLength="1024" />
+          <Property Type="Boolean" Name="responserequired" Nullable="true" />
           <Property Type="Decimal" Name="questionadditionalpoint" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="autofailpoint" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="questionadditionalconditionpoint" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Double" Name="weightedscore" Nullable="true" />
-          <Property Type="Byte" Name="sectionWeight" Nullable="false" />
+          <Property Type="Byte" Name="sectionWeight" Nullable="true" />
           <Property Type="String" Name="responsetext" Nullable="true" MaxLength="1024" />
-          <Property Type="Byte" Name="questionWeight" Nullable="false" />
-          <Property Type="String" Name="questiontypedesc" Nullable="false" MaxLength="50" />
-          <Property Type="Boolean" Name="questionScored" Nullable="false" />
+          <Property Type="Byte" Name="questionWeight" Nullable="true" />
+          <Property Type="String" Name="questiontypedesc" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="questionScored" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -76,6 +75,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="qmModelStoreContainer" CdmEntityContainer="qmEntities" >
+          <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="qmModel.Store.InsertReport" />
           <FunctionImportMapping FunctionImportName="GetReportDailyJob" FunctionName="qmModel.Store.GetReportDailyJob">
             <ResultMapping>
               <ComplexTypeMapping TypeName="qmModel.GetReportDailyJob_Result">
@@ -111,7 +111,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="qmModel.Store.InsertReport" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
