@@ -39,19 +39,9 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[GetReport]    Script Date: 08/05/2018 18:33:18 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		Mujeeb K S
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
 USE [qm]
 GO
-/****** Object:  StoredProcedure [dbo].[GetReport]    Script Date: 08/05/2018 19:03:35 ******/
+/****** Object:  StoredProcedure [dbo].[GetReport]    Script Date: 14/05/2018 19:53:11 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -61,50 +51,140 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE [dbo].[GetReport] 
+CREATE PROCEDURE [dbo].[GetReport] 
 	@startdate datetime,
 	@endDate datetime,
 	@workgroupid varchar(max)
 AS
 BEGIN
-	with CTEGetReport (starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
+
+declare @formatedStartDate datetime
+set  @formatedStartDate = Cast(CONVERT(CHAR(10), @startdate, 101) as datetime)
+
+declare @formatedEndDate datetime
+set  @formatedEndDate = Cast(CONVERT(CHAR(10), @endDate, 101) as datetime) 
+
+	;with CTEGetReport (starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
 	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
 	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
 	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored)
 	as     
-	(select distinct m.starttime, m.endtime, m.mediaid, m.dnis, m.ani, r.updateuserid,
-	r.percentscore, r.overallscore,
-	r.reviewdate, i.username, i.userroleid, i.usertypeid,
-	w.workgroupname, s.[description], s.[name], s.sequencenumber, 
-	q.questiondescription, q.questionnumber, q.questiontext, q.responserequired,
-	q.questionadditionalpoint, q.autofailpoint, q.questionadditionalconditionpoint,
-	sr.weightedscore, s.[weight] as sectionWeight,
-	qr.responsetext, q.[weight] as questionWeight,
-	qt.questiontypedesc, qt.scored as questionScored
-	from media m inner join review r on m.mediaid = r.mediaid
-	inner join iqmuser i on i.userid = r.owneruserid
-	inner join workgroup_iqmuser wi on wi.userid = r.owneruserid
-	inner join workgroup w on w.workgroupid = wi.workgroupid
-	inner join sectionresult sr on sr.reviewid = r.reviewid
-	inner join section s on s.sectionid = sr.sectionid
-	inner join question q on q.sectionid = s.sectionid
-	inner join questionresult qr on q.questionid = qr.questionid
-	inner join questiontype qt on qt.questiontypeid = q.questiontypeid
-	where (m.starttime BETWEEN @startdate AND @endDate) OR 
-	(m.endtime BETWEEN @startdate AND @endDate) OR 
-	(m.starttime <= @startdate AND m.endtime >= @endDate) and
-	w.workgroupid in ( @workgroupid ))
+	(SELECT DISTINCT 
+                         m.starttime, m.endtime, m.mediaid, m.dnis, m.ani, r.updateuserid, r.percentscore, r.overallscore, r.reviewdate, i.username, i.userroleid, i.usertypeid, w.workgroupname, s.description, s.name, s.sequencenumber, 
+                         q.questiondescription, q.questionnumber, q.questiontext, q.responserequired, q.questionadditionalpoint, q.autofailpoint, q.questionadditionalconditionpoint, sr.weightedscore, s.weight AS sectionWeight, 
+                         qr.responsetext, q.weight AS questionWeight, qt.questiontypedesc, qt.scored AS questionScored
+		FROM            workgroup AS w INNER JOIN
+                         workgroup_iqmuser AS wi ON wi.workgroupid = w.workgroupid INNER JOIN
+                         iqmuser AS i ON i.userid = wi.userid INNER JOIN
+                         media AS m ON m.userid = wi.userid LEFT OUTER JOIN
+                         review AS r ON r.mediaid = m.mediaid LEFT OUTER JOIN
+                         sectionresult AS sr ON sr.reviewid = r.reviewid LEFT OUTER JOIN
+                         section AS s ON s.sectionid = sr.sectionid LEFT OUTER JOIN
+                         question AS q ON q.sectionid = s.sectionid LEFT OUTER JOIN
+                         questionresult AS qr ON q.questionid = qr.questionid LEFT OUTER JOIN
+                         questiontype AS qt ON qt.questiontypeid = q.questiontypeid
+		WHERE (w.workgroupid IN (@workgroupid)) AND 
+		(CAST(CONVERT(CHAR(10), m.starttime, 101) AS datetime) BETWEEN @formatedStartDate AND @formatedEndDate) AND
+		(CAST(CONVERT(CHAR(10), m.endtime, 101) AS datetime) BETWEEN @formatedStartDate AND @formatedEndDate))
+
+		select starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
+		userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
+		questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
+		sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored from CTEGetReport
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[GetReportDailyJob]    Script Date: 14/05/2018 19:53:11 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Mujeeb K S
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[GetReportDailyJob] 
+	@startdate datetime,
+	@endDate datetime,
+	@workgroupid varchar(max) = null
+AS
+BEGIN
+
+declare @formatedStartDate datetime
+set  @formatedStartDate = Cast(CONVERT(CHAR(10), @startdate, 101) as datetime)
+
+declare @formatedEndDate datetime
+set  @formatedEndDate = Cast(CONVERT(CHAR(10), @endDate, 101) as datetime)
+
+if (@workgroupid is null)
+
+begin
+    ;with CTEGetReport (starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
+	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
+	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
+	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored)
+	as     
+	(SELECT DISTINCT 
+                         m.starttime, m.endtime, m.mediaid, m.dnis, m.ani, r.updateuserid, r.percentscore, r.overallscore, r.reviewdate, i.username, i.userroleid, i.usertypeid, w.workgroupname, s.description, s.name, s.sequencenumber, 
+                         q.questiondescription, q.questionnumber, q.questiontext, q.responserequired, q.questionadditionalpoint, q.autofailpoint, q.questionadditionalconditionpoint, sr.weightedscore, s.weight AS sectionWeight, 
+                         qr.responsetext, q.weight AS questionWeight, qt.questiontypedesc, qt.scored AS questionScored
+	FROM            workgroup AS w INNER JOIN
+                         workgroup_iqmuser AS wi ON wi.workgroupid = w.workgroupid INNER JOIN
+                         iqmuser AS i ON i.userid = wi.userid INNER JOIN
+                         media AS m ON m.userid = wi.userid LEFT OUTER JOIN
+                         review AS r ON r.mediaid = m.mediaid LEFT OUTER JOIN
+                         sectionresult AS sr ON sr.reviewid = r.reviewid LEFT OUTER JOIN
+                         section AS s ON s.sectionid = sr.sectionid LEFT OUTER JOIN
+                         question AS q ON q.sectionid = s.sectionid LEFT OUTER JOIN
+                         questionresult AS qr ON q.questionid = qr.questionid LEFT OUTER JOIN
+                         questiontype AS qt ON qt.questiontypeid = q.questiontypeid
+	where  
+	(CAST(CONVERT(CHAR(10), m.starttime, 101) AS datetime) BETWEEN @formatedStartDate AND @formatedEndDate) AND 
+    (CAST(CONVERT(CHAR(10), m.endtime, 101) AS datetime) BETWEEN @formatedStartDate AND @formatedEndDate))
 
 	select starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
 	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
 	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
 	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored from CTEGetReport
+
+end
+else 
+begin
+
+	;with CTEGetReport (starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
+	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
+	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
+	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored)
+	as     
+	(SELECT DISTINCT 
+                         m.starttime, m.endtime, m.mediaid, m.dnis, m.ani, r.updateuserid, r.percentscore, r.overallscore, r.reviewdate, i.username, i.userroleid, i.usertypeid, w.workgroupname, s.description, s.name, s.sequencenumber, 
+                         q.questiondescription, q.questionnumber, q.questiontext, q.responserequired, q.questionadditionalpoint, q.autofailpoint, q.questionadditionalconditionpoint, sr.weightedscore, s.weight AS sectionWeight, 
+                         qr.responsetext, q.weight AS questionWeight, qt.questiontypedesc, qt.scored AS questionScored
+	FROM            workgroup AS w INNER JOIN
+                         workgroup_iqmuser AS wi ON wi.workgroupid = w.workgroupid INNER JOIN
+                         iqmuser AS i ON i.userid = wi.userid INNER JOIN
+                         media AS m ON m.userid = wi.userid LEFT OUTER JOIN
+                         review AS r ON r.mediaid = m.mediaid LEFT OUTER JOIN
+                         sectionresult AS sr ON sr.reviewid = r.reviewid LEFT OUTER JOIN
+                         section AS s ON s.sectionid = sr.sectionid LEFT OUTER JOIN
+                         question AS q ON q.sectionid = s.sectionid LEFT OUTER JOIN
+                         questionresult AS qr ON q.questionid = qr.questionid LEFT OUTER JOIN
+                         questiontype AS qt ON qt.questiontypeid = q.questiontypeid
+	where w.workgroupid in ( @workgroupid ) AND
+	(CAST(CONVERT(CHAR(10), m.starttime, 101) AS datetime) BETWEEN @formatedStartDate AND @formatedEndDate) AND 
+    (CAST(CONVERT(CHAR(10), m.endtime, 101) AS datetime) BETWEEN @formatedStartDate AND @formatedEndDate))
+
+	select starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
+	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
+	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
+	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored from CTEGetReport
+
+end
 END
-/****** Object:  StoredProcedure [dbo].[GetReportcsvList]    Script Date: 08/05/2018 18:33:18 ******/
-SET ANSI_NULLS ON
+
 GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
@@ -126,109 +206,7 @@ END
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[GetReportDailyJob]    Script Date: 08/05/2018 18:33:18 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		Mujeeb K S
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-USE [qm]
-GO
-/****** Object:  StoredProcedure [dbo].[GetReportDailyJob]    Script Date: 09/05/2018 06:36:33 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
--- =============================================
--- Author:		Mujeeb K S
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-ALTER PROCEDURE [dbo].[GetReportDailyJob] 
-	@startdate datetime,
-	@endDate datetime,
-	@workgroupid uniqueidentifier = null
-AS
-BEGIN
-if (@workgroupid is null)
 
-begin
-
-    with CTEGetReport (starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
-	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
-	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
-	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored)
-	as     
-	(select distinct m.starttime, m.endtime, m.mediaid, m.dnis, m.ani, r.updateuserid,
-	r.percentscore, r.overallscore,
-	r.reviewdate, i.username, i.userroleid, i.usertypeid,
-	w.workgroupname, s.[description], s.[name], s.sequencenumber, 
-	q.questiondescription, q.questionnumber, q.questiontext, q.responserequired,
-	q.questionadditionalpoint, q.autofailpoint, q.questionadditionalconditionpoint,
-	sr.weightedscore, s.[weight] as sectionWeight,
-	qr.responsetext, q.[weight] as questionWeight,
-	qt.questiontypedesc, qt.scored as questionScored
-	from media m inner join review r on m.mediaid = r.mediaid
-	inner join iqmuser i on i.userid = r.owneruserid
-	inner join workgroup_iqmuser wi on wi.userid = r.owneruserid
-	inner join workgroup w on w.workgroupid = wi.workgroupid
-	inner join sectionresult sr on sr.reviewid = r.reviewid
-	inner join section s on s.sectionid = sr.sectionid
-	inner join question q on q.sectionid = s.sectionid
-	inner join questionresult qr on q.questionid = qr.questionid
-	inner join questiontype qt on qt.questiontypeid = q.questiontypeid
-	where (m.starttime BETWEEN @startdate AND @endDate) OR 
-	(m.endtime BETWEEN @startdate AND @endDate) OR 
-	(m.starttime <= @startdate AND m.endtime >= @endDate)) 
-
-	select starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
-	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
-	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
-	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored from CTEGetReport
-
-end
-else 
-begin
-
-	with CTEGetReport (starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
-	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
-	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
-	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored)
-	as     
-	(select distinct m.starttime, m.endtime, m.mediaid, m.dnis, m.ani, r.updateuserid,
-	r.percentscore, r.overallscore,
-	r.reviewdate, i.username, i.userroleid, i.usertypeid,
-	w.workgroupname, s.[description], s.[name], s.sequencenumber, 
-	q.questiondescription, q.questionnumber, q.questiontext, q.responserequired,
-	q.questionadditionalpoint, q.autofailpoint, q.questionadditionalconditionpoint,
-	sr.weightedscore, s.[weight] as sectionWeight,
-	qr.responsetext, q.[weight] as questionWeight,
-	qt.questiontypedesc, qt.scored as questionScored
-	from media m inner join review r on m.mediaid = r.mediaid
-	inner join iqmuser i on i.userid = r.owneruserid
-	inner join workgroup_iqmuser wi on wi.userid = r.owneruserid
-	inner join workgroup w on w.workgroupid = wi.workgroupid
-	inner join sectionresult sr on sr.reviewid = r.reviewid
-	inner join section s on s.sectionid = sr.sectionid
-	inner join question q on q.sectionid = s.sectionid
-	inner join questionresult qr on q.questionid = qr.questionid
-	inner join questiontype qt on qt.questiontypeid = q.questiontypeid
-	where (m.starttime BETWEEN @startdate AND @endDate) OR 
-	(m.endtime BETWEEN @startdate AND @endDate) OR 
-	(m.starttime <= @startdate AND m.endtime >= @endDate) and
-	w.workgroupid in ( @workgroupid ))
-
-	select starttime, endtime, mediaid, dnis, ani, updateuserid, percentscore, overallscore, reviewdate, username,
-	userroleid, usertypeid, workgroupname, [description], [name], sequencenumber, questiondescription, questionnumber,
-	questiontext, responserequired, questionadditionalpoint, autofailpoint, questionadditionalconditionpoint, weightedscore,
-	sectionWeight, responsetext, questionWeight, questiontypedesc, questionScored from CTEGetReport
-
-end
-END
 
 
 
