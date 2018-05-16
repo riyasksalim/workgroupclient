@@ -207,7 +207,7 @@
         var params = {
             StartDate: $scope.StartDate,
             EndDate: $scope.EndDate,
-            WorkGroupID: $scope.workgroupselected
+            WorkGroupID: $scope.workgroupselected.join().toString() 
         };
         $.blockUI({
             message: '<img src="../img/loading.gif"/>',
