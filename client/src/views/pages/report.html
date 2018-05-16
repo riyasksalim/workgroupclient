@@ -4,7 +4,9 @@
         position: relative;
         left: -5px;
     }
-    
+   label.error{
+        color:red !important;
+    }
     .header-content.sort-ascent:before {
         content: "\25B4";
     }
@@ -58,10 +60,9 @@
                                         <div class="form-group">
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
-                                                <input style="cursor: default;
-                                                background-color: white;" class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" readonly="true"  ng-class="{'has-error':searchClicked &amp;&amp; !isDate(beginDate)}" type="text" autocomplete="off" placeholder="Start Date" id="StartDate" name="scheduledLoadStartDate"
-                                                    data-ng-model="beginDate" ng-change="checkdate()">
-                                                <span ng-show="searchClicked &amp;&amp; !isDate(beginDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
+                                                <input  class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" type="text"  placeholder="Start Date" id="StartDate" name="StartDate"
+                                                    ng-model="StartDate" >
+                                                <!-- <span ng-show="searchClicked &amp;&amp; !isDate(beginDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -72,11 +73,10 @@
                                         <div class="form-group">
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
-                                                <input style="cursor: default;
-                                                background-color: white;" class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" readonly="true" ng-class="{'has-error':searchClicked &amp;&amp; !isDate(endDate)}" type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="scheduledLoadEndDate"
-                                                    data-ng-model="endDate" ng-blur="endDate = clearDate(endDate)">
+                                                <input   class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid"   type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="EndDate"
+                                                    ng-model="EndDate" >
                                                 <span ng-show="searchClicked &amp;&amp; !isDate(endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
-                                                <span ng-show="searchClicked &amp;&amp; isPreviouseDate(beginDate,endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">To Date should be greater than From Date</span>
+                                                <!-- <span ng-show="searchClicked &amp;&amp; isPreviouseDate(beginDate,endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">To Date should be greater than From Date</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                             <td>{{row.questionadditionalconditionpoint}}</td>
                         </tr>
                     </tbody>
-                    <tfoot ng-if="WorkGroupsReport.lenght==0">
+                    <tfoot ng-if="display_records.length==0">
                         <tr>
                             <td colspan="26" class="text-center">
                                 <span>No Data Found!</span>

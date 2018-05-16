@@ -65,13 +65,24 @@
     };
     $(function() {
         $("#StartDate").datepicker({
+            dateFormat: 'dd/mm/yy',
+            required: true,
+            message: "This is a required field",
+            dateFormat: 'dd-mm-yy',
+            onClose: function() {$(this).valid();},
             onSelect: function(date) {
                 $scope.StartDate = date;
                 $scope.$apply();
             }
         });
         $("#EndDate").datepicker({
+            dateFormat: 'dd/mm/yy',
+            required: true,
+            message: "This is a required field",
+            dateFormat: 'dd-mm-yy',
+            onClose: function() {$(this).valid();},
             onSelect: function(date) {
+                debugger
                 $scope.EndDate = date;
                 $scope.$apply();
             }
@@ -79,18 +90,17 @@
 
 
 
-        $("#StartDate").change(function(data) {
-            debugger;
-            $scope.StartDate = undefined;
-            $scope.$apply();
-        });
-        $("#EndDate").change(function(data) {
-            debugger
-            $scope.EndDate = undefined;
-            $scope.$apply();
-        });
+        // $("#StartDate").change(function(data) {
+        //     debugger;
+        //     $scope.StartDate = date;
+        //     $scope.$apply();
+        // });
+        // $("#EndDate").change(function(data) {
+        //     $scope.EndDate = date;
+        //     $scope.$apply();
+        // });
     });
-
+   
     function GetAllWorkGroups() {
 
         dataService.GetAllWorkGroups().then(function(response) {
@@ -110,9 +120,16 @@
     GetAllWorkGroups();
     $scope.checkdate = function() {
         debugger
-        var a = $scope.beginDate
-    };
+        var a = $scope.beginDate;
+        var date = new Date(a);
+        debugger
+    // var b= date instanceof Date && !isNaN(date.valueOf());
 
+    };
+    function isDate (x) 
+    { 
+      return (null != x) && !isNaN(x) && ("undefined" !== typeof x.getDate); 
+    }
     function checkparams() {
         debugger
         if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "" || $scope.workgroupselected == undefined) {
@@ -123,13 +140,15 @@
             });
             return false;
         }
-        // else if(!angular.isDate($scope.StartDate || !angular.isDate($scope.EndDate))){
-        //     $.toaster({
-        //         settings: settings,
-        //         message: 'Not a Date Format'
-        //     });
-        //     return false;
-        // }
+        else if(!checkdateformat($scope.StartDate,$scope.EndDate)){
+            $.toaster({
+                settings: settings,
+                message: 'Not a Date Format'
+            });
+            $scope.StartDate=undefined;
+            $scope.EndDate=undefined;
+            return false;
+        }
         else if (new Date($scope.StartDate) > new Date($scope.EndDate)) {
             $.toaster({
                 settings: settings,
@@ -140,26 +159,26 @@
             return true;
         }
     }
-
+    function checkdateformat(start,end){
+        var startdate=Date.parse(start);
+        var enddate=Date.parse(end);
+        var a= (new Date(start) !== "Invalid Date") && !isNaN(new Date(start));
+        var b= (new Date(end) !== "Invalid Date") && !isNaN(new Date(end));
+        debugger;
+    }
+    $scope.$watch('StartDate', function(newValue, oldValue) {
+        console.log(newValue);
+      $scope.StartDate=newValue
+    
+    });
+    $scope.$watch('EndDate', function(newValue, oldValue) {
+        console.log(newValue);
+      $scope.EndDate=newValue
+    
+    });
     $scope.search = function() {
         $scope.WorkGroupsReport = [];
-        // if ($scope.StartDate == undefined || $scope.EndDate == undefined || $scope.workgroupselected == undefined) {
-
-        //     $.toaster({
-        //         settings: settings,
-        //         message: 'Input Parameter required'
-        //     });
-        //     return false;
-
-
-        // }
-        // if ($scope.StartDate > $scope.EndDate) {
-        //     $.toaster({
-        //         settings: settings,
-        //         message: 'End Date Should be larger than start Date'
-        //     });
-        //     return false;
-        // }
+        
 
         if (!checkparams()) {
             debugger;
@@ -189,6 +208,13 @@
                         message: 'CSV Generated Succesfully..',
                     });
                 }
+                else{
+                    $.toaster({
+                        settings: settings,
+                        message: 'No Results Found!'
+                    });
+                    
+                }
 
             }
 
@@ -210,37 +236,10 @@
 
 
     $scope.select2Options = {
-        // formatNoMatches: function(term) {
-
-        //     var message = '<a ng-click="addTag()">Add tag:"' + term + '"</a>';
-        //     if(!$scope.$$phase) {
-        //         $scope.$apply(function() {
-        //             $scope.noResultsTag = term;
-        //         });
-        //     }
-        //     return message;
-        // }
+       
     };
 
-    // $scope.addTag = function() {
-    //     $scope.tags.push({
-    //         id: $scope.tags.length,
-    //         name: $scope.noResultsTag
-    //     });
-    // };
-
-    // $scope.$watch('noResultsTag', function(newVal, oldVal) {
-    //     if(newVal && newVal !== oldVal) {
-    //         $timeout(function() {
-    //             var noResultsLink = $('.select2-no-results');
-    //             console.log(noResultsLink.contents());
-    //             $compile(noResultsLink.contents())($scope);
-    //         });
-    //     }
-    // }, true);
-
-
-
+   
 
 
 }])
