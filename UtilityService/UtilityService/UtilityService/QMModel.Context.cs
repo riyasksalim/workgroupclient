@@ -20,7 +20,6 @@ namespace UtilityService
         public qmEntities()
             : base("name=qmEntities")
         {
-            this.Database.CommandTimeout = 500000;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -28,23 +27,6 @@ namespace UtilityService
             throw new UnintentionalCodeFirstException();
         }
     
-    
-        public virtual ObjectResult<GetReportDailyJob_Result> GetReportDailyJob(Nullable<System.DateTime> startdate, Nullable<System.DateTime> endDate, Nullable<System.Guid> workgroupid)
-        {
-            var startdateParameter = startdate.HasValue ?
-                new ObjectParameter("startdate", startdate) :
-                new ObjectParameter("startdate", typeof(System.DateTime));
-    
-            var endDateParameter = endDate.HasValue ?
-                new ObjectParameter("endDate", endDate) :
-                new ObjectParameter("endDate", typeof(System.DateTime));
-    
-            var workgroupidParameter = workgroupid.HasValue ?
-                new ObjectParameter("workgroupid", workgroupid) :
-                new ObjectParameter("workgroupid", typeof(System.Guid));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDailyJob_Result>("GetReportDailyJob", startdateParameter, endDateParameter, workgroupidParameter);
-        }
     
         public virtual int InsertReport(string reportGeneratedFileName, Nullable<System.DateTime> createdOn, string createdBy, string methodofCreation, string reportGeneratedFullPath, string reportLocation)
         {
@@ -73,6 +55,23 @@ namespace UtilityService
                 new ObjectParameter("ReportLocation", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertReport", reportGeneratedFileNameParameter, createdOnParameter, createdByParameter, methodofCreationParameter, reportGeneratedFullPathParameter, reportLocationParameter);
+        }
+    
+        public virtual ObjectResult<GetReportDailyJob_Result> GetReportDailyJob(Nullable<System.DateTime> startdate, Nullable<System.DateTime> endDate, string workgroupid)
+        {
+            var startdateParameter = startdate.HasValue ?
+                new ObjectParameter("startdate", startdate) :
+                new ObjectParameter("startdate", typeof(System.DateTime));
+    
+            var endDateParameter = endDate.HasValue ?
+                new ObjectParameter("endDate", endDate) :
+                new ObjectParameter("endDate", typeof(System.DateTime));
+    
+            var workgroupidParameter = workgroupid != null ?
+                new ObjectParameter("workgroupid", workgroupid) :
+                new ObjectParameter("workgroupid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReportDailyJob_Result>("GetReportDailyJob", startdateParameter, endDateParameter, workgroupidParameter);
         }
     }
 }

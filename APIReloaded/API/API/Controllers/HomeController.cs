@@ -194,22 +194,6 @@ namespace API.Controllers
                 sb.AppendLine(headerText);
                 foreach (WorkGroupReportBO student in list)
                 {
-                    //if (DateTime.TryParseExact(student.starttime.ToString(),
-                    //            @"yyyy-MM-dd\THH:mm:ss",
-                    //            CultureInfo.InvariantCulture,
-                    //            DateTimeStyles.AssumeUniversal,
-                    //            out startDate))
-                    //{
-                    //    sd = startDate.ToString("yyyy-MM-dd HH:mm:ss");
-                    //}
-                    //if (DateTime.TryParseExact(student.endtime.ToString(),
-                    //            @"yyyy-MM-dd\THH:mm:ss",
-                    //            CultureInfo.InvariantCulture,
-                    //            DateTimeStyles.AssumeUniversal,
-                    //            out endDate))
-                    //{
-                    //    se = endDate.ToString("yyyy-MM-dd HH:mm:ss");
-                    //}
                     startDate = student.starttime.ToString();
                     endDate = student.endtime.ToString();
                     sb.Append(FormatCSV(student.mediaid.ToString()) + ",");
@@ -239,7 +223,7 @@ namespace API.Controllers
                     sb.Append(FormatCSV(student.sectionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.responsetext) + ",");
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
-                    sb.Append(FormatCSV(student.questiontypedesc.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questiontypedesc) + ",");
                     sb.Append(FormatCSV(student.questionScored.ToString()));
                     sb.Remove(sb.Length - 1, 1);
                     sb.AppendLine();

@@ -16,29 +16,31 @@ namespace UtilityService
         public string dnis { get; set; }
         public string ani { get; set; }
         public Guid? updateuserid { get; set; }
-        public Int16? percentscore { get; set; }
+        public short? percentscore { get; set; }
         public string overallscore { get; set; }
         public DateTime? reviewdate { get; set; }
         public string username { get; set; }
-        public Int16 userroleid { get; set; }
-        public Int16 usertypeid { get; set; }
+        public byte userroleid { get; set; }
+        public byte usertypeid { get; set; }
         public string workgroupname { get; set; }
         public string description { get; set; }
         public string name { get; set; }
-        public Int16 sequencenumber { get; set; }
-        public Int16 weight { get; set; }
+        public byte? sequencenumber { get; set; }
+        public byte sweight { get; set; }
+        public byte sweight1 { get; set; }
         public string questiondescription { get; set; }
-        public Int16 questionnumber { get; set; }
+        public byte? questionnumber { get; set; }
         public string questiontext { get; set; }
-        public bool responserequired { get; set; }
+        public byte qweight { get; set; }
+        public bool? responserequired { get; set; }
         public decimal? questionadditionalpoint { get; set; }
         public decimal? autofailpoint { get; set; }
         public decimal? questionadditionalconditionpoint { get; set; }
         public double? weightedscore { get; set; }
-        public byte sectionWeight { get; set; }
+        public byte? sectionWeight { get; set; }
         public string responsetext { get; set; }
-        public byte questionWeight { get; set; }
+        public byte? questionWeight { get; set; }
         public string questiontypedesc { get; set; }
-        public bool questionScored { get; set; }
+        public bool? questionScored { get; set; }
     }
 }

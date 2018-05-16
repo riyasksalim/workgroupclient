@@ -15,9 +15,9 @@ namespace UtilityService
         public List<GetReportDailyJob_Result> GetValues(DateTime? fromDate, DateTime? toDate, string workgroupID)
         {
             Library.WriteErrorLog("GetValues Function Entry");
-            Guid ? workGroupID = null;
-            if (workgroupID != null)
-                workGroupID = Guid.Parse(workgroupID);
+            //Guid ? workGroupID = null;
+            //if (workgroupID != null)
+            //    workGroupID = Guid.Parse(workgroupID);
 
             List<GetReportDailyJob_Result> studentInfo = null;
             try
@@ -28,7 +28,7 @@ namespace UtilityService
                 {
                     using (var context = new qmEntities())
                     {
-                        var query = context.GetReportDailyJob(fromDate, toDate, workGroupID).ToList();
+                        var query = context.GetReportDailyJob(fromDate, toDate, workgroupID).ToList();
                         Library.WriteErrorLog("GetValues Function Exit");
                         return studentInfo = query;
                     }
@@ -118,7 +118,7 @@ namespace UtilityService
                     sb.Append(FormatCSV(student.sectionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.responsetext) + ",");
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
-                    sb.Append(FormatCSV(student.questiontypedesc.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questiontypedesc) + ",");
                     sb.Append(FormatCSV(student.questionScored.ToString()));
                     sb.Remove(sb.Length - 1, 1);
                     sb.AppendLine();
@@ -131,7 +131,7 @@ namespace UtilityService
             }
             catch (Exception ex)
             {
-                Library.WriteErrorLog("Error from CreateCSV : " + ex.InnerException.ToString());
+                Library.WriteErrorLog("Error from CreateCSV : " + ex.ToString());
                 return "Error";
                 throw ex;
             }

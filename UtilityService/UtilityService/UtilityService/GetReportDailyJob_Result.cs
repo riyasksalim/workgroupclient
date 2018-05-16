@@ -28,19 +28,19 @@ namespace UtilityService
         public string workgroupname { get; set; }
         public string description { get; set; }
         public string name { get; set; }
-        public byte sequencenumber { get; set; }
+        public Nullable<byte> sequencenumber { get; set; }
         public string questiondescription { get; set; }
-        public byte questionnumber { get; set; }
+        public Nullable<byte> questionnumber { get; set; }
         public string questiontext { get; set; }
-        public bool responserequired { get; set; }
+        public Nullable<bool> responserequired { get; set; }
         public Nullable<decimal> questionadditionalpoint { get; set; }
         public Nullable<decimal> autofailpoint { get; set; }
         public Nullable<decimal> questionadditionalconditionpoint { get; set; }
         public Nullable<double> weightedscore { get; set; }
-        public byte sectionWeight { get; set; }
+        public Nullable<byte> sectionWeight { get; set; }
         public string responsetext { get; set; }
-        public byte questionWeight { get; set; }
+        public Nullable<byte> questionWeight { get; set; }
         public string questiontypedesc { get; set; }
-        public bool questionScored { get; set; }
+        public Nullable<bool> questionScored { get; set; }
     }
 }
