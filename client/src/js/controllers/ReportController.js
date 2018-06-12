@@ -89,16 +89,6 @@
         });
 
 
-
-        // $("#StartDate").change(function(data) {
-        //     debugger;
-        //     $scope.StartDate = date;
-        //     $scope.$apply();
-        // });
-        // $("#EndDate").change(function(data) {
-        //     $scope.EndDate = date;
-        //     $scope.$apply();
-        // });
     });
    
     function GetAllWorkGroups() {
@@ -119,11 +109,10 @@
     var httpRequest = null;
     GetAllWorkGroups();
     $scope.checkdate = function() {
-        debugger
+      
         var a = $scope.beginDate;
         var date = new Date(a);
-        debugger
-    // var b= date instanceof Date && !isNaN(date.valueOf());
+      
 
     };
     function isDate (x) 
@@ -131,7 +120,7 @@
       return (null != x) && !isNaN(x) && ("undefined" !== typeof x.getDate); 
     }
     function checkparams() {
-        debugger
+     
         if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "" ||$scope.workgroupselected == undefined) {
 
             $.toaster({
@@ -160,7 +149,7 @@
         }
     }
     function checkdateformat(start,end){
-        debugger
+     
         var startdate=validate(start);
         var enddate=validate(end);
         if(startdate && enddate){
@@ -172,7 +161,7 @@
      
     }
    function validate(text){
-   // var text = '30-05-2015';
+  
     var comp = text.split('-');
     var m = parseInt(comp[0], 10);
     var d = parseInt(comp[1], 10);
@@ -200,7 +189,7 @@
         
 
         if (!checkparams()) {
-            debugger;
+           
             return false;
         }
 
@@ -238,7 +227,7 @@
             }
 
         }, function onError(err) {
-            debugger;
+         
             $.unblockUI();
             var msg = JSON.stringify(err);
             $.toaster({

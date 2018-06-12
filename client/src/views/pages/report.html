@@ -148,7 +148,7 @@
                             <th st-sort="dnis">Dnis</th>
                             <th st-sort="ani">Ani</th>
                             <th st-sort="percentscore" style="min-width: 153px">Percentage Score</th>
-                            <th st-sort="overallscore" style="min-width: 114px">Overall Scroll</th>
+                            <!-- <th st-sort="overallscore" style="min-width: 114px">Overall Scroll</th> -->
                             <th st-sort="reviewdate" style="min-width: 109px">Review Date</th>
                             <th st-sort="username" style="min-width: 94px">User name</th>
                             <th st-sort="userroleid" style="min-width: 110px">User Role Id</th>
@@ -162,7 +162,7 @@
                             <th st-sort="questiontext" style="min-width: 119px">Question Text</th>
                             <th st-sort="responserequired" style="min-width: 163px">Response Required</th>
                             <th st-sort="questionadditionalpoint" style="min-width: 205px">Question Additional Point</th>
-                            <th st-sort="autofailpoint" style="min-width: 120px">Auto Fail Point</th>
+                            <!-- <th st-sort="autofailpoint" style="min-width: 120px">Auto Fail Point</th> -->
                             <th st-sort="questionadditionalconditionpoint" style="min-width: 280px">Question Additional Condition Point</th>
                         </tr>
                     </thead>
@@ -171,7 +171,7 @@
                             <td>{{row.dnis}}</td>
                             <td>{{row.ani}}</td>
                             <td>{{row.percentscore}}</td>
-                            <td>{{row.overallscore}}</td>
+                            <!-- <td>{{row.overallscore}}</td> -->
                             <td>{{row.reviewdate | date :"short"}}</td>
                             <td>{{row.username}}</td>
                             <td>{{row.userroleid}}</td>
@@ -185,13 +185,13 @@
                             <td>{{row.questiontext}}</td>
                             <td>{{row.responserequired}} </td>
                             <td>{{row.questionadditionalpoint}}</td>
-                            <td>{{row.autofailpoint}}</td>
+                            <!-- <td>{{row.autofailpoint}}</td> -->
                             <td>{{row.questionadditionalconditionpoint}}</td>
                         </tr>
                     </tbody>
                     <tfoot ng-if="display_records.length==0">
                         <tr>
-                            <td colspan="26" class="text-center">
+                            <td colspan="24" class="text-center">
                                 <span>No Data Found!</span>
                             </td>
                         </tr>
