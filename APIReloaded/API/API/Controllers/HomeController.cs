@@ -34,15 +34,8 @@ namespace API.Controllers
         {
             WorkGroupReportBO student = null;
             List<WorkGroupReportBO> WorkGroupReportBOList = new List<WorkGroupReportBO>();
-            //StringBuilder sb = new StringBuilder();
             try
             {
-                //if (reportModel.WorkGroupID.Length > 0)
-                //    foreach (var item in reportModel.WorkGroupID)
-                //    {
-                //        sb.Append(item + ",");
-                //    }
-                //Querying with LINQ to Entities 
                 using (var context = new qmEntities())
                 {
                     var query = context.GetReport(reportModel.StartDate, reportModel.EndDate, reportModel.WorkGroupID).ToList();
@@ -57,7 +50,6 @@ namespace API.Controllers
                             ani = item.ani,
                             updateuserid = item.updateuserid,
                             percentscore = item.percentscore,
-                            overallscore = item.overallscore,
                             reviewdate = item.reviewdate,
                             username = item.username,
                             userroleid = item.userroleid,
@@ -71,7 +63,6 @@ namespace API.Controllers
                             questiontext = item.questiontext,
                             responserequired = item.responserequired,
                             questionadditionalpoint = item.questionadditionalpoint,
-                            autofailpoint = item.autofailpoint,
                             questionadditionalconditionpoint = item.questionadditionalconditionpoint,
                             weightedscore = item.weightedscore,
                             sectionWeight = item.sectionWeight,
@@ -184,11 +175,11 @@ namespace API.Controllers
                 string sd = "", se = "";
                 StringBuilder sb = new StringBuilder();
 
-                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Update User ID\",\"Percent Score\",\"Overall Score\"" +
-                    $",\"Review Date\",\"User Name\",\"User Role ID\",\"User Type ID\"," +
+                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Update User ID\",\"Percent Score\"," +
+                    $"\"Review Date\",\"User Name\",\"User Role ID\",\"User Type ID\"," +
                     $"\"Work Group Name\",\"Description\",\"Name\",\"Sequence Number\",\"Question Description\",\"Question Number\",\"Question Text\"," +
                     $"\"Response Required\"," +
-                    $"\"Question Additional Point\",\"Auto Fail Point\",\"Question Additional Condition Point\"," +
+                    $"\"Question Additional Point\",\"Question Additional Condition Point\"," +
                     $"\"Weighted Score\"" +
                     $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\"";
                 sb.AppendLine(headerText);
@@ -201,9 +192,8 @@ namespace API.Controllers
                     sb.Append(FormatCSV(student.endtime.ToString()) + ",");
                     sb.Append(FormatCSV(student.dnis) + ",");
                     sb.Append(FormatCSV(student.ani) + ",");
-                    sb.Append(FormatCSV(student.updateuserid.ToString()) + ",");
-                    sb.Append(FormatCSV(student.percentscore.ToString()) + ",");
-                    sb.Append(FormatCSV(student.overallscore) + ",");
+                    sb.Append(FormatCSV(student.updateuserid) + ",");
+                    sb.Append(FormatCSV(student.percentscore.ToString()) + ",");  //sb.Append(FormatCSV(student.overallscore) + ",");
                     sb.Append(FormatCSV(student.reviewdate.ToString()) + ",");
                     sb.Append(FormatCSV(student.username) + ",");
                     sb.Append(FormatCSV(student.userroleid.ToString()) + ",");
@@ -216,8 +206,7 @@ namespace API.Controllers
                     sb.Append(FormatCSV(student.questionnumber.ToString()) + ",");
                     sb.Append(FormatCSV(student.questiontext) + ",");
                     sb.Append(FormatCSV(student.responserequired.ToString()) + ",");
-                    sb.Append(FormatCSV(student.questionadditionalpoint.ToString()) + ",");
-                    sb.Append(FormatCSV(student.autofailpoint.ToString()) + ",");
+                    sb.Append(FormatCSV(student.questionadditionalpoint.ToString()) + ","); //sb.Append(FormatCSV(student.autofailpoint.ToString()) + ",");
                     sb.Append(FormatCSV(student.questionadditionalconditionpoint.ToString()) + ",");
                     sb.Append(FormatCSV(student.weightedscore.ToString()) + ",");
                     sb.Append(FormatCSV(student.sectionWeight.ToString()) + ",");

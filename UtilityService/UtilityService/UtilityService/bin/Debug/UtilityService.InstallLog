@@ -1,0 +1,13 @@
+﻿Installing assembly 'D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.InstallLog
+   assemblypath = D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe
+Installing service UtilityService...
+Service UtilityService has been successfully installed.
+Creating EventLog source UtilityService in log Application...
+Committing assembly 'D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.InstallLog
+   assemblypath = D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe

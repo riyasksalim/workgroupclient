@@ -62,9 +62,8 @@
           <Property Type="Guid" Name="mediaid" Nullable="false" />
           <Property Type="String" Name="dnis" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="ani" Nullable="true" MaxLength="50" />
-          <Property Type="Guid" Name="updateuserid" Nullable="true" />
+          <Property Type="String" Name="updateuserid" Nullable="true" MaxLength="129" />
           <Property Type="Int16" Name="percentscore" Nullable="true" />
-          <Property Type="String" Name="overallscore" Nullable="true" MaxLength="100" />
           <Property Type="DateTime" Name="reviewdate" Nullable="true" Precision="23" />
           <Property Type="String" Name="username" Nullable="false" MaxLength="64" />
           <Property Type="Byte" Name="userroleid" Nullable="false" />
@@ -78,7 +77,6 @@
           <Property Type="String" Name="questiontext" Nullable="true" MaxLength="1024" />
           <Property Type="Boolean" Name="responserequired" Nullable="true" />
           <Property Type="Decimal" Name="questionadditionalpoint" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="autofailpoint" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="questionadditionalconditionpoint" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Double" Name="weightedscore" Nullable="true" />
           <Property Type="Byte" Name="sectionWeight" Nullable="true" />
@@ -125,7 +123,6 @@
                 <ScalarProperty Name="ani" ColumnName="ani" />
                 <ScalarProperty Name="updateuserid" ColumnName="updateuserid" />
                 <ScalarProperty Name="percentscore" ColumnName="percentscore" />
-                <ScalarProperty Name="overallscore" ColumnName="overallscore" />
                 <ScalarProperty Name="reviewdate" ColumnName="reviewdate" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="userroleid" ColumnName="userroleid" />
@@ -139,7 +136,6 @@
                 <ScalarProperty Name="questiontext" ColumnName="questiontext" />
                 <ScalarProperty Name="responserequired" ColumnName="responserequired" />
                 <ScalarProperty Name="questionadditionalpoint" ColumnName="questionadditionalpoint" />
-                <ScalarProperty Name="autofailpoint" ColumnName="autofailpoint" />
                 <ScalarProperty Name="questionadditionalconditionpoint" ColumnName="questionadditionalconditionpoint" />
                 <ScalarProperty Name="weightedscore" ColumnName="weightedscore" />
                 <ScalarProperty Name="sectionWeight" ColumnName="sectionWeight" />

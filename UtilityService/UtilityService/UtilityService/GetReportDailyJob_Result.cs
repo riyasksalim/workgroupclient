@@ -18,7 +18,7 @@ namespace UtilityService
         public System.Guid mediaid { get; set; }
         public string dnis { get; set; }
         public string ani { get; set; }
-        public Nullable<System.Guid> updateuserid { get; set; }
+        public string updateuserid { get; set; }
         public Nullable<short> percentscore { get; set; }
         public string overallscore { get; set; }
         public Nullable<System.DateTime> reviewdate { get; set; }

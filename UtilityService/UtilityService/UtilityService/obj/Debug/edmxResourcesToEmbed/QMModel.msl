@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="qmModelStoreContainer" CdmEntityContainer="qmEntities">
+    <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="qmModel.Store.InsertReport" />
     <FunctionImportMapping FunctionImportName="GetReportDailyJob" FunctionName="qmModel.Store.GetReportDailyJob">
       <ResultMapping>
         <ComplexTypeMapping TypeName="qmModel.GetReportDailyJob_Result">
@@ -36,6 +37,5 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="qmModel.Store.InsertReport" />
   </EntityContainerMapping>
 </Mapping>

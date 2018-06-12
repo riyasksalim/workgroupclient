@@ -1,11 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="qmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="qmEntities" annotation:LazyLoadingEnabled="true">
-    <FunctionImport Name="GetReportDailyJob" ReturnType="Collection(qmModel.GetReportDailyJob_Result)">
-      <Parameter Name="startdate" Mode="In" Type="DateTime" />
-      <Parameter Name="endDate" Mode="In" Type="DateTime" />
-      <Parameter Name="workgroupid" Mode="In" Type="Guid" />
-    </FunctionImport>
     <FunctionImport Name="InsertReport">
       <Parameter Name="ReportGeneratedFileName" Mode="In" Type="String" />
       <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
@@ -14,6 +9,11 @@
       <Parameter Name="ReportGeneratedFullPath" Mode="In" Type="String" />
       <Parameter Name="ReportLocation" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="GetReportDailyJob" ReturnType="Collection(qmModel.GetReportDailyJob_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+      <Parameter Name="workgroupid" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetReportDailyJob_Result">
     <Property Type="DateTime" Name="starttime" Nullable="true" Precision="23" />
@@ -21,7 +21,7 @@
     <Property Type="Guid" Name="mediaid" Nullable="false" />
     <Property Type="String" Name="dnis" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="ani" Nullable="true" MaxLength="50" />
-    <Property Type="Guid" Name="updateuserid" Nullable="true" />
+    <Property Type="String" Name="updateuserid" Nullable="true" MaxLength="129" />
     <Property Type="Int16" Name="percentscore" Nullable="true" />
     <Property Type="String" Name="overallscore" Nullable="true" MaxLength="100" />
     <Property Type="DateTime" Name="reviewdate" Nullable="true" Precision="23" />
@@ -29,21 +29,21 @@
     <Property Type="Byte" Name="userroleid" Nullable="false" />
     <Property Type="Byte" Name="usertypeid" Nullable="false" />
     <Property Type="String" Name="workgroupname" Nullable="false" MaxLength="128" />
-    <Property Type="String" Name="description" Nullable="false" MaxLength="256" />
-    <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
-    <Property Type="Byte" Name="sequencenumber" Nullable="false" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="Byte" Name="sequencenumber" Nullable="true" />
     <Property Type="String" Name="questiondescription" Nullable="true" MaxLength="1024" />
-    <Property Type="Byte" Name="questionnumber" Nullable="false" />
-    <Property Type="String" Name="questiontext" Nullable="false" MaxLength="1024" />
-    <Property Type="Boolean" Name="responserequired" Nullable="false" />
+    <Property Type="Byte" Name="questionnumber" Nullable="true" />
+    <Property Type="String" Name="questiontext" Nullable="true" MaxLength="1024" />
+    <Property Type="Boolean" Name="responserequired" Nullable="true" />
     <Property Type="Decimal" Name="questionadditionalpoint" Nullable="true" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="autofailpoint" Nullable="true" Precision="18" Scale="0" />
     <Property Type="Decimal" Name="questionadditionalconditionpoint" Nullable="true" Precision="18" Scale="0" />
     <Property Type="Double" Name="weightedscore" Nullable="true" />
-    <Property Type="Byte" Name="sectionWeight" Nullable="false" />
+    <Property Type="Byte" Name="sectionWeight" Nullable="true" />
     <Property Type="String" Name="responsetext" Nullable="true" MaxLength="1024" />
-    <Property Type="Byte" Name="questionWeight" Nullable="false" />
-    <Property Type="String" Name="questiontypedesc" Nullable="false" MaxLength="50" />
-    <Property Type="Boolean" Name="questionScored" Nullable="false" />
+    <Property Type="Byte" Name="questionWeight" Nullable="true" />
+    <Property Type="String" Name="questiontypedesc" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="questionScored" Nullable="true" />
   </ComplexType>
 </Schema>

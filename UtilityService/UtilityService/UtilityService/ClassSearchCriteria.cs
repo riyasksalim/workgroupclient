@@ -96,7 +96,7 @@ namespace UtilityService
                     sb.Append(FormatCSV(endDate) + ",");
                     sb.Append(FormatCSV(student.dnis) + ",");
                     sb.Append(FormatCSV(student.ani) + ",");
-                    sb.Append(FormatCSV(student.updateuserid.ToString()) + ",");
+                    sb.Append(FormatCSV(student.updateuserid) + ",");
                     sb.Append(FormatCSV(student.percentscore.ToString()) + ",");
                     sb.Append(FormatCSV(student.overallscore) + ",");
                     sb.Append(FormatCSV(student.reviewdate.ToString()) + ",");
