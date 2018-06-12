@@ -20,7 +20,6 @@ namespace UtilityService
         public string ani { get; set; }
         public string updateuserid { get; set; }
         public Nullable<short> percentscore { get; set; }
-        public string overallscore { get; set; }
         public Nullable<System.DateTime> reviewdate { get; set; }
         public string username { get; set; }
         public byte userroleid { get; set; }
@@ -34,7 +33,6 @@ namespace UtilityService
         public string questiontext { get; set; }
         public Nullable<bool> responserequired { get; set; }
         public Nullable<decimal> questionadditionalpoint { get; set; }
-        public Nullable<decimal> autofailpoint { get; set; }
         public Nullable<decimal> questionadditionalconditionpoint { get; set; }
         public Nullable<double> weightedscore { get; set; }
         public Nullable<byte> sectionWeight { get; set; }

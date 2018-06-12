@@ -18,9 +18,7 @@ C:\mujeeb\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\EntityFramework.dll
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\EntityFramework.SqlServer.dll
-D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe.config
-D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe.manifest
-D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.application
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.pdb
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\EntityFramework.xml
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\EntityFramework.SqlServer.xml
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.ProjectInstaller.resources
@@ -30,5 +28,6 @@ D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debu
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.application
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.exe
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.pdb
-D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.pdb
-D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.csprojResolveAssemblyReference.cache
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe.config
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe.manifest
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.application

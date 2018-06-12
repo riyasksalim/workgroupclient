@@ -17,7 +17,6 @@ namespace UtilityService
         public string ani { get; set; }
         public string updateuserid { get; set; }
         public short? percentscore { get; set; }
-        public string overallscore { get; set; }
         public DateTime? reviewdate { get; set; }
         public string username { get; set; }
         public byte userroleid { get; set; }
@@ -34,7 +33,6 @@ namespace UtilityService
         public byte qweight { get; set; }
         public bool? responserequired { get; set; }
         public decimal? questionadditionalpoint { get; set; }
-        public decimal? autofailpoint { get; set; }
         public decimal? questionadditionalconditionpoint { get; set; }
         public double? weightedscore { get; set; }
         public byte? sectionWeight { get; set; }

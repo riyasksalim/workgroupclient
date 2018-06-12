@@ -1,0 +1,16 @@
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\UtilityService.exe.config
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\UtilityService.exe.manifest
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\UtilityService.application
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\UtilityService.exe
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\UtilityService.pdb
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\EntityFramework.dll
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\EntityFramework.SqlServer.dll
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\EntityFramework.xml
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Release\EntityFramework.SqlServer.xml
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Release\UtilityService.ProjectInstaller.resources
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Release\UtilityService.csproj.GenerateResource.Cache
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Release\UtilityService.csproj.CoreCompileInputs.cache
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Release\UtilityService.exe.manifest
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Release\UtilityService.application
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Release\UtilityService.exe
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Release\UtilityService.pdb

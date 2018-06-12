@@ -79,11 +79,11 @@ namespace UtilityService
                 string startDate = "", endDate = "";
                 StringBuilder sb = new StringBuilder();
                 //{Environment.NewLine}";
-                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Update User ID\",\"Percent Score\",\"Overall Score\"" +
+                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Update User ID\",\"Percent Score\"" +
                         $",\"Review Date\",\"User Name\",\"User Role ID\",\"User Type ID\"," +
                         $"\"Work Group Name\",\"Description\",\"Name\",\"Sequence Number\",\"Question Description\",\"Question Number\",\"Question Text\"," +
                         $"\"Response Required\"," +
-                        $"\"Question Additional Point\",\"Auto Fail Point\",\"Question Additional Condition Point\"," +
+                        $"\"Question Additional Point\",\"Question Additional Condition Point\"," +
                         $"\"Weighted Score\"" +
                         $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\"";
                 sb.AppendLine(headerText);
@@ -98,7 +98,6 @@ namespace UtilityService
                     sb.Append(FormatCSV(student.ani) + ",");
                     sb.Append(FormatCSV(student.updateuserid) + ",");
                     sb.Append(FormatCSV(student.percentscore.ToString()) + ",");
-                    sb.Append(FormatCSV(student.overallscore) + ",");
                     sb.Append(FormatCSV(student.reviewdate.ToString()) + ",");
                     sb.Append(FormatCSV(student.username) + ",");
                     sb.Append(FormatCSV(student.userroleid.ToString()) + ",");
@@ -112,7 +111,6 @@ namespace UtilityService
                     sb.Append(FormatCSV(student.questiontext) + ",");
                     sb.Append(FormatCSV(student.responserequired.ToString()) + ",");
                     sb.Append(FormatCSV(student.questionadditionalpoint.ToString()) + ",");
-                    sb.Append(FormatCSV(student.autofailpoint.ToString()) + ",");
                     sb.Append(FormatCSV(student.questionadditionalconditionpoint.ToString()) + ",");
                     sb.Append(FormatCSV(student.weightedscore.ToString()) + ",");
                     sb.Append(FormatCSV(student.sectionWeight.ToString()) + ",");
