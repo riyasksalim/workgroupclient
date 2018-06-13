@@ -116,7 +116,6 @@ namespace UtilityService
             catch (Exception ex)
             {
                 Library.WriteErrorLog("Error Inside Ticker " + ex.ToString());
-                Library.WriteErrorLog("Utility Tick Error Occured " + ex.InnerException.ToString());
             }
 
             //Write code here to do some job depends on your requirement
