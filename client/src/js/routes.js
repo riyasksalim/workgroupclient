@@ -54,37 +54,37 @@ angular
       }],
     }
   })
-  .state('app.main', {
-    url: '/dashboard',
-    templateUrl: 'views/main.html',
-    //page title goes here
-    ncyBreadcrumb: {
-      label: 'Home',
-    },
-    //page subtitle goes here
-    params: { subtitle: 'Welcome to ROOT powerfull Bootstrap & AngularJS UI Kit' },
-    resolve: {
-      loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
-        // you can lazy load files for an existing module
-        //return $ocLazyLoad.load([
-        //  {
-        //    serie: true,
-        //    name: 'chart.js',
-        //    files: [
-        //      'node_modules/chart.js/dist/Chart.min.js',
-        //      'node_modules/angular-chart.js/dist/angular-chart.min.js'
-        //    ]
-        //  },
-        //]);
-      }],
-      loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-        // you can lazy load controllers
-        //return $ocLazyLoad.load({
-        //  files: ['js/controllers/main.js']
-        //});
-      }]
-    }
-  })
+  // .state('app.main', {
+  //   url: '/dashboard',
+  //   templateUrl: 'views/main.html',
+  //   //page title goes here
+  //   ncyBreadcrumb: {
+  //     label: 'Home',
+  //   },
+  //   //page subtitle goes here
+  //   params: { subtitle: 'Welcome to ROOT powerfull Bootstrap & AngularJS UI Kit' },
+  //   resolve: {
+  //     loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
+  //       // you can lazy load files for an existing module
+  //       //return $ocLazyLoad.load([
+  //       //  {
+  //       //    serie: true,
+  //       //    name: 'chart.js',
+  //       //    files: [
+  //       //      'node_modules/chart.js/dist/Chart.min.js',
+  //       //      'node_modules/angular-chart.js/dist/angular-chart.min.js'
+  //       //    ]
+  //       //  },
+  //       //]);
+  //     }],
+  //     loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+  //       // you can lazy load controllers
+  //       //return $ocLazyLoad.load({
+  //       //  files: ['js/controllers/main.js']
+  //       //});
+  //     }]
+  //   }
+  // })
   .state('appSimple', {
     abstract: true,
     templateUrl: 'views/common/layouts/simple.html',
