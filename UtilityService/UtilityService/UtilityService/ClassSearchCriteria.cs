@@ -56,7 +56,7 @@ namespace UtilityService
                 //Querying with LINQ to Entities 
                 using (var context = new qmEntities())
                 {
-                    affectedRows = context.InsertReport(FileName, DateTime.Now, "Windows Service", "Nigtly Job", locationAndFile, location);
+                    affectedRows = context.InsertReport(FileName, DateTime.Now, "Windows Service", "Nightly Job", locationAndFile, location);
                     Library.WriteErrorLog("UpdateReportGeneratedDetails Function Exit");
                     return affectedRows;
                 }
