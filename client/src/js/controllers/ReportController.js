@@ -106,8 +106,24 @@
             $.unblockUI();
         });
     };
+    function GetAllTemplates() {
+
+        dataService.GetAllTemplates().then(function(response) {
+            if (response && response.data) {
+                $scope.Templates = response.data;
+
+                if (response.data.length == 0) {
+                   // $("#select2-drop").css('display', 'none');
+                }
+                $.unblockUI();
+            }
+        }, function onError() {
+            $.unblockUI();
+        });
+    };
     var httpRequest = null;
     GetAllWorkGroups();
+    GetAllTemplates();
     $scope.checkdate = function() {
       
         var a = $scope.beginDate;
@@ -121,7 +137,7 @@
     }
     function checkparams() {
      
-        if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "" ||$scope.workgroupselected == undefined) {
+        if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "" ||$scope.TemplateSelected == undefined) {
 
             $.toaster({
                 settings: settings,
@@ -196,7 +212,8 @@
         var params = {
             StartDate: $scope.StartDate,
             EndDate: $scope.EndDate,
-            WorkGroupID: $scope.workgroupselected.join().toString() 
+            WorkGroupID: $scope.workgroupselected.join().toString() ,
+            TemplateID:$scope.TemplateSelected
         };
         $.blockUI({
             message: '<img src="../img/loading.gif"/>',

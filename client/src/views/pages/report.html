@@ -93,11 +93,13 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-                                        <div class="form-group"></div>
+                                        <div class="form-group">Work Group</div>
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="form-group">
-
+                                            <select style="width:100%;height: 34px;" ng-model="TemplateSelected">
+                                                <option ng-repeat="item in Templates" value="{{item.TemplateId}}">{{item.Templatedesc}}</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

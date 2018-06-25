@@ -53,6 +53,10 @@
     function GetAllWorkGroups() {
         return $http.get(baseUrl + 'Reports/GetAllWorkGroups');
     };
+    function GetAllTemplates() {
+        return $http.get(baseUrl + 'Reports/GetAllTemplates');
+    };
+    
     function GetCSVList() {
         return $http.get(baseUrl + 'Reports/GetCSVList');
     };
@@ -91,7 +95,8 @@
         GetAllWorkGroups: GetAllWorkGroups,
         GetCSVList: GetCSVList,
         downloadcsv: downloadcsv,
-        GetFile:GetFile
+        GetFile:GetFile,
+        GetAllTemplates:GetAllTemplates
        
 
     }
