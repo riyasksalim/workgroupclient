@@ -100,3 +100,4 @@ D:\Project\workgroupclient\APIReloaded\API\API\bin\Microsoft.AI.Web.xml
 D:\Project\workgroupclient\APIReloaded\API\API\obj\Release\API.csproj.CoreCompileInputs.cache
 D:\Project\workgroupclient\APIReloaded\API\API\obj\Release\API.dll
 D:\Project\workgroupclient\APIReloaded\API\API\obj\Release\API.pdb
+D:\Project\workgroupclient\APIReloaded\API\API\obj\Release\API.csprojResolveAssemblyReference.cache

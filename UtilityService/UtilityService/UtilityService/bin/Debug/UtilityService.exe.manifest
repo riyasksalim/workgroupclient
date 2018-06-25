@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UtilityService.exe" size="35280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UtilityService.exe" size="34256">
       <assemblyIdentity name="UtilityService" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1Id+zjVJ41Uewaj5wJK+uR/qvjB3RZh809F0QfejXK0=</dsig:DigestValue>
+        <dsig:DigestValue>yamcHPEWuYqOcMRLINtgySxLgvFnq40jwjbZh/e2NAE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

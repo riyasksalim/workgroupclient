@@ -12,10 +12,12 @@
       <Parameter Name="ReportGeneratedFullPath" Mode="In" Type="String" />
       <Parameter Name="ReportLocation" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="GetAllTemplates" ReturnType="Collection(qmModel.GetAllTemplates_Result)" />
     <FunctionImport Name="GetReport" ReturnType="Collection(qmModel.GetReport_Result)">
       <Parameter Name="startdate" Mode="In" Type="DateTime" />
       <Parameter Name="endDate" Mode="In" Type="DateTime" />
       <Parameter Name="workgroupid" Mode="In" Type="String" />
+      <Parameter Name="templateid" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetAllWorkGroups_Result">
@@ -31,19 +33,23 @@
     <Property Type="String" Name="ReportGeneratedFullPath" Nullable="true" />
     <Property Type="String" Name="ReportLocation" Nullable="true" />
   </ComplexType>
+  <ComplexType Name="GetAllTemplates_Result">
+    <Property Type="Guid" Name="templateid" Nullable="false" />
+    <Property Type="String" Name="templatedesc" Nullable="false" MaxLength="100" />
+  </ComplexType>
   <ComplexType Name="GetReport_Result">
     <Property Type="DateTime" Name="starttime" Nullable="true" Precision="23" />
     <Property Type="DateTime" Name="endtime" Nullable="true" Precision="23" />
-    <Property Type="Guid" Name="mediaid" Nullable="false" />
+    <Property Type="Guid" Name="mediaid" Nullable="true" />
     <Property Type="String" Name="dnis" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="ani" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="updateuserid" Nullable="true" MaxLength="129" />
+    <Property Type="String" Name="updateuserid" Nullable="true" MaxLength="1000" />
     <Property Type="Int16" Name="percentscore" Nullable="true" />
     <Property Type="DateTime" Name="reviewdate" Nullable="true" Precision="23" />
-    <Property Type="String" Name="username" Nullable="false" MaxLength="64" />
-    <Property Type="Byte" Name="userroleid" Nullable="false" />
-    <Property Type="Byte" Name="usertypeid" Nullable="false" />
-    <Property Type="String" Name="workgroupname" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="Byte" Name="userroleid" Nullable="true" />
+    <Property Type="Byte" Name="usertypeid" Nullable="true" />
+    <Property Type="String" Name="workgroupname" Nullable="true" MaxLength="200" />
     <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
     <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
     <Property Type="Byte" Name="sequencenumber" Nullable="true" />
@@ -59,5 +65,7 @@
     <Property Type="Byte" Name="questionWeight" Nullable="true" />
     <Property Type="String" Name="questiontypedesc" Nullable="true" MaxLength="50" />
     <Property Type="Boolean" Name="questionScored" Nullable="true" />
+    <Property Type="String" Name="reviewTemplate" Nullable="true" MaxLength="100" />
+    <Property Type="Guid" Name="workgroupid" Nullable="false" />
   </ComplexType>
 </Schema>

@@ -72,7 +72,12 @@ namespace API
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertReport", reportGeneratedFileNameParameter, createdOnParameter, createdByParameter, methodofCreationParameter, reportGeneratedFullPathParameter, reportLocationParameter);
         }
     
-        public virtual ObjectResult<GetReport_Result> GetReport(Nullable<System.DateTime> startdate, Nullable<System.DateTime> endDate, string workgroupid)
+        public virtual ObjectResult<GetAllTemplates_Result> GetAllTemplates()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllTemplates_Result>("GetAllTemplates");
+        }
+    
+        public virtual ObjectResult<GetReport_Result> GetReport(Nullable<System.DateTime> startdate, Nullable<System.DateTime> endDate, string workgroupid, string templateid)
         {
             var startdateParameter = startdate.HasValue ?
                 new ObjectParameter("startdate", startdate) :
@@ -86,7 +91,11 @@ namespace API
                 new ObjectParameter("workgroupid", workgroupid) :
                 new ObjectParameter("workgroupid", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReport_Result>("GetReport", startdateParameter, endDateParameter, workgroupidParameter);
+            var templateidParameter = templateid != null ?
+                new ObjectParameter("templateid", templateid) :
+                new ObjectParameter("templateid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReport_Result>("GetReport", startdateParameter, endDateParameter, workgroupidParameter, templateidParameter);
         }
     }
 }

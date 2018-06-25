@@ -15,15 +15,15 @@ namespace API
     {
         public Nullable<System.DateTime> starttime { get; set; }
         public Nullable<System.DateTime> endtime { get; set; }
-        public System.Guid mediaid { get; set; }
+        public Nullable<System.Guid> mediaid { get; set; }
         public string dnis { get; set; }
         public string ani { get; set; }
         public string updateuserid { get; set; }
         public Nullable<short> percentscore { get; set; }
         public Nullable<System.DateTime> reviewdate { get; set; }
         public string username { get; set; }
-        public byte userroleid { get; set; }
-        public byte usertypeid { get; set; }
+        public Nullable<byte> userroleid { get; set; }
+        public Nullable<byte> usertypeid { get; set; }
         public string workgroupname { get; set; }
         public string description { get; set; }
         public string name { get; set; }
@@ -40,5 +40,7 @@ namespace API
         public Nullable<byte> questionWeight { get; set; }
         public string questiontypedesc { get; set; }
         public Nullable<bool> questionScored { get; set; }
+        public string reviewTemplate { get; set; }
+        public System.Guid workgroupid { get; set; }
     }
 }

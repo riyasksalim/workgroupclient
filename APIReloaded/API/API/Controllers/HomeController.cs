@@ -38,7 +38,7 @@ namespace API.Controllers
             {
                 using (var context = new qmEntities())
                 {
-                    var query = context.GetReport(reportModel.StartDate, reportModel.EndDate, reportModel.WorkGroupID).ToList();
+                    var query = context.GetReport(reportModel.StartDate, reportModel.EndDate, reportModel.WorkGroupID, reportModel.TemplateID).ToList();
                     foreach (var item in query)
                     {
                         student = new WorkGroupReportBO
@@ -69,7 +69,8 @@ namespace API.Controllers
                             responsetext = item.responsetext,
                             questionWeight = item.questionWeight,
                             questiontypedesc = item.questiontypedesc,
-                            questionScored = item.questionScored
+                            questionScored = item.questionScored,
+                            reviewTemplate = item.reviewTemplate
                         };
                         WorkGroupReportBOList.Add(student);
                     }
@@ -132,6 +133,36 @@ namespace API.Controllers
 
         [System.Web.Http.HttpGet]
         [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [System.Web.Http.Route("GetAllTemplates")]
+        public IHttpActionResult GetAllTemplates()
+        {
+            WorkGroup student = null;
+            List<WorkGroup> studentInfo = new List<WorkGroup>();
+            try
+            {
+                //Querying with LINQ to Entities 
+                using (var context = new qmEntities())
+                {
+                    var query = context.GetAllTemplates().ToList();
+                    foreach (var item in query)
+                    {
+                        student = new WorkGroup();
+                        student.WorkGroupId = item.templateid;
+                        student.WorkGroupName = item.templatedesc;
+                        studentInfo.Add(student);
+                    }
+                    return Ok(studentInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.InnerException.ToString());
+                throw ex;
+            }
+        }
+
+        [System.Web.Http.HttpGet]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [System.Web.Http.Route("GetCSVList")]
         public IHttpActionResult GetCSVList()
         {
@@ -175,13 +206,13 @@ namespace API.Controllers
                 string sd = "", se = "";
                 StringBuilder sb = new StringBuilder();
 
-                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Update User ID\",\"Percent Score\"," +
+                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Scorer\",\"Percent Score\"," +
                     $"\"Review Date\",\"User Name\",\"User Role ID\",\"User Type ID\"," +
                     $"\"Work Group Name\",\"Description\",\"Name\",\"Sequence Number\",\"Question Description\",\"Question Number\",\"Question Text\"," +
                     $"\"Response Required\"," +
                     $"\"Question Additional Point\",\"Question Additional Condition Point\"," +
                     $"\"Weighted Score\"" +
-                    $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\"";
+                    $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\",\"Review Template\"";
                 sb.AppendLine(headerText);
                 foreach (WorkGroupReportBO student in list)
                 {
@@ -214,6 +245,7 @@ namespace API.Controllers
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.questiontypedesc) + ",");
                     sb.Append(FormatCSV(student.questionScored.ToString()));
+                    sb.Append(FormatCSV(student.reviewTemplate.ToString()));
                     sb.Remove(sb.Length - 1, 1);
                     sb.AppendLine();
                 }

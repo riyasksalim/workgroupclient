@@ -12,7 +12,6 @@
           <ScalarProperty Name="ani" ColumnName="ani" />
           <ScalarProperty Name="updateuserid" ColumnName="updateuserid" />
           <ScalarProperty Name="percentscore" ColumnName="percentscore" />
-          <ScalarProperty Name="overallscore" ColumnName="overallscore" />
           <ScalarProperty Name="reviewdate" ColumnName="reviewdate" />
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="userroleid" ColumnName="userroleid" />
@@ -26,7 +25,6 @@
           <ScalarProperty Name="questiontext" ColumnName="questiontext" />
           <ScalarProperty Name="responserequired" ColumnName="responserequired" />
           <ScalarProperty Name="questionadditionalpoint" ColumnName="questionadditionalpoint" />
-          <ScalarProperty Name="autofailpoint" ColumnName="autofailpoint" />
           <ScalarProperty Name="questionadditionalconditionpoint" ColumnName="questionadditionalconditionpoint" />
           <ScalarProperty Name="weightedscore" ColumnName="weightedscore" />
           <ScalarProperty Name="sectionWeight" ColumnName="sectionWeight" />

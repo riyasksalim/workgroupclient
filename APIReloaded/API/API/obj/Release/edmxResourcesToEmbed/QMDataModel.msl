@@ -23,6 +23,14 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="InsertReport" FunctionName="qmModel.Store.InsertReport" />
+    <FunctionImportMapping FunctionImportName="GetAllTemplates" FunctionName="qmModel.Store.GetAllTemplates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="qmModel.GetAllTemplates_Result">
+          <ScalarProperty Name="templateid" ColumnName="templateid" />
+          <ScalarProperty Name="templatedesc" ColumnName="templatedesc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GetReport" FunctionName="qmModel.Store.GetReport">
       <ResultMapping>
         <ComplexTypeMapping TypeName="qmModel.GetReport_Result">
@@ -53,6 +61,8 @@
           <ScalarProperty Name="questionWeight" ColumnName="questionWeight" />
           <ScalarProperty Name="questiontypedesc" ColumnName="questiontypedesc" />
           <ScalarProperty Name="questionScored" ColumnName="questionScored" />
+          <ScalarProperty Name="reviewTemplate" ColumnName="reviewTemplate" />
+          <ScalarProperty Name="workgroupid" ColumnName="workgroupid" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

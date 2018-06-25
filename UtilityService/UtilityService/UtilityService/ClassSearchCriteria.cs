@@ -15,9 +15,6 @@ namespace UtilityService
         public List<GetReportDailyJob_Result> GetValues(DateTime? fromDate, DateTime? toDate, string workgroupID)
         {
             Library.WriteErrorLog("GetValues Function Entry");
-            //Guid ? workGroupID = null;
-            //if (workgroupID != null)
-            //    workGroupID = Guid.Parse(workgroupID);
 
             List<GetReportDailyJob_Result> studentInfo = null;
             try
@@ -79,13 +76,13 @@ namespace UtilityService
                 string startDate = "", endDate = "";
                 StringBuilder sb = new StringBuilder();
                 //{Environment.NewLine}";
-                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Update User ID\",\"Percent Score\"" +
+                string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Scorer\",\"Percent Score\"" +
                         $",\"Review Date\",\"User Name\",\"User Role ID\",\"User Type ID\"," +
                         $"\"Work Group Name\",\"Description\",\"Name\",\"Sequence Number\",\"Question Description\",\"Question Number\",\"Question Text\"," +
                         $"\"Response Required\"," +
                         $"\"Question Additional Point\",\"Question Additional Condition Point\"," +
                         $"\"Weighted Score\"" +
-                        $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\"";
+                        $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\",\"Review Template\"";
                 sb.AppendLine(headerText);
                 foreach (ReportInfo student in list)
                 {
@@ -118,6 +115,7 @@ namespace UtilityService
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.questiontypedesc) + ",");
                     sb.Append(FormatCSV(student.questionScored.ToString()));
+                    sb.Append(FormatCSV(student.reviewTemplate.ToString()));
                     sb.Remove(sb.Length - 1, 1);
                     sb.AppendLine();
                 }

@@ -31,3 +31,4 @@ D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debu
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe.config
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.exe.manifest
 D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\bin\Debug\UtilityService.application
+D:\Project\workgroupclient\UtilityService\UtilityService\UtilityService\obj\Debug\UtilityService.csprojResolveAssemblyReference.cache

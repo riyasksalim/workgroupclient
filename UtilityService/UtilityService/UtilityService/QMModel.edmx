@@ -51,21 +51,21 @@
           <Property Type="Byte" Name="userroleid" Nullable="false" />
           <Property Type="Byte" Name="usertypeid" Nullable="false" />
           <Property Type="String" Name="workgroupname" Nullable="false" MaxLength="128" />
-          <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
-          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
-          <Property Type="Byte" Name="sequencenumber" Nullable="true" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" />
+          <Property Type="Byte" Name="sequencenumber" Nullable="false" />
           <Property Type="String" Name="questiondescription" Nullable="true" MaxLength="1024" />
-          <Property Type="Byte" Name="questionnumber" Nullable="true" />
-          <Property Type="String" Name="questiontext" Nullable="true" MaxLength="1024" />
-          <Property Type="Boolean" Name="responserequired" Nullable="true" />
+          <Property Type="Byte" Name="questionnumber" Nullable="false" />
+          <Property Type="String" Name="questiontext" Nullable="false" MaxLength="1024" />
+          <Property Type="Boolean" Name="responserequired" Nullable="false" />
           <Property Type="Decimal" Name="questionadditionalpoint" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="questionadditionalconditionpoint" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Double" Name="weightedscore" Nullable="true" />
-          <Property Type="Byte" Name="sectionWeight" Nullable="true" />
+          <Property Type="Byte" Name="sectionWeight" Nullable="false" />
           <Property Type="String" Name="responsetext" Nullable="true" MaxLength="1024" />
-          <Property Type="Byte" Name="questionWeight" Nullable="true" />
-          <Property Type="String" Name="questiontypedesc" Nullable="true" MaxLength="50" />
-          <Property Type="Boolean" Name="questionScored" Nullable="true" />
+          <Property Type="Byte" Name="questionWeight" Nullable="false" />
+          <Property Type="String" Name="questiontypedesc" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="questionScored" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>

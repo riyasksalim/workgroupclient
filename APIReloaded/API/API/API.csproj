@@ -193,6 +193,9 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="GetAllTemplates_Result.cs">
+      <DependentUpon>QMDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetAllWorkGroups_Result.cs">
       <DependentUpon>QMDataModel.tt</DependentUpon>
     </Compile>

@@ -17,8 +17,8 @@ namespace API.Models
         public short? percentscore { get; set; }
         public DateTime? reviewdate { get; set; }
         public string username { get; set; }
-        public byte userroleid { get; set; }
-        public byte usertypeid { get; set; }
+        public byte? userroleid { get; set; }
+        public byte? usertypeid { get; set; }
         public string workgroupname { get; set; }
         public string description { get; set; }
         public string name { get; set; }
@@ -38,5 +38,6 @@ namespace API.Models
         public byte? questionWeight { get; set; }
         public string questiontypedesc { get; set; }
         public bool? questionScored { get; set; }
+        public string reviewTemplate { get; set; }
     }
 }

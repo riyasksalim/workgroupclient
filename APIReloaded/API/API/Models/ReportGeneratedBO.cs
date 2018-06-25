@@ -10,20 +10,13 @@ using System.Web;
 
 namespace API.Models
 {
-
     public class ReportGeneratedBO
     {
-
-      
-            public string ReportGeneratedFileName { get; set; }
-	        public DateTime? CreatedOn { get; set; }
-	        public string CreatedBy { get; set; }
-	        public string MethodofCreation { get; set; }
-	        public string ReportGeneratedFullPath { get; set; }
-            public string ReportLocation { get; set; }
-
-
-
+        public string ReportGeneratedFileName { get; set; }
+        public DateTime? CreatedOn { get; set; }
+        public string CreatedBy { get; set; }
+        public string MethodofCreation { get; set; }
+        public string ReportGeneratedFullPath { get; set; }
+        public string ReportLocation { get; set; }
     }
-
 }
