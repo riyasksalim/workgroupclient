@@ -136,8 +136,8 @@ namespace API.Controllers
         [System.Web.Http.Route("GetAllTemplates")]
         public IHttpActionResult GetAllTemplates()
         {
-            WorkGroup student = null;
-            List<WorkGroup> studentInfo = new List<WorkGroup>();
+            ReviewTemplate student = null;
+            List<ReviewTemplate> studentInfo = new List<ReviewTemplate>();
             try
             {
                 //Querying with LINQ to Entities 
@@ -146,9 +146,9 @@ namespace API.Controllers
                     var query = context.GetAllTemplates().ToList();
                     foreach (var item in query)
                     {
-                        student = new WorkGroup();
-                        student.WorkGroupId = item.templateid;
-                        student.WorkGroupName = item.templatedesc;
+                        student = new ReviewTemplate();
+                        student.TemplateId = item.templateid;
+                        student.Templatedesc = item.templatedesc;
                         studentInfo.Add(student);
                     }
                     return Ok(studentInfo);

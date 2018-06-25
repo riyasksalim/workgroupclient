@@ -10,4 +10,10 @@ namespace API.Models
         public Guid WorkGroupId { get; set; }
         public string WorkGroupName { get; set; }
     }
+
+    public class ReviewTemplate
+    {
+        public Guid TemplateId { get; set; }
+        public string Templatedesc { get; set; }
+    }
 }
