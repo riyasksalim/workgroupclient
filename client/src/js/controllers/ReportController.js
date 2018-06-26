@@ -213,7 +213,7 @@
             StartDate: $scope.StartDate,
             EndDate: $scope.EndDate,
             WorkGroupID: $scope.workgroupselected.join().toString() ,
-            TemplateID:$scope.TemplateSelected
+            TemplateID:$scope.TemplateSelected.join().toString() 
         };
         $.blockUI({
             message: '<img src="../img/loading.gif"/>',
