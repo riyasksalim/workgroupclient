@@ -65,11 +65,11 @@
     };
     $(function() {
         $("#StartDate").datepicker({
-          
+
             required: true,
             message: "This is a required field",
             dateFormat: 'mm-dd-yy',
-            onClose: function() {$(this).valid();},
+            onClose: function() { $(this).valid(); },
             onSelect: function(date) {
                 $scope.StartDate = date;
                 $scope.$apply();
@@ -79,8 +79,8 @@
             dateFormat: 'mm-dd-yy',
             required: true,
             message: "This is a required field",
-          
-            onClose: function() {$(this).valid();},
+
+            onClose: function() { $(this).valid(); },
             onSelect: function(date) {
                 debugger
                 $scope.EndDate = date;
@@ -90,7 +90,7 @@
 
 
     });
-   
+
     function GetAllWorkGroups() {
 
         dataService.GetAllWorkGroups().then(function(response) {
@@ -106,6 +106,7 @@
             $.unblockUI();
         });
     };
+
     function GetAllTemplates() {
 
         dataService.GetAllTemplates().then(function(response) {
@@ -113,7 +114,7 @@
                 $scope.Templates = response.data;
 
                 if (response.data.length == 0) {
-                   // $("#select2-drop").css('display', 'none');
+                    // $("#select2-drop").css('display', 'none');
                 }
                 $.unblockUI();
             }
@@ -125,36 +126,35 @@
     GetAllWorkGroups();
     GetAllTemplates();
     $scope.checkdate = function() {
-      
+
         var a = $scope.beginDate;
         var date = new Date(a);
-      
+
 
     };
-    function isDate (x) 
-    { 
-      return (null != x) && !isNaN(x) && ("undefined" !== typeof x.getDate); 
+
+    function isDate(x) {
+        return (null != x) && !isNaN(x) && ("undefined" !== typeof x.getDate);
     }
+
     function checkparams() {
-     
-        if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "" ||$scope.TemplateSelected == undefined) {
+
+        if ($scope.StartDate == undefined || $scope.StartDate == "" || $scope.EndDate == undefined || $scope.StartDate == "" || $scope.TemplateSelected == undefined) {
 
             $.toaster({
                 settings: settings,
                 message: 'Input Parameter required'
             });
             return false;
-        }
-        else if(!checkdateformat($scope.StartDate,$scope.EndDate)){
+        } else if (!checkdateformat($scope.StartDate, $scope.EndDate)) {
             $.toaster({
                 settings: settings,
                 message: 'Not a Date Format'
             });
-            $scope.StartDate=undefined;
-            $scope.EndDate=undefined;
+            $scope.StartDate = undefined;
+            $scope.EndDate = undefined;
             return false;
-        }
-        else if (new Date($scope.StartDate) > new Date($scope.EndDate)) {
+        } else if (new Date($scope.StartDate) > new Date($scope.EndDate)) {
             $.toaster({
                 settings: settings,
                 message: 'End Date Should be larger than start Date'
@@ -164,56 +164,57 @@
             return true;
         }
     }
-    function checkdateformat(start,end){
-     
-        var startdate=validate(start);
-        var enddate=validate(end);
-        if(startdate && enddate){
+
+    function checkdateformat(start, end) {
+
+        var startdate = validate(start);
+        var enddate = validate(end);
+        if (startdate && enddate) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
-     
-    }
-   function validate(text){
-  
-    var comp = text.split('-');
-    var m = parseInt(comp[0], 10);
-    var d = parseInt(comp[1], 10);
-    var y = parseInt(comp[2], 10);
-    var date = new Date(y,m-1,d);
-    if (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d) {
-       return true;
-    } else {
-      return false;
+
     }
 
-   }
+    function validate(text) {
+
+        var comp = text.split('-');
+        var m = parseInt(comp[0], 10);
+        var d = parseInt(comp[1], 10);
+        var y = parseInt(comp[2], 10);
+        var date = new Date(y, m - 1, d);
+        if (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
     $scope.$watch('StartDate', function(newValue, oldValue) {
         console.log(newValue);
-      $scope.StartDate=newValue
-    
+        $scope.StartDate = newValue
+
     });
     $scope.$watch('EndDate', function(newValue, oldValue) {
         console.log(newValue);
-      $scope.EndDate=newValue
-    
+        $scope.EndDate = newValue
+
     });
     $scope.search = function() {
         $scope.WorkGroupsReport = [];
-        
+
 
         if (!checkparams()) {
-           
+
             return false;
         }
 
         var params = {
             StartDate: $scope.StartDate,
             EndDate: $scope.EndDate,
-            WorkGroupID: $scope.workgroupselected.join().toString() ,
-            TemplateID:$scope.TemplateSelected.join().toString() 
+            WorkGroupID: ($scope.workgroupselected) ? $scope.workgroupselected.join().toString() : "",
+            TemplateID: ($scope.TemplateSelected) ? $scope.TemplateSelected.join().toString() : ""
         };
         $.blockUI({
             message: '<img src="../img/loading.gif"/>',
@@ -232,19 +233,18 @@
                         settings: settings,
                         message: 'CSV Generated Succesfully..',
                     });
-                }
-                else{
+                } else {
                     $.toaster({
                         settings: settings,
                         message: 'No Results Found!'
                     });
-                    
+
                 }
 
             }
 
         }, function onError(err) {
-         
+
             $.unblockUI();
             var msg = JSON.stringify(err);
             $.toaster({
@@ -261,10 +261,10 @@
 
 
     $scope.select2Options = {
-       
+
     };
 
-   
+
 
 
 }])
