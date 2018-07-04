@@ -4,9 +4,11 @@
         position: relative;
         left: -5px;
     }
-   label.error{
-        color:red !important;
+    
+    label.error {
+        color: red !important;
     }
+    
     .header-content.sort-ascent:before {
         content: "\25B4";
     }
@@ -60,8 +62,7 @@
                                         <div class="form-group">
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
-                                                <input  class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" type="text"  placeholder="Start Date" id="StartDate" name="StartDate"
-                                                    ng-model="StartDate" >
+                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" type="text" placeholder="Start Date" id="StartDate" name="StartDate" ng-model="StartDate">
                                                 <!-- <span ng-show="searchClicked &amp;&amp; !isDate(beginDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span> -->
                                             </div>
                                         </div>
@@ -73,8 +74,7 @@
                                         <div class="form-group">
                                             <div class="input-icon">
                                                 <i class="fa fa-calendar"></i>
-                                                <input   class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid"   type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="EndDate"
-                                                    ng-model="EndDate" >
+                                                <input class="form-control placeholder-no-fix invoice-date ng-pristine ng-untouched ng-valid" type="text" autocomplete="off" placeholder="End Date" id="EndDate" name="EndDate" ng-model="EndDate">
                                                 <span ng-show="searchClicked &amp;&amp; !isDate(endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">Please enter a valid Date.</span>
                                                 <!-- <span ng-show="searchClicked &amp;&amp; isPreviouseDate(beginDate,endDate)" style="color: #e73d4a;" class="help-block help-block-error ng-hide">To Date should be greater than From Date</span> -->
                                             </div>
@@ -101,7 +101,7 @@
                                                 <option ng-repeat="item in Templates" value="{{item.TemplateId}}">{{item.Templatedesc}}</option>
                                             </select> -->
                                             <select style="width:100%;" ui-select2="select2Options" multiple ng-model="TemplateSelected">
-                                                <option ng-repeat="item in WorkGroups" value="{{item.TemplateId}}">{{item.Templatedesc}}</option>
+                                                <option ng-repeat="item in Templates" value="{{item.TemplateId}}">{{item.Templatedesc}}</option>
                                             </select>
                                         </div>
                                     </div>
