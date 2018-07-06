@@ -87,6 +87,7 @@
     <Compile Include="GetReportDailyJob_Result.cs">
       <DependentUpon>QMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DataModelHelpers.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>

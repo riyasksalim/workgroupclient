@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UtilityService.Helpers;
 
 namespace UtilityService
 {
@@ -25,6 +26,8 @@ namespace UtilityService
                 {
                     using (var context = new qmEntities())
                     {
+                        context.Configuration.AutoDetectChangesEnabled = false;
+                        context.SetCommandTimeOut(10000);
                         var query = context.GetReportDailyJob(fromDate, toDate, workgroupID).ToList();
                         Library.WriteErrorLog("GetValues Function Exit");
                         return studentInfo = query;
@@ -114,7 +117,7 @@ namespace UtilityService
                     sb.Append(FormatCSV(student.responsetext) + ",");
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.questiontypedesc) + ",");
-                    sb.Append(FormatCSV(student.questionScored.ToString()));
+                    sb.Append(FormatCSV(student.questionScored.ToString()) + ",");
                     sb.Append(FormatCSV(student.reviewTemplate.ToString()));
                     sb.Remove(sb.Length - 1, 1);
                     sb.AppendLine();

@@ -17,6 +17,7 @@ using System.Net;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Globalization;
+using API.Helpers;
 
 namespace API.Controllers
 {
@@ -38,6 +39,8 @@ namespace API.Controllers
             {
                 using (var context = new qmEntities())
                 {
+                    context.Configuration.AutoDetectChangesEnabled = false;
+                    context.SetCommandTimeOut(10000);
                     var query = context.GetReport(reportModel.StartDate, reportModel.EndDate, reportModel.WorkGroupID, reportModel.TemplateID).ToList();
                     foreach (var item in query)
                     {
@@ -244,7 +247,7 @@ namespace API.Controllers
                     sb.Append(FormatCSV(student.responsetext) + ",");
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.questiontypedesc) + ",");
-                    sb.Append(FormatCSV(student.questionScored.ToString()));
+                    sb.Append(FormatCSV(student.questionScored.ToString()) + ",");
                     sb.Append(FormatCSV(student.reviewTemplate.ToString()));
                     sb.Remove(sb.Length - 1, 1);
                     sb.AppendLine();
