@@ -73,7 +73,8 @@ namespace API.Controllers
                             questionWeight = item.questionWeight,
                             questiontypedesc = item.questiontypedesc,
                             questionScored = item.questionScored,
-                            reviewTemplate = item.reviewTemplate
+                            reviewTemplate = item.reviewTemplate,
+                            ScorecardStatus = item.ScorecardStatus
                         };
                         WorkGroupReportBOList.Add(student);
                     }
@@ -215,7 +216,7 @@ namespace API.Controllers
                     $"\"Response Required\"," +
                     $"\"Question Additional Point\",\"Question Additional Condition Point\"," +
                     $"\"Weighted Score\"" +
-                    $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\",\"Review Template\"";
+                    $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\",\"Scorecard Template\",\"Scorecard Status\"";
                 sb.AppendLine(headerText);
                 foreach (WorkGroupReportBO student in list)
                 {
@@ -248,7 +249,9 @@ namespace API.Controllers
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.questiontypedesc) + ",");
                     sb.Append(FormatCSV(student.questionScored.ToString()) + ",");
-                    sb.Append(FormatCSV(student.reviewTemplate.ToString()));
+                    sb.Append(FormatCSV(student.reviewTemplate.ToString()) + ",");
+                    sb.Append(FormatCSV(student.ScorecardStatus.ToString()));
+                    sb.Append(" ");
                     sb.Remove(sb.Length - 1, 1);
                     sb.AppendLine();
                 }

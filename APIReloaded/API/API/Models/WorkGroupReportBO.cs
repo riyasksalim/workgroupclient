@@ -39,5 +39,6 @@ namespace API.Models
         public string questiontypedesc { get; set; }
         public bool? questionScored { get; set; }
         public string reviewTemplate { get; set; }
+        public string ScorecardStatus { get; set; }
     }
 }

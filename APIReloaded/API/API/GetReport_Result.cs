@@ -42,5 +42,6 @@ namespace API
         public Nullable<bool> questionScored { get; set; }
         public string reviewTemplate { get; set; }
         public System.Guid workgroupid { get; set; }
+        public string ScorecardStatus { get; set; }
     }
 }

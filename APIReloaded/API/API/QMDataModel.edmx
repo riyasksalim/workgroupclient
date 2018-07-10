@@ -94,6 +94,7 @@
           <Property Type="Boolean" Name="questionScored" Nullable="true" />
           <Property Type="String" Name="reviewTemplate" Nullable="true" MaxLength="100" />
           <Property Type="Guid" Name="workgroupid" Nullable="false" />
+          <Property Type="String" Name="ScorecardStatus" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -163,6 +164,7 @@
                 <ScalarProperty Name="questionScored" ColumnName="questionScored" />
                 <ScalarProperty Name="reviewTemplate" ColumnName="reviewTemplate" />
                 <ScalarProperty Name="workgroupid" ColumnName="workgroupid" />
+                <ScalarProperty Name="ScorecardStatus" ColumnName="ScorecardStatus" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
