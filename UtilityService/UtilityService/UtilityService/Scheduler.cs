@@ -99,7 +99,9 @@ namespace UtilityService
                             responsetext = item.responsetext,
                             questionWeight = item.questionWeight,
                             questiontypedesc = item.questiontypedesc,
-                            questionScored = item.questionScored
+                            questionScored = item.questionScored,
+                            reviewTemplate = item.reviewTemplate,
+                            ScorecardStatus = item.ScorecardStatus
                         };
                         lstReportInfo.Add(reportInfo);
                     }

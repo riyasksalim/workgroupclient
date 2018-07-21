@@ -40,5 +40,7 @@ namespace UtilityService
         public byte questionWeight { get; set; }
         public string questiontypedesc { get; set; }
         public bool questionScored { get; set; }
+        public string reviewTemplate { get; set; }
+        public string ScorecardStatus { get; set; }
     }
 }

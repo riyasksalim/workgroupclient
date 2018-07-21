@@ -85,7 +85,7 @@ namespace UtilityService
                         $"\"Response Required\"," +
                         $"\"Question Additional Point\",\"Question Additional Condition Point\"," +
                         $"\"Weighted Score\"" +
-                        $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\",\"Review Template\"";
+                        $",\"Section Weight\",\"Response Text\",\"Question Weight\",\"Question Type Desc\",\"Question Scored\",\"Scorecard Template\",\"Scorecard Status\"";
                 sb.AppendLine(headerText);
                 foreach (ReportInfo student in list)
                 {
@@ -118,7 +118,9 @@ namespace UtilityService
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.questiontypedesc) + ",");
                     sb.Append(FormatCSV(student.questionScored.ToString()) + ",");
-                    sb.Append(FormatCSV(student.reviewTemplate.ToString()));
+                    sb.Append(FormatCSV(student.reviewTemplate) + ",");
+                    sb.Append(FormatCSV(student.ScorecardStatus) + ",");
+                    sb.Append(" ");
                     sb.Remove(sb.Length - 1, 1);
                     sb.AppendLine();
                 }

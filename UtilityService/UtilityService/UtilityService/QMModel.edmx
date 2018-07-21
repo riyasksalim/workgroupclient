@@ -66,6 +66,8 @@
           <Property Type="Byte" Name="questionWeight" Nullable="false" />
           <Property Type="String" Name="questiontypedesc" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="questionScored" Nullable="false" />
+          <Property Type="String" Name="reviewTemplate" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ScorecardStatus" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -104,6 +106,8 @@
                 <ScalarProperty Name="questionWeight" ColumnName="questionWeight" />
                 <ScalarProperty Name="questiontypedesc" ColumnName="questiontypedesc" />
                 <ScalarProperty Name="questionScored" ColumnName="questionScored" />
+                <ScalarProperty Name="reviewTemplate" ColumnName="reviewTemplate" />
+                <ScalarProperty Name="ScorecardStatus" ColumnName="ScorecardStatus" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
