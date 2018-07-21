@@ -63,6 +63,7 @@
           <ScalarProperty Name="questionScored" ColumnName="questionScored" />
           <ScalarProperty Name="reviewTemplate" ColumnName="reviewTemplate" />
           <ScalarProperty Name="workgroupid" ColumnName="workgroupid" />
+          <ScalarProperty Name="ScorecardStatus" ColumnName="ScorecardStatus" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

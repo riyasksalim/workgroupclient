@@ -209,6 +209,8 @@ namespace API.Controllers
                 string startDate = "", endDate = "";
                 string sd = "", se = "";
                 StringBuilder sb = new StringBuilder();
+                string replaceWith = " ";
+                string responsetext = "";
 
                 string headerText = $"\"Media ID\",\"Start Date\",\"End Date\",\"DNIS\",\"ANI\",\"Scorer\",\"Percent Score\"," +
                     $"\"Review Date\",\"User Name\",\"User Role ID\",\"User Type ID\"," +
@@ -245,7 +247,13 @@ namespace API.Controllers
                     sb.Append(FormatCSV(student.questionadditionalconditionpoint.ToString()) + ",");
                     sb.Append(FormatCSV(student.weightedscore.ToString()) + ",");
                     sb.Append(FormatCSV(student.sectionWeight.ToString()) + ",");
-                    sb.Append(FormatCSV(student.responsetext) + ",");
+                    if (student.responsetext.Length > 0)
+                    {
+                        responsetext = "";
+                        responsetext = student.responsetext;
+                        responsetext = responsetext.Replace("\\r\\n", replaceWith).Replace("\\n", replaceWith).Replace("\\r", replaceWith);
+                    }
+                    sb.Append(FormatCSV(responsetext) + ",");
                     sb.Append(FormatCSV(student.questionWeight.ToString()) + ",");
                     sb.Append(FormatCSV(student.questiontypedesc) + ",");
                     sb.Append(FormatCSV(student.questionScored.ToString()) + ",");

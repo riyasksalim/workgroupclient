@@ -67,5 +67,6 @@
     <Property Type="Boolean" Name="questionScored" Nullable="true" />
     <Property Type="String" Name="reviewTemplate" Nullable="true" MaxLength="100" />
     <Property Type="Guid" Name="workgroupid" Nullable="false" />
+    <Property Type="String" Name="ScorecardStatus" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>
